@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+			.mui-content {
+				margin-top: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">登录</h1>
+		</header>
+
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label for="">账号：</label>
+					<input type="text" class="mui-input mui-input-clear" id="account" />
+				</div>
+				<div class="mui-input-row">
+					<label for="">密码：</label>
+					<input type="password" class="mui-input mui-input-clear" id="password" />
+				</div>
+
+			</form>
+			<div class="mui-content-padded">
+				<button type="button" id="loginbt" class="mui-btn mui-btn-block mui-btn-primary">登陆</button>
+			</div>
+			<div class="mui-content-padded">
+				<button type="button" id="register" class="mui-btn mui-btn-primary mui-btn-outlined">注册</button>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				console.log("hahahahah");
+				var loginbt = document.getElementById("loginbt");
+				var register = document.getElementById("register");
+				var account = document.getElementById("account");
+				var password = document.getElementById("password");
+				
+				loginbt.addEventListener('tap', function() {
+					console.log("11111");
+					mui.ajax('http://192.168.0.107:8085/user/login', {
+						data: {
+							stuId: account.value,
+							password: password.value
+						},
+						dataType: 'json',
+						type: 'post',
+						timeout: 10000,
+						success: function(data) {
+							if (data.result != 1) {
+								window.location.href = "MainTab.html";
+							}
+						},
+						error: function() {}
+					})
+				})
+				register.addEventListener('tap', function() {
+					console.log("222");
+					window.location.href = "TeacherRegister.html";
+				})
+			});
+		</script>
+	</body>
+
+</html>

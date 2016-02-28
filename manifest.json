@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "layout/MainTab.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "layout/LoginTeacher.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -56,9 +56,7 @@
          "Invocation": {
             "description": "使用Native.js能力"
         },
-        "Messaging": {
-            "description": "访问通讯能力"
-        },
+        
         "Orientation": {
             "description": "访问方向感应器"
         },
@@ -189,5 +187,132 @@
 				}
 			}
 		}
-	},"fullscreen":false
+	},"fullscreen":false,
+	"dependencies":{
+		"pages": {
+			"layout/ScoreInquir.html": {
+				"href": "layout/ScoreInquir.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"layout/MainTab.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"layout/ScoreInput.html": {
+				"href": "layout/ScoreInput.html",
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"layout/MainTab.html"
+				],
+				"refer": [],
+				"priority": 1
+			},
+			"layout/ScoreInclass.html": {
+				"href": "layout/ScoreInclass.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"layout/MainTab.html"
+				],
+				"refer": [],
+				"priority": 2
+			},
+			"layout/Late.html": {
+				"href": "layout/Late.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"layout/MainTab.html"
+				],
+				"priority": 3
+			},
+			"layout/Notto.html": {
+				"href": "layout/Notto.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"layout/MainTab.html"
+				],
+				"priority": 4
+			},
+			"layout/Leavearly.html": {
+				"href": "layout/Leavearly.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"layout/MainTab.html"
+				],
+				"priority": 5
+			},
+			"layout/MainTab.html": {
+				"href": "layout/MainTab.html",
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"images/02.jpg",
+					"images/01.jpg",
+					"images/03.jpg",
+					"images/04.jpg",
+					"images/06.jpg",
+					"layout/LoginTeacher.html",
+					"layout/ScoreInquir.html",
+					"layout/ScoreInput.html"
+				],
+				"refer": [
+					"layout/ScoreInclass.html",
+					"layout/Late.html",
+					"layout/Notto.html",
+					"layout/Leavearly.html"
+				],
+				"priority": 0
+			},
+			"layout/LoginTeacher.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"layout/MainTab.html",
+					"layout/ScoreInclass.html",
+					"layout/TeacherRegister.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"layout/TeacherRegister.html": {
+				"resources": [
+					"layout/LoginTeacher.html",
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"js/jquery-2.2.1.js",
+				"layout/MainTabS.html",
+				"index.html",
+				"images/07.jpg",
+				"layout/StuRegister.html",
+				"js/mui.js",
+				"layout/ TeacherRegister.html",
+				"css/mui.css",
+				"images/imgback.jpg",
+				"images/05 .jpg"
+			]
+		}
+	}
 }
