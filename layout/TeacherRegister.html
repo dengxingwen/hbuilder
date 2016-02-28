@@ -27,11 +27,11 @@
 			<form class="mui-input-group">
 				<div class="mui-input-row">
 					<label for="">工号：</label>
-					<input type="text" class="mui-input mui-input-clear" id="teacherId" placeholder="请输入您的工号" />
+					<input type="text" class="mui-input mui-input-clear" id="teaId" placeholder="请输入您的工号" />
 				</div>
 				<div class="mui-input-row">
 					<label for="">姓名：</label>
-					<input type="password" class="mui-input mui-input-clear" id="teacherName" placeholder="请输入您的姓名" />
+					<input type="password" class="mui-input mui-input-clear" id="username" placeholder="请输入您的姓名" />
 				</div>
 				<div class="mui-input-row">
 					<label for="">手机：</label>
@@ -47,27 +47,27 @@
 				</div>
 
 			</form>
-			<div class="mui-content-padded">
-				<button type="button" id="register" class="mui-btn mui-btn-block mui-btn-primary">注册</button>
+			<div class="mui-content-padded" align="center" style="margin-top: 20px;">
+				<button type="button" id="register" class="mui-btn mui-btn-primary"  style="width: 98%;height: 36px;">注册</button>
 			</div>
 		</div>
 		<script type="text/javascript">
 			mui.plusReady(function() {
 				console.log("hahahahah");
 				var register = document.getElementById("register");
-				var teacherId = document.getElementById("teacherId");
-				var teacherName = document.getElementById("teacherName");
+				var teaId = document.getElementById("teaId");
+				var username = document.getElementById("username");
 				var phone = document.getElementById("phone");
 				var password1 = document.getElementById("password1");
 				var password2 = document.getElementById("password2");
 				register.addEventListener('tap', function() {
 					console.log("11111");
-					mui.ajax('http://192.168.0.107:8085/user/login', {
+					mui.ajax('http://192.168.0.107:8085/user/register', {
 						data: {
-							teacherId: teacherId.value,
-							teacherName: teacherName.value,
+							teaId: teaId.value,
+							username: username.value,
 							phone: phone.value,
-							password: password1.value,
+							password: password1.value
 						},
 						dataType: 'json',
 						type: 'post',
