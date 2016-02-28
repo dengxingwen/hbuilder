@@ -10,36 +10,76 @@
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
 		</script>
+		<style type="text/css">
+			.mui-content {
+				margin-top: 12px;
+			}
+			
+			
+		</style>
 	</head>
 
 	<body>
-		<header id="header" class="mui-bar mui-bar-nav">
+
+		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">录入成绩</h1>
 		</header>
-		<div style="background-color:lightgray width: 100%; height:300px;margin-top: 50px; " align="center">
-			<form action="MainTab.html" method="get">
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label for="">学号：</label>
+					<input type="text" class="mui-input mui-input-clear" id="stuId" placeholder="请输入学号" />
+				</div>
+				<div class="mui-input-row">
+					<label for="">姓名：</label>
+					<input type="text" class="mui-input mui-input-clear" id="username" placeholder="请输入姓名" />
+				</div>
+				<div class="mui-input-row">
+					<label for="">科目：</label>
+					<input type="text" class="mui-input mui-input-clear" id="subject" placeholder="请输入科目" />
+				</div>
+				<div class="mui-input-row">
+					<label for="">成绩：</label>
+					<input type="text" class="mui-input mui-input-clear" id="score" placeholder="请输入成绩" />
+				</div>
 
-				学号：
-				<input type="text" style="width: 75%;margin-top:10px ;" />
-				<br/> 姓名：
-				<input type="text" style="width: 75%;margin-top:10px ;" />
-				<br/> 成绩：
-				<input type="text" style="width: 75%;margin-top:10px ;" />
-				<input type="button" name="下一个" value="下一个" style="width: 50%;height:44px ;">
-				<!--<ul class="mui-table-view mui-table-view-chevron ">
-					<li class="mui-table-view-cell "><a href=" " class="mui-navigate-right ">201201小赵</a></li>
-					<li class="mui-table-view-cell "><a href=" " class="mui-navigate-right ">201202小田</a></li>
-					<li class="mui-table-view-cell "><a href=" " class="mui-navigate-right ">201203小孙</a></li>
-					<li class="mui-table-view-cell "><a href=" " class="mui-navigate-right ">201204小李</a></li>
-					<li class="mui-table-view-cell "><a href=" " class="mui-navigate-right ">201205小周</a></li>
-					<li class="mui-table-view-cell "><a href=" " class="mui-navigate-right ">201206小吴</a></li>
-					<li class="mui-table-view-cell "><a href=" " class="mui-navigate-right ">201207小郑</a></li>
-					<li class="mui-table-view-cell "><a href=" " class="mui-navigate-right ">201208小王</a></li>
-
-				</ul>-->
 			</form>
+			<div class="mui-content-padded" align="center" style="margin-top: 30px;">
+				<button type="button" id="next" class="mui-btn mui-btn-primary" style="width: 95%;height: 36px;">下一个</button>
+			</div>
+
 		</div>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				console.log("成绩录入");
+				var next = document.getElementById("next");
+				var stuId = document.getElementById("stuId");
+				var username = document.getElementById("username");
+				var score = document.getElementById("score");
+				next.addEventListener('tap', function() {
+					console.log("上传成绩");
+					mui.ajax('http://192.168.0.107:8085/user/addscore', {
+						data: {
+							stuId: stuId.value,
+							username: username.value,
+							score: score.value
+						},
+						dataType: 'json',
+						type: 'post',
+						timeout: 10000,
+						success: function(data) {
+							if (data.result != 1) {
+								mui.alert('点击确定录入下一同学成绩', '成绩录入成功', function() {
+									
+								});
+							}
+						},
+						error: function() {}
+					})
+				})
+			});
+		</script>
 	</body>
 
 </html>
