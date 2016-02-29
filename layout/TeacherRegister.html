@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init({
+						swipeBack:true //启用右滑关闭功能
+					});
+		</script>
+		<style type="text/css">
+			.mui-content {
+				margin-top: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">教师注册</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label for="">工号：</label>
+					<input type="text" class="mui-input mui-input-clear" id="teaId" placeholder="请输入您的工号" />
+				</div>
+				<div class="mui-input-row">
+					<label for="">姓名：</label>
+					<input type="password" class="mui-input mui-input-clear" id="username" placeholder="请输入您的姓名" />
+				</div>
+				<div class="mui-input-row">
+					<label for="">手机：</label>
+					<input type="text" class="mui-input mui-input-clear" id="phone" placeholder="请输入您的手机" />
+				</div>
+				<div class="mui-input-row">
+					<label for="">密码：</label>
+					<input type="text" class="mui-input mui-input-clear" id="password1" placeholder="请输入您的密码" />
+				</div>
+				<div class="mui-input-row">
+					<label for="">密码：</label>
+					<input type="text" class="mui-input mui-input-clear" id="password2" placeholder="请输入确认密码" />
+				</div>
+
+			</form>
+			<div class="mui-content-padded" align="center" style="margin-top: 20px;">
+				<button type="button" id="register" class="mui-btn mui-btn-primary" style="width: 98%;height: 36px;">注册</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				console.log("hahahahah");
+				var register = document.getElementById("register");
+				var teaId = document.getElementById("teaId");
+				var username = document.getElementById("username");
+				var phone = document.getElementById("phone");
+				var password1 = document.getElementById("password1");
+				var password2 = document.getElementById("password2");
+				register.addEventListener('tap', function() {
+					console.log("11111");
+					mui.ajax('http:/192.168.2.4:8085/user/register', {
+						data: {
+							teaId: teaId.value,
+							username: username.value,
+							phone: phone.value,
+							password: password1.value
+						},
+						dataType: 'json',
+						type: 'post',
+						timeout: 10000,
+						success: function(data) {
+							if (data.result != 1) {
+								mui.alert('请登录', '注册成功', function() {
+									window.location.href = "LoginTeacher.html";
+								});
+								
+							}
+						},
+						error: function() {}
+					})
+				})
+			});
+		</script>
+	</body>
+
+</html>
