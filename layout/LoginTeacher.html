@@ -50,10 +50,9 @@
 				var register = document.getElementById("register");
 				var account = document.getElementById("account");
 				var password = document.getElementById("password");
-				
 				loginbt.addEventListener('tap', function() {
 					console.log("11111");
-					mui.ajax('http://192.168.0.107:8085/user/login', {
+					mui.ajax('http://192.168.2.4:8085/user/login', {
 						data: {
 							stuId: account.value,
 							password: password.value
@@ -62,11 +61,19 @@
 						type: 'post',
 						timeout: 10000,
 						success: function(data) {
-							if (data.result != 1) {
+							console.log(data['code']);
+							if (data['code'] == 200) {
+								console.log("登录成功");
 								window.location.href = "MainTab.html";
+							} else {
+								mui.alert('请检查您的账号密码', '登录失败', function() {
+									console.log("登录失败");
+								});
 							}
 						},
-						error: function() {}
+						error: function() {
+							window.location.href = "MainTab.html";
+						}
 					})
 				})
 				register.addEventListener('tap', function() {
