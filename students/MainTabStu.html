@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的conio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<style>
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+			
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			
+			.oa-contact-content {
+				width: 100%;
+			}
+			
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			
+			.oa-contact-name,
+			oa-contact-position {
+				float: left;
+			}
+		</style>
+		<!--
+        	作者：970518209@qq.com
+        	时间：2016-02-16
+        	描述：这是随机点名的函数
+        -->
+		<script type="text/javascript">
+			var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
+
+			function showName() {
+				var index = Math.floor(Math.random() * names.length);
+				var name = names[index];
+				document.getElementById("showView").innerHTML = name;
+				idd = setTimeout("showName()", 8);
+			}
+			var start = true;
+			var idd;
+
+			function sssss() {
+				if (start) {
+					showName();
+					start = false;
+				} else {
+					clearTimeout(idd);
+					start = true;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">模拟教务</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon mui-icon-email"></span>
+				<span class="mui-tab-label">成绩</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">通讯录</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="tabbar" class="mui-control-content mui-active">
+				<div class="title">这是准备做的学生端的第1个子页面</div>
+				
+				
+			</div>
+			<div id="tabbar-with-chat" class="mui-control-content ">
+				<!--<div class="title ">这是教师端中的第2个子页面，该页面显示所有学生的学号姓名，做聊天交流用途。</div>-->
+
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="ScoreInquir.html">
+							<span class="mui-icon mui-icon-search"></span>
+							<div class="mui-media-body">查看成绩</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="ScoreInput.html">
+							<span class="mui-icon mui-icon-compose"></span>
+							<div class="mui-media-body">录入成绩</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="ScoreInclass.html">
+							<span class="mui-icon mui-icon-starhalf"></span>
+							<div class="mui-media-body">课堂成绩</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="Late.html">
+							<span class="mui-icon mui-icon-back"></span>
+							<div class="mui-media-body">迟到</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="Notto.html">
+							<span class="mui-icon mui-icon-close"></span>
+							<div class="mui-media-body">未到</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="Leavearly.html">
+							<span class="mui-icon mui-icon-forward"></span>
+							<div class="mui-media-body">早退</div>
+						</a>
+					</li>
+					
+				</ul>
+
+			</div>
+			<div id="tabbar-with-contact" class="mui-control-content ">
+				<div class="title ">这是教师端中的第3个子页面，该页面显示的是所有学生在班级里的职务及联系方式.</div>
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed ">
+					<li class="mui-table-view-cell ">
+						<div class="mui-slider-cell ">
+							<div class="oa-contact-cell mui-table ">
+								<div class="oa-contact-avatar mui-table-cell ">
+									<img src="../images/02.jpg " width="40 " height="40 " />
+								</div>
+								<div class="oa-contact-content mui-table-cell ">
+									<div class="mui-clearfix ">
+										<h4 class="oa-contact-name ">小赵</h4>
+										<span class="oa-contact-position mui-h6 ">班长</span>
+									</div>
+									<p class="oa-contact-cell mui-h6 ">
+										15732458790
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell ">
+						<div class="mui-slider-cell ">
+							<div class="oa-contact-cell mui-table ">
+								<div class="oa-contact-avatar mui-table-cell ">
+									<img src="../images/01.jpg " width="40 " height="40 " />
+								</div>
+								<div class="oa-contact-content mui-table-cell ">
+									<div class="mui-clearfix ">
+										<h4 class="oa-contact-name ">小田</h4>
+										<span class="oa-contact-position mui-h6 ">副班长</span>
+									</div>
+									<p class="oa-contact-cell mui-h6 ">
+										13863781243
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell ">
+						<div class="mui-slider-cell ">
+							<div class="oa-contact-cell mui-table ">
+								<div class="oa-contact-avatar mui-table-cell ">
+									<img src="../images/03.jpg " width="40 " height="40 " />
+								</div>
+								<div class="oa-contact-content mui-table-cell ">
+									<div class="mui-clearfix ">
+										<h4 class="oa-contact-name ">小孙</h4>
+										<!--<span class="oa-contact-position mui-h6 ">员工</span>-->
+									</div>
+									<p class="oa-contact-cell mui-h6 ">
+										15634789082
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell ">
+						<div class="mui-slider-cell ">
+							<div class="oa-contact-cell mui-table ">
+								<div class="oa-contact-avatar mui-table-cell ">
+									<img src="../images/04.jpg " width="40 " height="40 " />
+								</div>
+								<div class="oa-contact-content mui-table-cell ">
+									<div class="mui-clearfix ">
+										<h4 class="oa-contact-name ">小李</h4>
+										<span class="oa-contact-position mui-h6 ">团支书</span>
+									</div>
+									<p class="oa-contact-cell mui-h6 ">
+										13523457901
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell ">
+						<div class="mui-slider-cell ">
+							<div class="oa-contact-cell mui-table ">
+								<div class="oa-contact-avatar mui-table-cell ">
+									<img src="../images/06.jpg " width="40 " height="40 " />
+								</div>
+								<div class="oa-contact-content mui-table-cell ">
+									<div class="mui-clearfix ">
+										<h4 class="oa-contact-name ">小周</h4>
+										<!--<span class="oa-contact-position mui-h6 ">员工</span>-->
+									</div>
+									<p class="oa-contact-cell mui-h6 ">
+										17826731825
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div id="tabbar-with-map" class="mui-control-content ">
+				<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>
+				<ul class="mui-table-view ">
+					<li class="mui-table-view-cell ">
+						<a class="mui-navigate-right ">
+						新消息通知
+					</a>
+					</li>
+					<li class="mui-table-view-cell ">
+						<a class="mui-navigate-right ">
+						隐私
+					</a>
+					</li>
+					<li class="mui-table-view-cell ">
+						<a class="mui-navigate-right ">
+						通用
+					</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view " style="margin-top: 25px; ">
+					<li class="mui-table-view-cell ">
+						<a class="mui-navigate-right ">
+						关于软件
+					</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view " style="margin-top: 25px; ">
+					<li class="mui-table-view-cell ">
+						<a style="text-align: center;color: #FF3B30; " href="LoginStu.html">
+						退出登录
+					</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="../js/mui.min.js "></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+
+</html>
