@@ -44,7 +44,7 @@
 				var stuId = document.getElementById("stuId");
 				queryscore.addEventListener('tap', function() {
 					console.log("查询");
-					mui.ajax('http://192.168.2.4:8085/user/queryscore', {
+					mui.ajax('http://192.168.0.111/user/queryscore', {
 						data: {
 							stuId: stuId.value,
 						},

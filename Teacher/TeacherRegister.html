@@ -33,7 +33,7 @@
 				</div>
 				<div class="mui-input-row">
 					<label for="">姓名：</label>
-					<input type="password" class="mui-input mui-input-clear" id="username" placeholder="请输入您的姓名" />
+					<input type="text" class="mui-input mui-input-clear" id="username" placeholder="请输入您的姓名" />
 				</div>
 				<div class="mui-input-row">
 					<label for="">手机：</label>
@@ -41,11 +41,11 @@
 				</div>
 				<div class="mui-input-row">
 					<label for="">密码：</label>
-					<input type="text" class="mui-input mui-input-clear" id="password1" placeholder="请输入您的密码" />
+					<input type="password" class="mui-input mui-input-clear" id="password1" placeholder="请输入您的密码" />
 				</div>
 				<div class="mui-input-row">
 					<label for="">密码：</label>
-					<input type="text" class="mui-input mui-input-clear" id="password2" placeholder="请输入确认密码" />
+					<input type="password" class="mui-input mui-input-clear" id="password2" placeholder="请输入确认密码" />
 				</div>
 
 			</form>
@@ -64,7 +64,7 @@
 				var password2 = document.getElementById("password2");
 				register.addEventListener('tap', function() {
 					console.log("11111");
-					mui.ajax('http:/192.168.2.4:8085/user/register', {
+					mui.ajax('http://192.168.0.111/teacher/registerT', {
 						data: {
 							teaId: teaId.value,
 							username: username.value,
@@ -73,16 +73,28 @@
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 10000,
+						timeout: 5000,
 						success: function(data) {
-							if (data.result != 1) {
+							if (data['code'] == 200) {
 								mui.alert('请登录', '注册成功', function() {
+									window.location.href = "LoginTeacher.html";
+								});
+								
+							}else{
+								
+								mui.alert('请重新登录 400', '注册失败', function() {
 									window.location.href = "LoginTeacher.html";
 								});
 								
 							}
 						},
-						error: function() {}
+						error: function() {
+							
+							mui.alert('服务器错误', '注册失败', function() {
+									window.location.href = "LoginTeacher.html";
+								});
+							
+						}
 					})
 				})
 			});

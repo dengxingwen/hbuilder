@@ -77,18 +77,26 @@
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 10000,
+						timeout: 5000,
 						success: function(data) {
-							if (data.result != 1) {
+							console.log("success...");
+							if (data['code'] == 200) {
 								console.log("注册成功");
 								mui.alert('请登录', '注册成功', function() {
 									window.location.href = "LoginStu.html";
 								});
+							}else{
+								console.log("注册失败 400");
+								mui.alert('请重新注册 400', '注册失败', function() {
+									window.location.href = "LoginStu.html";
+								});
+								
+								
 							}
 						},
 						error: function() {
-							console.log("注册失败");
-							mui.alert('请检查', '注册失败', function() {});
+							console.log("注册失败 error");
+							mui.alert('请检查', '注册失败error', function() {});
 						}
 					})
 				})
