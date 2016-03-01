@@ -68,7 +68,7 @@
 							return;
 						});
 					}
-					mui.ajax('http:/192.168.2.4:8085/user/register', {
+					mui.ajax('http:/192.168.2.4:8085/user/registerS', {
 						data: {
 							stuId: stuId.value,
 							username: username.value,
@@ -82,7 +82,7 @@
 							if (data.result != 1) {
 								console.log("注册成功");
 								mui.alert('请登录', '注册成功', function() {
-									window.location.href = "LoginTeacher.html";
+									window.location.href = "LoginStu.html";
 								});
 							}
 						},
