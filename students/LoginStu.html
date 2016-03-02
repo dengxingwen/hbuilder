@@ -20,7 +20,7 @@
 	<body>
 
 		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">stu登录</h1>
+			<h1 class="mui-title">学生登录</h1>
 		</header>
 
 		<div class="mui-content">
@@ -51,8 +51,8 @@
 				var account = document.getElementById("account");
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
-					console.log("11111");
-					mui.ajax('http://192.168.2.4:8085/user/login', {
+					console.log("正在登陆");
+					mui.ajax('http://192.168.0.111/user/loginS', {
 						data: {
 							stuId: account.value,
 							password: password.value
@@ -73,7 +73,7 @@
 							}
 						},
 						error: function() {
-							mui.alert('请检查您的账号密码', '登录失败', function() {
+							mui.alert('服务器错误', '登录失败', function() {
 								console.log("登录失败 error");
 								window.location.href = "MainTabStu.html";
 							});
@@ -81,7 +81,7 @@
 					})
 				})
 				register.addEventListener('tap', function() {
-					console.log("注册");
+					console.log("正在注册");
 					window.location.href = "StudentRegister.html";
 				})
 			});

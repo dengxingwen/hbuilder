@@ -19,6 +19,7 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">查询成绩</h1>
 		</header>
 
@@ -43,7 +44,7 @@
 				var stuId = document.getElementById("stuId");
 				queryscore.addEventListener('tap', function() {
 					console.log("查询");
-					mui.ajax('http://192.168.2.4:8085/user/queryscore', {
+					mui.ajax('http://192.168.0.111/user/queryscore', {
 						data: {
 							stuId: stuId.value,
 						},

@@ -59,7 +59,7 @@
 				var score = document.getElementById("score");
 				next.addEventListener('tap', function() {
 					console.log("上传成绩");
-					mui.ajax('http://192.168.0.107:8085/user/addscore', {
+					mui.ajax('http://192.168.0.111/teacher/addscore', {
 						data: {
 							stuId: stuId.value,
 							username: username.value,
@@ -67,12 +67,18 @@
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 10000,
+						timeout: 5000,
 						success: function(data) {
-							if (data.result != 1) {
+							if (data['code'] == 200) {
 								mui.alert('点击确定录入下一同学成绩', '成绩录入成功', function() {
 									
 								});
+							}else{
+								
+								mui.alert('400', '失败', function() {
+									
+								});
+								
 							}
 						},
 						error: function() {}

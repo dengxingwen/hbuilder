@@ -27,7 +27,7 @@
 			<form class="mui-input-group">
 				<div class="mui-input-row">
 					<label for="">账号：</label>
-					<input type="text" class="mui-input mui-input-clear" id="account" />
+					<input type="text" class="mui-input mui-input-clear" id="teaId" />
 				</div>
 				<div class="mui-input-row">
 					<label for="">密码：</label>
@@ -48,31 +48,37 @@
 				console.log("hahahahah");
 				var loginbt = document.getElementById("loginbt");
 				var register = document.getElementById("register");
-				var account = document.getElementById("account");
+				var teaId = document.getElementById("teaId");
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
 					console.log("11111");
-					mui.ajax('http://192.168.2.4:8085/user/login', {
+					mui.ajax('http://192.168.0.111/teacher/loginT', {
 						data: {
-							stuId: account.value,
+							teaId: teaId.value,
 							password: password.value
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 10000,
+						timeout: 5000,
 						success: function(data) {
+							console.log("success");
 							console.log(data['code']);
 							if (data['code'] == 200) {
 								console.log("登录成功");
 								window.location.href = "MainTab.html";
 							} else {
+								console.log("400");
 								mui.alert('请检查您的账号密码', '登录失败', function() {
 									console.log("登录失败");
+									window.location.href = "MainTab.html";
 								});
 							}
 						},
 						error: function() {
-							window.location.href = "MainTab.html";
+							console.log("error");
+							mui.alert('请检查', '注册失败error', function() {
+								window.location.href = "MainTab.html";
+							});
 						}
 					})
 				})

@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
 		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<script src="../js/mui.min.js "></script>
 		<style>
 			.title {
 				margin: 20px 15px 10px;
@@ -104,12 +105,8 @@
 		<div class="mui-content">
 			<div id="tabbar" class="mui-control-content mui-active">
 				<div class="title">这是准备做的学生端的第1个子页面</div>
-				
-				
 			</div>
 			<div id="tabbar-with-chat" class="mui-control-content ">
-				<!--<div class="title ">这是教师端中的第2个子页面，该页面显示所有学生的学号姓名，做聊天交流用途。</div>-->
-
 				<ul class="mui-table-view mui-grid-view mui-grid-9">
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<a href="queryscore.html">
@@ -118,41 +115,25 @@
 						</a>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="ScoreInput.html">
-							<span class="mui-icon mui-icon-compose"></span>
-							<div class="mui-media-body">录入成绩</div>
-						</a>
+						<span class="mui-icon mui-icon-starhalf"></span>
+						<div class="mui-media-body">课堂成绩</div>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="ScoreInclass.html">
-							<span class="mui-icon mui-icon-starhalf"></span>
-							<div class="mui-media-body">课堂成绩</div>
-						</a>
+						<span class="mui-icon mui-icon-back"></span>
+						<div class="mui-media-body">迟到</div>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="Late.html">
-							<span class="mui-icon mui-icon-back"></span>
-							<div class="mui-media-body">迟到</div>
-						</a>
+						<span class="mui-icon mui-icon-close"></span>
+						<div class="mui-media-body">未到</div>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="Notto.html">
-							<span class="mui-icon mui-icon-close"></span>
-							<div class="mui-media-body">未到</div>
-						</a>
+						<span class="mui-icon mui-icon-forward"></span>
+						<div class="mui-media-body">早退</div>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="Leavearly.html">
-							<span class="mui-icon mui-icon-forward"></span>
-							<div class="mui-media-body">早退</div>
-						</a>
-					</li>
-					
 				</ul>
-
 			</div>
 			<div id="tabbar-with-contact" class="mui-control-content ">
-				<div class="title ">这是教师端中的第3个子页面，该页面显示的是所有学生在班级里的职务及联系方式.</div>
+				<div class="title ">这是学生端中的第3个子页面</div>
 				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed ">
 					<li class="mui-table-view-cell ">
 						<div class="mui-slider-cell ">
@@ -247,7 +228,7 @@
 				</ul>
 			</div>
 			<div id="tabbar-with-map" class="mui-control-content ">
-				<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>
+				<div class="title ">这是学生端中的第4个子页面</div>
 				<ul class="mui-table-view ">
 					<li class="mui-table-view-cell ">
 						<a class="mui-navigate-right ">
@@ -282,11 +263,5 @@
 			</div>
 		</div>
 	</body>
-	<script src="../js/mui.min.js "></script>
-	<script>
-		mui.init({
-			swipeBack: true //启用右滑关闭功能
-		});
-	</script>
 
 </html>
