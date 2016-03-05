@@ -48,6 +48,11 @@
 			oa-contact-position {
 				float: left;
 			}
+			
+			/*.mui-segmented-control {
+				width: 95%;
+				height: 20%;
+			}*/
 		</style>
 		<!--
         	作者：970518209@qq.com
@@ -75,6 +80,13 @@
 					start = true;
 				}
 			}
+		</script>
+
+		<script src="../js/mui.min.js "></script>
+		<script>
+			mui.init({
+				swipeBack: false //启用右滑关闭功能
+			});
 		</script>
 	</head>
 
@@ -117,21 +129,53 @@
 
 				</div>
 			</div>
-			<div id="tabbar-with-chat" class="mui-control-content ">
+			<div id="tabbar-with-chat" class="mui-control-content" align="center">
+
+				<!--<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#classscore">
+						课堂成绩
+					</a>
+					<a class="mui-control-item" href="#finalscore">
+						期末总评
+					</a>
+				</div>-->
+				<div style="padding:10px 10px;">
+					<div id="segmentedControl" class="mui-segmented-control">
+						<a class="mui-control-item mui-active" href="#item1">
+                            课堂成绩
+                        </a>
+						<a class="mui-control-item" href="#item2">
+                            期末总评
+                        </a>
+						
+					</div>
+				</div>
+				<div>
+					<div id="item1" class="mui-control-content mui-active">
+						<!--<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								课堂成绩界面
+							</li>
+						</ul>-->
+						<h1>课堂成绩界面</h1>
+					</div>
+					<div id="item2" class="mui-control-content">
+						<h1>期末总评界面</h1>
+					</div>
+					
+				</div>
 				<!--<div class="title ">这是教师端中的第2个子页面，该页面显示所有学生的学号姓名，做聊天交流用途。</div>-->
 
-				<ul class="mui-table-view mui-grid-view mui-grid-9">
+				<!--<ul class="mui-table-view mui-grid-view mui-grid-9">
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<a href="ScoreInquir.html">
 							<span class="mui-icon mui-icon-search"></span>
 							<div class="mui-media-body">查看成绩</div>
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="ScoreInput.html">
-							<span class="mui-icon mui-icon-compose"></span>
-							<div class="mui-media-body">录入成绩</div>
-						</a>
+					<li id="inputScore" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<span class="mui-icon mui-icon-compose"></span>
+						<div class="mui-media-body">录入成绩</div>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<a href="ScoreInclass.html">
@@ -157,8 +201,8 @@
 							<div class="mui-media-body">早退</div>
 						</a>
 					</li>
-					
-				</ul>
+
+				</ul>-->
 
 			</div>
 			<div id="tabbar-with-contact" class="mui-control-content ">
@@ -291,12 +335,51 @@
 				</ul>
 			</div>
 		</div>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				console.log("123");
+				var inputScore = document.getElementById("inputScore");
+				inputScore.addEventListener('tap', function() {
+					console.log("录入成绩");
+					mui.openWindow({
+						url: 'ScoreInput.html',
+						id: 'ScoreInput'
+					});
+					//					mui.ajax('http://192.168.0.111/teacher/registerT', {
+					//						data: {
+					//							teaId: teaId.value,
+					//							username: username.value,
+					//							phone: phone.value,
+					//							password: password1.value
+					//						},
+					//						dataType: 'json',
+					//						type: 'post',
+					//						timeout: 5000,
+					//						success: function(data) {
+					//							if (data['code'] == 200) {
+					//								mui.alert('请登录', '注册成功', function() {
+					//									window.location.href = "LoginTeacher.html";
+					//								});
+					//								
+					//							}else{
+					//								
+					//								mui.alert('请重新登录 400', '注册失败', function() {
+					//									window.location.href = "LoginTeacher.html";
+					//								});
+					//								
+					//							}
+					//						},
+					//						error: function() {
+					//							
+					//							mui.alert('服务器错误', '注册失败', function() {
+					//									window.location.href = "LoginTeacher.html";
+					//								});
+					//							
+					//						}
+					//					})
+				})
+			});
+		</script>
 	</body>
-	<script src="../js/mui.min.js "></script>
-	<script>
-		mui.init({
-			swipeBack: true //启用右滑关闭功能
-		});
-	</script>
 
 </html>

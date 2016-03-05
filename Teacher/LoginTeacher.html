@@ -65,19 +65,19 @@
 							console.log(data['code']);
 							if (data['code'] == 200) {
 								console.log("登录成功");
-								window.location.href = "MainTab.html";
+								window.location.href = "MainTabtTeacher.html";
 							} else {
 								console.log("400");
 								mui.alert('请检查您的账号密码', '登录失败', function() {
 									console.log("登录失败");
-									window.location.href = "MainTab.html";
+									window.location.href = "MainTabtTeacher.html";
 								});
 							}
 						},
 						error: function() {
 							console.log("error");
 							mui.alert('请检查', '注册失败error', function() {
-								window.location.href = "MainTab.html";
+								window.location.href = "MainTabtTeacher.html";
 							});
 						}
 					})
