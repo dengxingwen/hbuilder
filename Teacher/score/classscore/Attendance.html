@@ -4,22 +4,16 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title></title>
-		<script src="../../../js/mui.min.js"></script>
-		<link href="../../../css/mui.min.css" rel="stylesheet" />
-		<script type="text/javascript" charset="UTF-8">
-			mui.init();
-		</script>
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../../css/mui.min.css">
 		<style type="text/css">
 			.mui-content {
 				margin-top: 12px;
 			}
 		</style>
-		<script>
-			mui.init({
-				swipeBack: true
-			});
-		</script>
 	</head>
 
 	<body>
@@ -29,9 +23,319 @@
 		</header>
 		<div class="mui-content">
 
-			<h1>出勤页</h1>
+			<div style="padding:10px 10px;">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#Late">
+                            迟到
+                        </a>
+					<a class="mui-control-item" href="#Absences">
+                            未到
+                        </a>
+
+					<a class="mui-control-item" href="#Leaveearly">
+                            早退
+                        </a>
+
+				</div>
+			</div>
+			<div>
+				<div id="Late" class="mui-control-content mui-active">
+					<div class="mui-card">
+						<form class="mui-input-group">
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div id="Absences" class="mui-control-content">
+					<div class="mui-card">
+						<form class="mui-input-group">
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div id="Leaveearly" class="mui-control-content">
+					<div class="mui-card">
+						<form class="mui-input-group">
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：false</label>
+								<input name="checkbox1" value="Item 3" type="checkbox">
+							</div>
+							<div class="mui-input-row mui-checkbox">
+								<label>checked：true</label>
+								<input name="checkbox1" value="Item 4" type="checkbox" checked>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
 		</div>
 
 	</body>
+	<script src="../../../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		mui('.mui-input-group').on('change', 'input', function() {
+			var value = this.checked ? "true" : "false";
+			this.previousElementSibling.innerText = "checked：" + value;
+		});
+	</script>
 
 </html>
