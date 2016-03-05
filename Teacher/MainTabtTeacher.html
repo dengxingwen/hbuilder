@@ -48,7 +48,6 @@
 			oa-contact-position {
 				float: left;
 			}
-			
 		</style>
 		<!--
         	作者：970518209@qq.com
@@ -141,25 +140,25 @@
 				<div>
 					<div id="classscore" class="mui-control-content mui-active">
 						<ul class="mui-table-view mui-grid-view mui-grid-9">
-							<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+							<li id="attendance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
 								<a href="#">
 									<span class="mui-icon mui-icon-home"></span>
 									<div class="mui-media-body">出勤</div>
 								</a>
 							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+							<li id="classperfomance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
 								<a href="#">
 									<span class="mui-icon mui-icon-email"></span>
 									<div class="mui-media-body">课堂</div>
 								</a>
 							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+							<li id="classwork" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
 								<a href="#">
 									<span class="mui-icon mui-icon-chatbubble"></span>
 									<div class="mui-media-body">作业</div>
 								</a>
 							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+							<li id="activityscore" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
 								<a href="#">
 									<span class="mui-icon mui-icon-location"></span>
 									<div class="mui-media-body">活动</div>
@@ -348,46 +347,70 @@
 		<script type="text/javascript">
 			mui.plusReady(function() {
 				console.log("123");
-				var inputScore = document.getElementById("inputScore");
-				inputScore.addEventListener('tap', function() {
-					console.log("录入成绩");
+				var attendance = document.getElementById("attendance");
+				var classperfomance = document.getElementById("classperfomance");
+				var classwork = document.getElementById("classwork");
+				var activityscore = document.getElementById("activityscore");
+				attendance.addEventListener('tap', function() {
+					console.log("出勤");
 					mui.openWindow({
-						url: 'ScoreInput.html',
-						id: 'ScoreInput'
-					});
-					//					mui.ajax('http://192.168.0.111/teacher/registerT', {
-					//						data: {
-					//							teaId: teaId.value,
-					//							username: username.value,
-					//							phone: phone.value,
-					//							password: password1.value
-					//						},
-					//						dataType: 'json',
-					//						type: 'post',
-					//						timeout: 5000,
-					//						success: function(data) {
-					//							if (data['code'] == 200) {
-					//								mui.alert('请登录', '注册成功', function() {
-					//									window.location.href = "LoginTeacher.html";
-					//								});
-					//								
-					//							}else{
-					//								
-					//								mui.alert('请重新登录 400', '注册失败', function() {
-					//									window.location.href = "LoginTeacher.html";
-					//								});
-					//								
-					//							}
-					//						},
-					//						error: function() {
-					//							
-					//							mui.alert('服务器错误', '注册失败', function() {
-					//									window.location.href = "LoginTeacher.html";
-					//								});
-					//							
-					//						}
-					//					})
-				})
+						url: "score/classscore/Attendance.html",
+						id: 'attendance'
+					})
+				});
+				classperfomance.addEventListener('tap', function() {
+					console.log("课堂");
+					mui.openWindow({
+						url: "score/classscore/ClassPerformance.html",
+						id: 'classperfomance'
+					})
+				});
+				classwork.addEventListener('tap', function() {
+					console.log("作业");
+					mui.openWindow({
+						url: "score/classscore/Classwork.html",
+						id: 'classwork'
+					})
+				});
+				activityscore.addEventListener('tap', function() {
+					console.log("活动");
+					mui.openWindow({
+						url: "score/classscore/ActivityScore.html",
+						id: 'activityscore'
+					})
+				});
+				//					mui.ajax('http://192.168.0.111/teacher/registerT', {
+				//						data: {
+				//							teaId: teaId.value,
+				//							username: username.value,
+				//							phone: phone.value,
+				//							password: password1.value
+				//						},
+				//						dataType: 'json',
+				//						type: 'post',
+				//						timeout: 5000,
+				//						success: function(data) {
+				//							if (data['code'] == 200) {
+				//								mui.alert('请登录', '注册成功', function() {
+				//									window.location.href = "LoginTeacher.html";
+				//								});
+				//								
+				//							}else{
+				//								
+				//								mui.alert('请重新登录 400', '注册失败', function() {
+				//									window.location.href = "LoginTeacher.html";
+				//								});
+				//								
+				//							}
+				//						},
+				//						error: function() {
+				//							
+				//							mui.alert('服务器错误', '注册失败', function() {
+				//									window.location.href = "LoginTeacher.html";
+				//								});
+				//							
+				//						}
+				//					})
 			});
 		</script>
 	</body>
