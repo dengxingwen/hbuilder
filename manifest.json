@@ -383,7 +383,13 @@
 				"resources": [
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/mui.picker.js",
+					"js/mui.poppicker.js",
+					"js/city.data.js",
+					"css/mui.poppicker.css",
+					"js/pickerClass.js",
+					"css/mui.picker.css"
 				],
 				"refer": [],
 				"priority": 0
