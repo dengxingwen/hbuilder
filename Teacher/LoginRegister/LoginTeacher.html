@@ -52,7 +52,7 @@
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
 					console.log("11111");
-					mui.ajax('http://192.168.0.111/teacher/loginT', {
+					mui.ajax('http://192.168.0.101:8085/teacher/loginT', {
 						data: {
 							teaId: teaId.value,
 							password: password.value

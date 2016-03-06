@@ -121,7 +121,8 @@
 		"resources": [
 			"js/mui.min.js",
 			"css/mui.min.css",
-			"Teacher/MainTabtTeacher.html"
+			"Teacher/MainTabtTeacher.html",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"Teacher/MainTabtTeacher.html"
