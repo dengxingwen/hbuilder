@@ -14,6 +14,7 @@
 				margin-top: 12px;
 			}
 		</style>
+		
 	</head>
 
 	<body>
@@ -23,7 +24,7 @@
 		</header>
 		<div class="mui-content">
 
-			<div style="padding:10px 10px;">
+			<div id="segmentfixd" style="padding:10px 10px;">
 				<div id="segmentedControl" class="mui-segmented-control">
 					<a class="mui-control-item mui-active" href="#Late">
                             迟到
@@ -227,7 +228,6 @@
 						</form>
 					</div>
 				</div>
-
 				<div id="Leaveearly" class="mui-control-content">
 					<div class="mui-card">
 						<form class="mui-input-group">
@@ -322,7 +322,10 @@
 						</form>
 					</div>
 				</div>
-
+			</div>
+			
+			<div style="position: fixed;bottom: 0px;left: 0px; height: 40px;width: 100%; background-color: #efeff4;z-index: 2;"align="center">
+				<button type="button" class="mui-btn mui-btn-primary"style="width: 99%;height: 95%;">提交</button>
 			</div>
 		</div>
 

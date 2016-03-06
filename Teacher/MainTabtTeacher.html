@@ -9,8 +9,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		
 		<style>
 			.title {
 				margin: 20px 15px 10px;
@@ -77,17 +76,11 @@
 			}
 		</script>
 
-		<script src="../js/mui.min.js "></script>
-		<script>
-			mui.init({
-				swipeBack: false //启用右滑关闭功能
-			});
-		</script>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+		<a id="addclassseting" class="mui-icon mui-icon-plusempty mui-pull-right" style="color: #999;"></a>
 			<h1 class="mui-title">模拟教务</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
@@ -173,45 +166,6 @@
 					</div>
 
 				</div>
-				<!--<div class="title ">这是教师端中的第2个子页面，该页面显示所有学生的学号姓名，做聊天交流用途。</div>-->
-
-				<!--<ul class="mui-table-view mui-grid-view mui-grid-9">
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="ScoreInquir.html">
-							<span class="mui-icon mui-icon-search"></span>
-							<div class="mui-media-body">查看成绩</div>
-						</a>
-					</li>
-					<li id="inputScore" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<span class="mui-icon mui-icon-compose"></span>
-						<div class="mui-media-body">录入成绩</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="ScoreInclass.html">
-							<span class="mui-icon mui-icon-starhalf"></span>
-							<div class="mui-media-body">课堂成绩</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="Late.html">
-							<span class="mui-icon mui-icon-back"></span>
-							<div class="mui-media-body">迟到</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="Notto.html">
-							<span class="mui-icon mui-icon-close"></span>
-							<div class="mui-media-body">未到</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="Leavearly.html">
-							<span class="mui-icon mui-icon-forward"></span>
-							<div class="mui-media-body">早退</div>
-						</a>
-					</li>
-
-				</ul>-->
 
 			</div>
 			<div id="tabbar-with-contact" class="mui-control-content ">
@@ -344,75 +298,62 @@
 				</ul>
 			</div>
 		</div>
-		<script type="text/javascript">
-			mui.plusReady(function() {
-				console.log("123");
-				var attendance = document.getElementById("attendance");
-				var classperfomance = document.getElementById("classperfomance");
-				var classwork = document.getElementById("classwork");
-				var activityscore = document.getElementById("activityscore");
-				attendance.addEventListener('tap', function() {
-					console.log("出勤");
-					mui.openWindow({
-						url: "score/classscore/Attendance.html",
-						id: 'attendance'
-					})
-				});
-				classperfomance.addEventListener('tap', function() {
-					console.log("课堂");
-					mui.openWindow({
-						url: "score/classscore/ClassPerformance.html",
-						id: 'classperfomance'
-					})
-				});
-				classwork.addEventListener('tap', function() {
-					console.log("作业");
-					mui.openWindow({
-						url: "score/classscore/Classwork.html",
-						id: 'classwork'
-					})
-				});
-				activityscore.addEventListener('tap', function() {
-					console.log("活动");
-					mui.openWindow({
-						url: "score/classscore/ActivityScore.html",
-						id: 'activityscore'
-					})
-				});
-				//					mui.ajax('http://192.168.0.111/teacher/registerT', {
-				//						data: {
-				//							teaId: teaId.value,
-				//							username: username.value,
-				//							phone: phone.value,
-				//							password: password1.value
-				//						},
-				//						dataType: 'json',
-				//						type: 'post',
-				//						timeout: 5000,
-				//						success: function(data) {
-				//							if (data['code'] == 200) {
-				//								mui.alert('请登录', '注册成功', function() {
-				//									window.location.href = "LoginTeacher.html";
-				//								});
-				//								
-				//							}else{
-				//								
-				//								mui.alert('请重新登录 400', '注册失败', function() {
-				//									window.location.href = "LoginTeacher.html";
-				//								});
-				//								
-				//							}
-				//						},
-				//						error: function() {
-				//							
-				//							mui.alert('服务器错误', '注册失败', function() {
-				//									window.location.href = "LoginTeacher.html";
-				//								});
-				//							
-				//						}
-				//					})
-			});
-		</script>
+
 	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: false //启用右滑关闭功能
+		});
+	</script>
+	<script type="text/javascript">
+		mui.plusReady(function() {
+			console.log("主页");
+			var attendance = document.getElementById("attendance");
+			var classperfomance = document.getElementById("classperfomance");
+			var classwork = document.getElementById("classwork");
+			var activityscore = document.getElementById("activityscore");
+			attendance.addEventListener('tap', function() {
+				console.log("出勤");
+				mui.openWindow({
+					url: "score/classscore/Attendance.html",
+					id: 'attendance'
+				})
+			});
+			classperfomance.addEventListener('tap', function() {
+				console.log("课堂");
+				mui.openWindow({
+					url: "score/classscore/ClassPerformance.html",
+					id: 'classperfomance'
+				})
+			});
+			classwork.addEventListener('tap', function() {
+				console.log("作业");
+				mui.openWindow({
+					url: "score/classscore/Classwork.html",
+					id: 'classwork'
+				})
+			});
+			activityscore.addEventListener('tap', function() {
+				console.log("活动");
+				mui.openWindow({
+					url: "score/classscore/ActivityScore.html",
+					id: 'activityscore'
+				})
+			});
+			//处理右上角关于图标的点击事件；
+			document.getElementById('addclassseting').addEventListener('tap', function() {
+				console.log("设置班级");
+				mui.openWindow({
+					url: "SettingClass.html",
+					id: "info",
+					show: {
+						aniShow: 'zoom-fade-out',
+						duration: 300
+					}
+				});
+			});
+		});
+	</script>
 
 </html>
