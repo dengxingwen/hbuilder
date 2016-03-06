@@ -61,7 +61,7 @@
 		<script src="../js/mui.picker.js"></script>
 		<script src="../js/mui.poppicker.js"></script>
 		<script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/pickerClass.js" type="text/javascript" charset="UTF-8"></script>
 		<script>
 			(function($, doc) {
 				$.init();
@@ -71,7 +71,7 @@
 					var cityPicker = new $.PopPicker({
 						layer: 2
 					});
-					cityPicker.setData(cityData);
+					cityPicker.setData(classData);
 					var showCityPickerButton = doc.getElementById('showCityPicker');
 					var cityResult = doc.getElementById('cityResult');
 					showCityPickerButton.addEventListener('tap', function(event) {
