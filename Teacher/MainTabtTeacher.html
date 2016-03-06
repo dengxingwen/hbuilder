@@ -88,7 +88,8 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
-			<h1 class="mui-title">模拟教务</h1>
+			<a id="addclassseting" class="mui-icon mui-icon-plusempty mui-pull-right" style="color: #999;"></a>
+			<h1 id="navTitle" class="mui-title">模拟教务</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar">
@@ -412,6 +413,42 @@
 				//						}
 				//					})
 			});
+			
+			//处理右上角关于图标的点击事件；
+//			var subWebview = null,
+//				template = null;
+			document.getElementById('addclassseting').addEventListener('tap', function() {
+				console.log("出勤");
+					mui.openWindow({
+						url: "SettingClass.html",
+						id: "info",
+						show: {
+							aniShow: 'zoom-fade-out',
+							duration: 300
+						}
+					});
+			});
+//			//首页返回键处理
+//			//处理逻辑：1秒内，连续两次按返回键，则退出应用；
+//			var first = null;
+//			mui.back = function() {
+//				if (showMenu) {
+//					closeMenu();
+//				} else {
+//					//首次按键，提示‘再按一次退出应用’
+//					if (!first) {
+//						first = new Date().getTime();
+//						mui.toast('再按一次退出应用');
+//						setTimeout(function() {
+//							first = null;
+//						}, 1000);
+//					} else {
+//						if (new Date().getTime() - first < 1000) {
+//							plus.runtime.quit();
+//						}
+//					}
+//				}
+//			};
 		</script>
 	</body>
 

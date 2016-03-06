@@ -304,7 +304,8 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"Teacher/MainTabtTeacher.html",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"Teacher/LoginRegister/TeacherRegister.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -318,13 +319,16 @@
 					"fonts/mui.ttf",
 					"images/01.jpg",
 					"Teacher/LoginRegister/LoginTeacher.html",
-					"css/app.css"
+					"css/app.css",
+					"js/mui.min.js",
+					"css/mui.min.css"
 				],
 				"refer": [
 					"Teacher/score/classscore/Classwork.html",
 					"Teacher/score/classscore/Attendance.html",
 					"Teacher/score/classscore/ClassPerformance.html",
-					"Teacher/score/classscore/ActivityScore.html"
+					"Teacher/score/classscore/ActivityScore.html",
+					"Teacher/SettingClass.html"
 				],
 				"priority": 0
 			},
@@ -361,6 +365,25 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"css/app.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Teacher/LoginRegister/TeacherRegister.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"Teacher/LoginRegister/LoginTeacher.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Teacher/SettingClass.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0
