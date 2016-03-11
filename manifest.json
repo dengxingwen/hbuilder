@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "Teacher/LoginRegister/LoginTeacher.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "students/LoginStu.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -390,6 +390,39 @@
 					"css/mui.poppicker.css",
 					"js/pickerClass.js",
 					"css/mui.picker.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"students/StudentRegister.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"students/LoginStu.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"students/LoginStu.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"students/StudentRegister.html",
+					"students/MainTabStu.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"students/MainTabStu.html": {
+				"resources": [
+					"images/04.jpg",
+					"images/02.jpg",
+					"images/06.jpg",
+					"images/03.jpg",
+					"css/app.css",
+					"images/01.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0
