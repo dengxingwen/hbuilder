@@ -181,7 +181,8 @@
       "js/mui.min.js",
       "fonts/mui.ttf",
       "css/mui.min.css",
-      "css/app.css"
+      "css/app.css",
+      "js/jquery-2.2.1.js"
     ],
     "refer": []
   },
@@ -215,7 +216,9 @@
       "fonts/mui.ttf",
       "students/LoginStu.html"
     ],
-    "refer": []
+    "refer": [
+      "students/LoginStu.html"
+    ]
   },
   "students/LoginStu.html": {
     "resources": [
@@ -238,8 +241,11 @@
       "images/01.jpg",
       "js/mui.min.js",
       "fonts/mui.ttf",
-      "css/mui.min.css"
+      "css/mui.min.css",
+      "students/LoginStu.html"
     ],
-    "refer": []
+    "refer": [
+      "students/LoginStu.html"
+    ]
   }
 }

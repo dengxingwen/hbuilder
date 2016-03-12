@@ -9,12 +9,13 @@
 		<title></title>
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../../../css/mui.min.css">
+		
 		<style type="text/css">
 			.mui-content {
 				margin-top: 12px;
 			}
 		</style>
-		
+
 	</head>
 
 	<body>
@@ -41,88 +42,8 @@
 			</div>
 			<div>
 				<div id="Late" class="mui-control-content mui-active">
-					<div class="mui-card">
-						<form class="mui-input-group">
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：false</label>
-								<input name="checkbox1" value="Item 3" type="checkbox">
-							</div>
-							<div class="mui-input-row mui-checkbox">
-								<label>checked：true</label>
-								<input name="checkbox1" value="Item 4" type="checkbox" checked>
-							</div>
+					<div  class="mui-card">
+						<form id="latenamelist" class="mui-input-group">
 							<div class="mui-input-row mui-checkbox">
 								<label>checked：false</label>
 								<input name="checkbox1" value="Item 3" type="checkbox">
@@ -323,14 +244,15 @@
 					</div>
 				</div>
 			</div>
-			
-			<div style="position: fixed;bottom: 0px;left: 0px; height: 40px;width: 100%; background-color: #efeff4;z-index: 2;"align="center">
-				<button type="button" class="mui-btn mui-btn-primary"style="width: 99%;height: 95%;">提交</button>
+
+			<div style="position: fixed;bottom: 0px;left: 0px; height: 40px;width: 100%; background-color: #efeff4;z-index: 2;" align="center">
+				<button id="requelnamelist" type="button" class="mui-btn mui-btn-primary" style="width: 99%;height: 95%;">提交</button>
 			</div>
 		</div>
 
 	</body>
 	<script src="../../../js/mui.min.js"></script>
+	<script src="../../../js/jquery-2.2.1.js"></script>
 	<script>
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
@@ -338,6 +260,49 @@
 		mui('.mui-input-group').on('change', 'input', function() {
 			var value = this.checked ? "true" : "false";
 			this.previousElementSibling.innerText = "checked：" + value;
+		});
+		mui.plusReady(function() {
+			console.log("获取姓名列表");
+			var requelnamelist = document.getElementById("requelnamelist");
+			requelnamelist.addEventListener('tap', function() {
+				console.log("正在获取姓名列表");
+				mui.ajax('http://192.168.0.107:8085/user/getnamelist', {
+					data: {
+					},
+					dataType: 'json',
+					type: 'post',
+					timeout: 5000,
+					success: function(data) {
+						console.log("success");
+						console.log(data['code']);
+						if (data['code'] == 200) {
+							console.log("获取成功");
+							console.log(data['namelist']);
+							console.log(data['namelist'][1]);
+							
+							
+							
+							$("#latenamelist").empty();
+							for (var i = 0; i < data['namelist'].length; i++) {
+								var getnamelist = "<div class='mui-input-row mui-checkbox'><label>"+data['namelist'][i]+"</label><input name='checkbox1' value='Item 3' type='checkbox'></div>";
+								$("#latenamelist").append(getnamelist);
+							}
+							
+						} else {
+							console.log("400");
+							mui.alert('400错误', '失败', function() {
+								console.log("获取失败");
+							});
+						}
+					},
+					error: function() {
+						console.log("error");
+						mui.alert('请检查', '获取失败error', function() {
+						});
+					}
+				})
+			})
+			
 		});
 	</script>
 

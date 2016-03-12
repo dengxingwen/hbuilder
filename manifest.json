@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "students/LoginStu.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "Teacher/LoginRegister/LoginTeacher.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -364,7 +364,8 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"css/app.css"
+					"css/app.css",
+					"js/jquery-2.2.1.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -422,7 +423,8 @@
 					"images/01.jpg",
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"students/LoginStu.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -430,7 +432,6 @@
 		},
 		"idle": {
 			"resources": [
-				"js/jquery-2.2.1.js",
 				"layout/MainTabS.html",
 				"index.html",
 				"images/07.jpg",
