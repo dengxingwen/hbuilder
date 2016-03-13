@@ -365,7 +365,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"css/app.css",
-					"js/jquery-2.2.1.js"
+					"js/jquery-2.2.1.js",
+					"js/jquery.json.js"
 				],
 				"refer": [],
 				"priority": 0
