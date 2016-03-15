@@ -3,13 +3,13 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>我的conio</title>
+		<title>教务</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
-		
+
 		<style>
 			.title {
 				margin: 20px 15px 10px;
@@ -49,12 +49,14 @@
 			}
 		</style>
 		<!--
-        	作者：970518209@qq.com
+        	作者：张敏
         	时间：2016-02-16
         	描述：这是随机点名的函数
         -->
 		<script type="text/javascript">
-			var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
+			//用于存放姓名
+			var names = new Array();
+//			var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
 
 			function showName() {
 				var index = Math.floor(Math.random() * names.length);
@@ -80,13 +82,13 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		<a id="addclassseting" class="mui-icon mui-icon-plusempty mui-pull-right" style="color: #999;"></a>
-			<h1 class="mui-title">模拟教务</h1>
+			<a id="addclassseting" class="mui-icon mui-icon-plusempty mui-pull-right" style="color: #999;"></a>
+			<h1 id="navtitle" class="mui-title">首页</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar">
 				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">咻咻</span>
+				<span class="mui-tab-label">首页</span>
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-chat">
 				<span class="mui-icon mui-icon-email"></span>
@@ -301,6 +303,7 @@
 
 	</body>
 	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery-2.2.1.js"></script>
 	<script>
 		mui.init({
 			swipeBack: false //启用右滑关闭功能
@@ -353,6 +356,48 @@
 					}
 				});
 			});
+			//切换选项卡切换 监听
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				//更换标题
+				document.getElementById('navtitle').innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				var tabtitle = this.querySelector('.mui-tab-label').innerHTML;
+				//判断只有当首页时显示右上角加号
+				if (this.querySelector('.mui-tab-label').innerHTML == "首页") {
+					$("#addclassseting").show();
+				} else {
+					$("#addclassseting").hide();
+				}
+			});
+		});
+		//获取班级所有学生姓名
+		mui.ajax('http://192.168.0.107:8085/teacher/studentNameList', {
+			data: {},
+			dataType: 'json',
+			type: 'post',
+			timeout: 5000,
+			success: function(data) {
+				console.log("success 获取姓名成功");
+				console.log(data['code']);
+				if (data['code'] == 200) {
+					console.log("获取成功");
+//					console.log(data['namelist']);
+//					console.log(data['namelist'][1]);
+
+					for (var i = 0; i < data['namelist'].length; i++) {
+						names.push(data['namelist'][i]);
+					}
+					console.log(names);
+				} else {
+					console.log("400");
+					mui.alert('400错误', '失败', function() {
+						console.log("获取失败");
+					});
+				}
+			},
+			error: function() {
+				console.log("error");
+				mui.alert('请检查', '获取失败error', function() {});
+			}
 		});
 	</script>
 
