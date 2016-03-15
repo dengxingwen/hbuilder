@@ -161,7 +161,7 @@
 			lataArray[lataArray.length] = this.previousElementSibling.innerText;
 			console.log(lataArray);
 		});
-		mui.ajax('http://192.168.0.107:8085/teacher/studentNameList', {
+		mui.ajax('http://192.168.2.4:8085/teacher/studentNameList', {
 			data: {},
 			dataType: 'json',
 			type: 'post',
@@ -216,7 +216,7 @@
 			submitbutton.addEventListener('tap', function() {
 				console.log("正在提交");
 				console.log(lataArray);
-				mui.ajax('http://192.168.0.107:8085/teacher/submitAttendence', {
+				mui.ajax('http://192.168.2.4:8085/teacher/submitAttendence', {
 					data: {
 						type: segmentindex,
 						lateNameList: $.toJSON(lataArray)

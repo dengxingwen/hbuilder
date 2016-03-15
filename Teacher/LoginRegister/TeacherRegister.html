@@ -21,6 +21,7 @@
 				height: 100%;
 			}
 		</style>
+
 	</head>
 
 	<body>
@@ -40,9 +41,18 @@
 					<input type="text" class="mui-input mui-input-clear" id="username" placeholder="请输入您的姓名" />
 				</div>
 				<div class="mui-input-row">
+					<label>性别:</label>
+					<select id="method" style="color: #999;">
+						<option value="default">请选择您的性别</option>
+						<option value="male">男</option>
+						<option value="female">女</option>
+					</select>
+				</div>
+				<div class="mui-input-row">
 					<label for="">手机：</label>
 					<input type="text" class="mui-input mui-input-clear" id="phone" placeholder="请输入您的手机" />
 				</div>
+
 				<div class="mui-input-row">
 					<label for="">密码：</label>
 					<input type="password" class="mui-input mui-input-clear" id="password1" placeholder="请输入您的密码" />
@@ -84,13 +94,11 @@
 									window.location.href = "LoginTeacher.html";
 								});
 							} else {
-								mui.alert('请重新登录 400', '注册失败', function() {
-								});
+								mui.alert('请重新登录 400', '注册失败', function() {});
 							}
 						},
 						error: function() {
-							mui.alert('服务器错误', '注册失败', function() {
-							});
+							mui.alert('服务器错误', '注册失败', function() {});
 						}
 					})
 				})

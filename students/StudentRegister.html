@@ -35,6 +35,14 @@
 					<input type="text" class="mui-input mui-input-clear" id="username" placeholder="请输入您的姓名" />
 				</div>
 				<div class="mui-input-row">
+					<label>性别:</label>
+					<select id="sexselect" style="color: #999;">
+						<option value="default">请选择您的性别</option>
+						<option value="男">男</option>
+						<option value="女">女</option>
+					</select>
+				</div>
+				<div class="mui-input-row">
 					<label for="">手机：</label>
 					<input type="text" class="mui-input mui-input-clear" id="phone" placeholder="请输入您的手机" />
 				</div>
@@ -58,9 +66,11 @@
 				var register = document.getElementById("register");
 				var stuId = document.getElementById("stuId");
 				var username = document.getElementById("username");
+				var sexselect = document.getElementById("sexselect");
 				var phone = document.getElementById("phone");
 				var password1 = document.getElementById("password1");
 				var password2 = document.getElementById("password2");
+				
 				register.addEventListener('tap', function() {
 					console.log("11111");
 					if (password1.value != password2.value) {
@@ -68,10 +78,11 @@
 							return;
 						});
 					}
-					mui.ajax('http:/192.168.0.107:8085/user/registerS', {
+					mui.ajax('http://192.168.2.4:8085/user/registerS', {
 						data: {
 							stuId: stuId.value,
 							username: username.value,
+							sex:sexselect.value,
 							phone: phone.value,
 							password: password1.value
 						},
