@@ -321,7 +321,8 @@
 					"Teacher/LoginRegister/LoginTeacher.html",
 					"css/app.css",
 					"js/mui.min.js",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/jquery-2.2.1.js"
 				],
 				"refer": [
 					"Teacher/score/classscore/Classwork.html",

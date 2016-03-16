@@ -48,6 +48,83 @@
 				float: left;
 			}
 		</style>
+
+		<style>
+			.wrapper {
+				padding-top: 10px;
+				width: 300px;
+				background-color: lightcyan;
+				height: 120px;
+				font: 14px/1.5 arial;
+				text-align: center;
+				/*margin: 10px auto;*/
+			}
+			/*tab*/
+			
+			#star {
+				overflow: hidden;
+				padding: 4px 0;
+			}
+			
+			#star li {
+				float: left;
+				width: 20%;
+				height: 30px;
+				margin: 0px;
+				display: inline;
+				color: #999;
+				font: bold 18px arial;
+				cursor: pointer
+			}
+			
+			#star .act {
+				color: #c00
+			}
+			
+			#star_word {
+				width: 80%;
+				height: 30px;
+				line-height: 30px;
+				border: 1px solid #ccc;
+				position: absolute;
+				left: 50%;
+				margin-left: -40%;
+				text-align: center;
+				display: none
+			}
+		</style>
+
+		<script>
+			window.onload = function() {
+				var star = document.getElementById("star");
+				var star_li = star.getElementsByTagName("li");
+				var star_word = document.getElementById("star_word");
+				var result = document.getElementById("result");
+				var i = 0;
+				var j = 0;
+				var len = star_li.length;
+				var word = ['很差', '差', '一般', "好", "很好"]
+				for (i = 0; i < len; i++) {
+					star_li[i].index = i;
+					star_li[i].onmouseover = function() {
+						star_word.style.display = "block";
+						star_word.innerHTML = word[this.index];
+						for (i = 0; i <= this.index; i++) {
+							star_li[i].className = "act";
+						}
+					}
+					star_li[i].onmouseout = function() {
+						star_word.style.display = "none";
+						for (i = 0; i < len; i++) {
+							star_li[i].className = "";
+						}
+					}
+					star_li[i].onclick = function() {
+						result.innerHTML = (this.index + 1) + "分";
+					}
+				}
+			}
+		</script>
 		<!--
         	作者：张敏
         	时间：2016-02-16
@@ -56,26 +133,29 @@
 		<script type="text/javascript">
 			//用于存放姓名
 			var names = new Array();
-//			var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
-
-			function showName() {
-				var index = Math.floor(Math.random() * names.length);
-				var name = names[index];
-				document.getElementById("showView").innerHTML = name;
-				idd = setTimeout("showName()", 8);
-			}
-			var start = true;
+			var start = true; //按钮状态
 			var idd;
-
-			function sssss() {
-				if (start) {
-					showName();
-					start = false;
-				} else {
-					clearTimeout(idd);
-					start = true;
-				}
-			}
+			//			//	var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
+			//			function showName() {
+			//				var index = Math.floor(Math.random() * names.length);
+			//				var name = names[index];
+			//				document.getElementById("showNameText").innerHTML = name;
+			//				idd = setTimeout("showName()", 8);
+			//			}
+			//			var start = true;
+			//			var idd;
+			//
+			//			function RandomName() {
+			//				if (start) {
+			//					showName();
+			//					document.getElementById("namebutton").innerHTML = "停止";
+			//					start = false;
+			//				} else {
+			//					clearTimeout(idd);
+			//					document.getElementById("namebutton").innerHTML = "点名";
+			//					start = true;
+			//				}
+			//			}
 		</script>
 
 	</head>
@@ -104,20 +184,33 @@
 			</a>
 		</nav>
 		<div class="mui-content">
-			<div id="tabbar" class="mui-control-content mui-active">
-				<div class="title">这是准备做的教师端的第1个子页面.在这个页面做一个按钮做随机点名用</div>
+			<div id="tabbar" class="mui-control-content mui-active" style="height: 100%;">
 				<!--
-                	作者：970518209@qq.com
+                	作者：张敏
                 	时间：2016-02-16
                 	描述：用来显示姓名
                 -->
-				<div id="showView" style="font-size:20px; color:tomato;text-align: center;height: 44px;"></div>
+				<div style="margin-top: 0px;background-color: lightgray;padding-top: 15px;height: 350px;" align="center">
+					<div id="showNameText" style="font-size:20px; color:tomato;text-align: center;height: 44px;"></div>
+					<div class="wrapper">
+						<!--打分结果
+						<span id="result"></span>-->
+						<ul id="star">
+							<li>★</li>
+							<li>★</li>
+							<li>★</li>
+							<li>★</li>
+							<li>★</li>
+						</ul>
+						<div id="star_word">一般</div>
 
-				<div align="center" style="margin-top: 25%;">
-					<!--<input type="button" onclick="sssss()" value="start" ; "/>-->
-					<button type="button" class="mui-btn mui-btn-primary" onclick="sssss()" style="width:150px;height:40px;">开始</button>
+					</div>
 
+					<div>
+						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:44px;position: absolute;bottom: 20px;left: 50%;margin-left: -30%;">开始</button>
+					</div>
 				</div>
+
 			</div>
 			<div id="tabbar-with-chat" class="mui-control-content" align="center">
 
@@ -310,12 +403,34 @@
 		});
 	</script>
 	<script type="text/javascript">
+		//随机点名
+		function showName() {
+			var index = Math.floor(Math.random() * names.length);
+			var name = names[index];
+			document.getElementById("showNameText").innerHTML = name;
+			idd = setTimeout("showName()", 8);
+		}
+		
+		//所有点击事件建议这样做
 		mui.plusReady(function() {
 			console.log("主页");
 			var attendance = document.getElementById("attendance");
 			var classperfomance = document.getElementById("classperfomance");
 			var classwork = document.getElementById("classwork");
 			var activityscore = document.getElementById("activityscore");
+			var randomnamebutton = document.getElementById("randomnamebutton"); //随机点名
+			randomnamebutton.addEventListener('tap', function() {
+				console.log("随机点名");
+				if (start) {
+					showName();
+					randomnamebutton.innerHTML = "停止";
+					start = false;
+				} else {
+					clearTimeout(idd);
+					randomnamebutton.innerHTML = "点名";
+					start = true;
+				}
+			});
 			attendance.addEventListener('tap', function() {
 				console.log("出勤");
 				mui.openWindow({
@@ -380,9 +495,8 @@
 				console.log(data['code']);
 				if (data['code'] == 200) {
 					console.log("获取成功");
-//					console.log(data['namelist']);
-//					console.log(data['namelist'][1]);
-
+					//					console.log(data['namelist']);
+					//					console.log(data['namelist'][1]);
 					for (var i = 0; i < data['namelist'].length; i++) {
 						names.push(data['namelist'][i]);
 					}
