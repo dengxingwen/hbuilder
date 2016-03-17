@@ -54,7 +54,7 @@
 				padding-top: 10px;
 				width: 300px;
 				background-color: lightcyan;
-				height: 120px;
+				height: 150px;
 				font: 14px/1.5 arial;
 				text-align: center;
 				/*margin: 10px auto;*/
@@ -85,12 +85,10 @@
 				width: 80%;
 				height: 30px;
 				line-height: 30px;
-				border: 1px solid #ccc;
 				position: absolute;
 				left: 50%;
-				margin-left: -40%;
 				text-align: center;
-				display: none
+				display: none;
 			}
 		</style>
 
@@ -131,31 +129,12 @@
         	描述：这是随机点名的函数
         -->
 		<script type="text/javascript">
-			//用于存放姓名
+			//用于存放网络获取的姓名
 			var names = new Array();
-			var start = true; //按钮状态
+			//按钮状态
+			var start = true;
 			var idd;
-			//			//	var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
-			//			function showName() {
-			//				var index = Math.floor(Math.random() * names.length);
-			//				var name = names[index];
-			//				document.getElementById("showNameText").innerHTML = name;
-			//				idd = setTimeout("showName()", 8);
-			//			}
-			//			var start = true;
-			//			var idd;
-			//
-			//			function RandomName() {
-			//				if (start) {
-			//					showName();
-			//					document.getElementById("namebutton").innerHTML = "停止";
-			//					start = false;
-			//				} else {
-			//					clearTimeout(idd);
-			//					document.getElementById("namebutton").innerHTML = "点名";
-			//					start = true;
-			//				}
-			//			}
+			//	var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
 		</script>
 
 	</head>
@@ -202,8 +181,11 @@
 							<li>★</li>
 							<li>★</li>
 						</ul>
-						<div id="star_word">一般</div>
 
+						<div id="star_word">一般</div>
+						<div>
+							<button type="button" class="mui-btn mui-btn-primary" style="width:60px;height:30px;">提交</button>
+						</div>
 					</div>
 
 					<div>
@@ -410,7 +392,6 @@
 			document.getElementById("showNameText").innerHTML = name;
 			idd = setTimeout("showName()", 8);
 		}
-		
 		//所有点击事件建议这样做
 		mui.plusReady(function() {
 			console.log("主页");
