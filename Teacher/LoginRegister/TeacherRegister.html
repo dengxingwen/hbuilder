@@ -42,10 +42,10 @@
 				</div>
 				<div class="mui-input-row">
 					<label>性别:</label>
-					<select id="method" style="color: #999;">
+					<select id="sexselect" style="color: #999;">
 						<option value="default">请选择您的性别</option>
-						<option value="male">男</option>
-						<option value="female">女</option>
+						<option value="男">男</option>
+						<option value="女">女</option>
 					</select>
 				</div>
 				<div class="mui-input-row">
@@ -73,15 +73,17 @@
 				var register = document.getElementById("register");
 				var teaId = document.getElementById("teaId");
 				var username = document.getElementById("username");
+				var sexselect = document.getElementById("sexselect");
 				var phone = document.getElementById("phone");
 				var password1 = document.getElementById("password1");
 				var password2 = document.getElementById("password2");
 				register.addEventListener('tap', function() {
 					console.log("11111");
-					mui.ajax('http://192.168.0.107:8085/teacher/registerT', {
+					mui.ajax('http://192.168.2.4:8085/teacher/registerT', {
 						data: {
 							teaId: teaId.value,
 							username: username.value,
+							sex:sexselect.value,
 							phone: phone.value,
 							password: password1.value
 						},

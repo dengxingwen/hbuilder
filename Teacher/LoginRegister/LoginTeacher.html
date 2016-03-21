@@ -45,14 +45,14 @@
 
 		<script type="text/javascript">
 			mui.plusReady(function() {
-				console.log("hahahahah");
+				console.log("登录准备");
 				var loginbt = document.getElementById("loginbt");
 				var register = document.getElementById("register");
 				var teaId = document.getElementById("teaId");
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
-					console.log("11111");
-					mui.ajax('http://192.168.0.101:8085/teacher/loginT', {
+					console.log("正在登录");
+					mui.ajax('http://192.168.2.4:8085/teacher/loginT', {
 						data: {
 							teaId: teaId.value,
 							password: password.value
@@ -64,7 +64,9 @@
 							console.log("success");
 							console.log(data['code']);
 							if (data['code'] == 200) {
+								
 								console.log("登录成功");
+								console.log(data['token']);
 								window.location.href = "../MainTabtTeacher.html";
 							} else {
 								console.log("400");
@@ -83,7 +85,7 @@
 					})
 				})
 				register.addEventListener('tap', function() {
-					console.log("222");
+					console.log("点击注册");
 					window.location.href = "TeacherRegister.html";
 				})
 			});

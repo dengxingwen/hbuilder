@@ -48,7 +48,6 @@
 				float: left;
 			}
 		</style>
-
 		<style>
 			.wrapper {
 				padding-top: 10px;
@@ -101,24 +100,32 @@
 				var i = 0;
 				var j = 0;
 				var len = star_li.length;
-				var word = ['很差', '差', '一般', "好", "很好"]
+				var word = ['1分', '2分', '3分', "4分", "5分"]
 				for (i = 0; i < len; i++) {
 					star_li[i].index = i;
 					star_li[i].onmouseover = function() {
+							star_word.style.display = "block";
+							//						star_word.innerHTML = word[this.index];
+							//							for (i = 0; i <= this.index; i++) {
+							//								star_li[i].className = "act";
+							//							}
+						}
+						//					star_li[i].onmouseout = function() {
+						//						star_word.style.display = "none";
+						//						//																	for (i = 0; i < len; i++) {
+						//						//																		star_li[i].className = "";
+						//						//																	}
+						//					}
+					star_li[i].onclick = function() {
+						//						result.innerHTML = (this.index + 1) + "分";
 						star_word.style.display = "block";
 						star_word.innerHTML = word[this.index];
-						for (i = 0; i <= this.index; i++) {
-							star_li[i].className = "act";
-						}
-					}
-					star_li[i].onmouseout = function() {
-						star_word.style.display = "none";
 						for (i = 0; i < len; i++) {
 							star_li[i].className = "";
 						}
-					}
-					star_li[i].onclick = function() {
-						result.innerHTML = (this.index + 1) + "分";
+						for (i = 0; i <= this.index; i++) {
+							star_li[i].className = "act";
+						}
 					}
 				}
 			}
@@ -182,7 +189,7 @@
 							<li>★</li>
 						</ul>
 
-						<div id="star_word">一般</div>
+						<div id="star_word"></div>
 						<div>
 							<button type="button" class="mui-btn mui-btn-primary" style="width:60px;height:30px;">提交</button>
 						</div>
@@ -192,7 +199,7 @@
 						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:44px;position: absolute;bottom: 20px;left: 50%;margin-left: -30%;">开始</button>
 					</div>
 				</div>
-
+				
 			</div>
 			<div id="tabbar-with-chat" class="mui-control-content" align="center">
 
@@ -246,7 +253,9 @@
 
 			</div>
 			<div id="tabbar-with-contact" class="mui-control-content ">
-				<div class="title ">这是教师端中的第3个子页面，该页面显示的是所有学生在班级里的职务及联系方式.</div>
+				<div class="title " align="center">
+					<button type="button" id="chat" class="mui-btn mui-btn-primary">聊天界面</button>
+				</div>
 				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed ">
 					<li class="mui-table-view-cell ">
 						<div class="mui-slider-cell ">
@@ -464,9 +473,21 @@
 					$("#addclassseting").hide();
 				}
 			});
+			//进入聊天界面
+			document.getElementById('chat').addEventListener('tap', function() {
+				console.log("进入聊天界面");
+				mui.openWindow({
+					url: "chat/chat.html",
+					id: "chat",
+					show: {
+						aniShow: 'zoom-fade-out',
+						duration: 300
+					}
+				});
+			});
 		});
 		//获取班级所有学生姓名
-		mui.ajax('http://192.168.0.107:8085/teacher/studentNameList', {
+		mui.ajax('http://192.168.2.4:8085/teacher/studentNameList', {
 			data: {},
 			dataType: 'json',
 			type: 'post',
