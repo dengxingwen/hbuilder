@@ -1,4 +1,4 @@
-var classData = [{
+var MajorData = [{
 	value: '110000',
 	text: '数软学院',
 	children: [{
