@@ -79,7 +79,7 @@
 				var password2 = document.getElementById("password2");
 				register.addEventListener('tap', function() {
 					console.log("11111");
-					mui.ajax('http://192.168.2.4:8085/teacher/registerT', {
+					mui.ajax('http://192.168.1.101:8085/teacher/registerT', {
 						data: {
 							teaId: teaId.value,
 							username: username.value,
@@ -89,7 +89,7 @@
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 5000,
+						timeout: 2000,
 						success: function(data) {
 							if (data['code'] == 200) {
 								mui.alert('请登录', '注册成功', function() {

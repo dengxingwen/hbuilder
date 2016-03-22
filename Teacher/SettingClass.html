@@ -10,8 +10,12 @@
 
 		<link href="../css/mui.picker.css" rel="stylesheet" />
 		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+		<script src="../js/jquery-2.2.1.js"></script>
+		<script src="../js/jquery.json.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
+			//处理结果
+			var teacherCourse = {};
 		</script>
 		<style type="text/css">
 			.mui-content {
@@ -92,6 +96,8 @@
 					selectCollegemajor.addEventListener('tap', function(event) {
 						PickerMajor.show(function(items) {
 							majorResult.innerText = "专业:" + items[0].text + " " + items[1].text;
+							teacherCourse["College"] = items[0].text;
+							teacherCourse["Major"] = items[1].text;
 							//返回 false 可以阻止选择框的关闭
 							//return false;
 						});
@@ -107,6 +113,8 @@
 					selectClasscCourse.addEventListener('tap', function(event) {
 						PickerCourse.show(function(items) {
 							courseResult.innerText = "课程:" + items[0].text + " " + items[1].text;
+							teacherCourse["Class"] = items[0].text;
+							teacherCourse["Course"] = items[1].text;
 							//返回 false 可以阻止选择框的关闭
 							//return false;
 						});
@@ -115,23 +123,29 @@
 			})(mui, document);
 			//
 			mui.plusReady(function() {
+				console.log(localStorage.teaId);
 				console.log("课程设置");
 				var savasettingcourse = document.getElementById("savasettingcourse");
 				savasettingcourse.addEventListener('tap', function() {
+					console.log($.toJSON(teacherCourse));
 					console.log("正在保存课程设置");
-					mui.ajax('url', {
+					mui.ajax('http://192.168.1.101:8085/teacher/settingCourse', {
 						data: {
+							teacherSetting: $.toJSON(teacherCourse),
+							teaId:localStorage.teaId
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 500,
+						timeout: 2000,
 						success: function(data) {
 							if (data['code'] == 200) {
 								mui.toast("课程保存成功");
 							} else {
+								mui.toast("课程保存错误");
 							}
 						},
 						error: function() {
+							mui.toast("error");
 						}
 					})
 				})
