@@ -141,6 +141,7 @@
 			//按钮状态
 			var start = true;
 			var idd;
+			var token = "";
 			//	var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
 		</script>
 
@@ -199,7 +200,7 @@
 						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:44px;position: absolute;bottom: 20px;left: 50%;margin-left: -30%;">开始</button>
 					</div>
 				</div>
-				
+
 			</div>
 			<div id="tabbar-with-chat" class="mui-control-content" align="center">
 
@@ -403,6 +404,11 @@
 		}
 		//所有点击事件建议这样做
 		mui.plusReady(function() {
+			//获取token
+			var self = plus.webview.currentWebview();
+			token = self.token;
+			console.log("token:" + token);
+			//
 			console.log("主页");
 			var attendance = document.getElementById("attendance");
 			var classperfomance = document.getElementById("classperfomance");
@@ -476,12 +482,17 @@
 			//进入聊天界面
 			document.getElementById('chat').addEventListener('tap', function() {
 				console.log("进入聊天界面");
+				console.log("测试是否还存在token"+token);
 				mui.openWindow({
 					url: "chat/chat.html",
 					id: "chat",
 					show: {
 						aniShow: 'zoom-fade-out',
 						duration: 300
+					},
+					extras: {
+						
+						tokenvalue:token
 					}
 				});
 			});
@@ -491,7 +502,7 @@
 			data: {},
 			dataType: 'json',
 			type: 'post',
-			timeout: 5000,
+			timeout: 1000,
 			success: function(data) {
 				console.log("success 获取姓名成功");
 				console.log(data['code']);

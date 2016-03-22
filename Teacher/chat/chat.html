@@ -13,9 +13,29 @@
 		<meta name="description" content="融云 Web Demo 下载体验！" />
 		<link rel="stylesheet" type="text/css" href="../../css/main.css?v=2" />
 		<link rel="shortcut icon" href="favicon.ico">
+
+
+		<script src="../../js/mui.min.js"></script>
+		
+		
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+		<script type="text/javascript">
+			//所有点击事件建议这样做
+			mui.plusReady(function() {
+				//获取token
+				var self = plus.webview.currentWebview();
+				var tt = self.tokenvalue;
+				console.log("聊天页面收到的token:" + tt);
+			});
+		</script>
 	</head>
 
 	<body class="container">
+
 		<div class="bro_notice" style="z-index:1000;width:100%;position:fixed; background-color: #FCF8E3; color: #000;text-align: center;margin: 0 auto;display: none;">
 
 		</div>
@@ -139,6 +159,7 @@
 		</div>
 
 	</body>
+
 	<script src="../../js-rong/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../../js-rong/jquery.nicescroll.js?v=2" type="text/javascript" charset="utf-8"></script>
 	<script src="http://res.websdk.rongcloud.cn/RongIMClient-0.9.11.min.js"></script>

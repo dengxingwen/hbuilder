@@ -59,15 +59,22 @@
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 5000,
+						timeout: 1000,
 						success: function(data) {
 							console.log("success");
 							console.log(data['code']);
 							if (data['code'] == 200) {
-								
 								console.log("登录成功");
 								console.log(data['token']);
-								window.location.href = "../MainTabtTeacher.html";
+								//window.location.href = "../MainTabtTeacher.html";
+								mui.openWindow({
+									url: '../MainTabtTeacher.html',
+									id: 'MainTabtTeacher',
+									extras: {
+										token: data['token']
+										
+									}
+								});
 							} else {
 								console.log("400");
 								mui.alert('请检查您的账号密码', '登录失败', function() {

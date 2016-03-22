@@ -29,8 +29,11 @@ $(function(undefined) {
 		//初始化登陆人员信息
 		list = location.search.slice(1).split('&'),
 		$scope = {};
-	var conversationStr = '<li targetType="{1}" targetId="{aa}" targetName="{邓兴稳}"><span class="user_img"><img src={3} onerror="this.src=\'http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
-	var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'../images-rong/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="../images-rong/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
+	//var conversationStr = '<li targetType="{1}" targetId="{aa}" targetName="{邓兴稳}"><span class="user_img"><img src={3} onerror="this.src=\'http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
+	//var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'../images-rong/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="../images-rong/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
+	
+	var conversationStr = '<li targetType="{0}" targetId="{1}" targetName="{2}"><span class="user_img"><img src={3} onerror="this.src=\'static/images/personPhoto.png\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
+	var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'static/images/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="static/images/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
 	var friendListStr = '<li targetType="1" targetId="aa" targetName="邓兴稳"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">邓兴稳</span></li><li targetType="1" targetId="bb" targetName="mark"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">mark</span></li>';
 	//var discussionStr = '<li targetId="{0}" targetName="{1}" targetType="{2}"><span class="user_img"><img src="../images-rong/user.png"/></span><span class="user_name">{3}</span></li>';
 	////	if (list.length == 3) {
@@ -68,25 +71,25 @@ $(function(undefined) {
 	//			location.href = "login.html";
 	//		})
 	//	});
-//	$.get("/discussion?_=" + Date.now(), function(data) {
-//		if (data.code == 200) {
-//			_html = "";
-//			data.result.forEach(function(item) {
-//				_html += String.stringFormat(discussionStr, item.id, item.name, RongIMClient.ConversationType.DISCUSSION.valueOf(), item.name);
-//			});
-//			$("#discussion").html(_html || "<li>没有加入任何讨论组</li>");
-//		}
-//	});
-//	$.get("/friends?_=" + Date.now(), function(data) {
-//		if (data.code == 200) {
-//			_html = "";
-//			$scope.friendsList = data.result.slice(0, 200);
-//			$scope.friendsList.forEach(function(item) {
-//				_html += String.stringFormat(friendListStr, item.id, item.username)
-//			});
-			$("#friendsList").html(friendListStr);
-//		}
-//	}, "json");
+	//	$.get("/discussion?_=" + Date.now(), function(data) {
+	//		if (data.code == 200) {
+	//			_html = "";
+	//			data.result.forEach(function(item) {
+	//				_html += String.stringFormat(discussionStr, item.id, item.name, RongIMClient.ConversationType.DISCUSSION.valueOf(), item.name);
+	//			});
+	//			$("#discussion").html(_html || "<li>没有加入任何讨论组</li>");
+	//		}
+	//	});
+	//	$.get("/friends?_=" + Date.now(), function(data) {
+	//		if (data.code == 200) {
+	//			_html = "";
+	//			$scope.friendsList = data.result.slice(0, 200);
+	//			$scope.friendsList.forEach(function(item) {
+	//				_html += String.stringFormat(friendListStr, item.id, item.username)
+	//			});
+	$("#friendsList").html(friendListStr);
+	//		}
+	//	}, "json");
 
 	$("#friendsList,#conversationlist").delegate('li', 'touch click', function() {
 		if (this.parentNode.id == "conversationlist") {
@@ -94,9 +97,9 @@ $(function(undefined) {
 		}
 		getHistory(this.getAttribute("targetId"), this.getAttribute("targetName"), this.getAttribute("targetType"));
 	});
-//	$("div.listAddr li:lt(4)").click(function() {
-//		getHistory(this.getAttribute("targetId"), this.getAttribute("targetName"), this.getAttribute("targetType"));
-//	});
+	//	$("div.listAddr li:lt(4)").click(function() {
+	//		getHistory(this.getAttribute("targetId"), this.getAttribute("targetName"), this.getAttribute("targetType"));
+	//	});
 	//var isJointed = false;
 	//		$("#discussionRoom").delegate('li', 'click', function() {
 	//			if (isJointed === false) {
@@ -215,7 +218,7 @@ $(function(undefined) {
 									console.log("群组");
 									break;
 								case RongIMClient.ConversationType.PRIVATE:
-								console.log("私聊");
+									console.log("私聊");
 									temp.getConversationTitle() || temp.setConversationTitle('陌生人:' + temp.getTargetId());
 							}
 						}
@@ -339,19 +342,19 @@ $(function(undefined) {
 						tempval.setConversationTitle('聊天室');
 						break;
 					case RongIMClient.ConversationType.CUSTOMER_SERVICE:
-					console.log("客服");
+						console.log("客服");
 						tempval.setConversationTitle('客服');
 						break;
 					case RongIMClient.ConversationType.DISCUSSION:
-					console.log("讨论组");
+						console.log("讨论组");
 						tempval.setConversationTitle('讨论组:' + data.getTargetId());
 						break;
 					case RongIMClient.ConversationType.GROUP:
-					console.log("未知群组");
+						console.log("未知群组");
 						tempval.setConversationTitle(namelist[temp.getTargetId()] || '未知群组');
 						break;
 					case RongIMClient.ConversationType.PRIVATE:
-					console.log("私聊");
+						console.log("私聊");
 						var person = $scope.friendsList.filter(function(item) {
 							return item.id == data.getTargetId();
 
