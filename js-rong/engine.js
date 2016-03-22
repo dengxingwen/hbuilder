@@ -32,8 +32,8 @@ $(function(undefined) {
 	//var conversationStr = '<li targetType="{1}" targetId="{aa}" targetName="{邓兴稳}"><span class="user_img"><img src={3} onerror="this.src=\'http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
 	//var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'../images-rong/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="../images-rong/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
 	
-	var conversationStr = '<li targetType="{0}" targetId="{1}" targetName="{2}"><span class="user_img"><img src={3} onerror="this.src=\'static/images/personPhoto.png\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
-	var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'static/images/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="static/images/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
+	var conversationStr = '<li targetType="{0}" targetId="{1}" targetName="{2}"><span class="user_img"><img src={3} onerror="this.src=\'../../images-rong/personPhoto.png\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
+	var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'../../images-rong/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="../../images-rong/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
 	var friendListStr = '<li targetType="1" targetId="aa" targetName="邓兴稳"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">邓兴稳</span></li><li targetType="1" targetId="bb" targetName="mark"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">mark</span></li>';
 	//var discussionStr = '<li targetId="{0}" targetName="{1}" targetType="{2}"><span class="user_img"><img src="../images-rong/user.png"/></span><span class="user_name">{3}</span></li>';
 	////	if (list.length == 3) {
@@ -56,11 +56,11 @@ $(function(undefined) {
 	//	//会话标题
 	$scope.conversationTitle = "";
 	//
-	//开启关闭声音
-	$("#closeVoice").click(function() {
-		hasSound = !hasSound;
-		this.innerHTML = hasSound ? "开启声音" : "关闭声音";
-	});
+//	//开启关闭声音
+//	$("#closeVoice").click(function() {
+//		hasSound = !hasSound;
+//		this.innerHTML = hasSound ? "开启声音" : "关闭声音";
+//	});
 	//	//退出
 	//	$(".logOut>a,#close").click(function() {
 	//		$.get("/logout?_=" + Date.now()).done(function() {
@@ -394,7 +394,7 @@ $(function(undefined) {
 	function initConversationList() {
 		_html = "";
 		$scope.ConversationList.forEach(function(item) {
-			_html += String.stringFormat(conversationStr, item.getConversationType().valueOf(), item.getTargetId(), item.getConversationTitle(), "../images-rong/personPhoto.png", item.getUnreadMessageCount() == 0 ? "hidden" : "", item.getUnreadMessageCount(), item.getConversationTitle(), new Date(+item.getLatestTime()).toString().split(" ")[4]);
+			_html += String.stringFormat(conversationStr, item.getConversationType().valueOf(), item.getTargetId(), item.getConversationTitle(), "../../images-rong/personPhoto.png", item.getUnreadMessageCount() == 0 ? "hidden" : "", item.getUnreadMessageCount(), item.getConversationTitle(), new Date(+item.getLatestTime()).toString().split(" ")[4]);
 		});
 		$("#conversationlist").html(_html);
 	}
@@ -431,7 +431,7 @@ $(function(undefined) {
 		$("#conversationTitle").html($scope.conversationTitle);
 		_html = "";
 		$scope.historyMessages.forEach(function(item) {
-			_html += String.stringFormat(historyStr, item.getMessageDirection() == 0 ? "other_user" : "self", item.getMessageDirection() == 1 ? owner.portrait : "../images-rong/personPhoto.png", "", item.getMessageDirection() == 0 ? 'white_arrow.png' : 'blue_arrow.png', myUtil.msgType(item), item.getMessageId());
+			_html += String.stringFormat(historyStr, item.getMessageDirection() == 0 ? "other_user" : "self", item.getMessageDirection() == 1 ? owner.portrait : "../../images-rong/personPhoto.png", "", item.getMessageDirection() == 0 ? 'white_arrow.png' : 'blue_arrow.png', myUtil.msgType(item), item.getMessageId());
 		});
 		if (again == 1 && _html) {
 			_html += "<div class='historySymbol'>已上为历史消息</div>";

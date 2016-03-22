@@ -1,261 +1,270 @@
 {
-  "layout/ScoreInquir.html": {
-    "href": "layout/ScoreInquir.html",
-    "resources": [
-      "css/mui.min.css",
-      "layout/MainTab.html"
-    ],
-    "refer": [
-      "layout/MainTab.html"
-    ],
-    "priority": 0
-  },
-  "layout/ScoreInput.html": {
-    "href": "layout/ScoreInput.html",
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "layout/MainTab.html",
-      "fonts/mui.ttf"
-    ],
-    "refer": [
-      "layout/MainTab.html"
-    ],
-    "priority": 0
-  },
-  "layout/ScoreInclass.html": {
-    "href": "layout/ScoreInclass.html",
-    "resources": [
-      "css/mui.min.css",
-      "fonts/mui.ttf",
-      "layout/MainTab.html"
-    ],
-    "refer": [
-      "layout/MainTab.html"
-    ],
-    "priority": 0
-  },
-  "layout/Late.html": {
-    "href": "layout/Late.html",
-    "resources": [
-      "css/mui.min.css"
-    ],
-    "refer": [
-      "layout/MainTab.html"
-    ],
-    "priority": 0
-  },
-  "layout/Notto.html": {
-    "href": "layout/Notto.html",
-    "resources": [
-      "css/mui.min.css"
-    ],
-    "refer": [
-      "layout/MainTab.html"
-    ],
-    "priority": 0
-  },
-  "layout/Leavearly.html": {
-    "href": "layout/Leavearly.html",
-    "resources": [
-      "css/mui.min.css"
-    ],
-    "refer": [
-      "layout/MainTab.html"
-    ],
-    "priority": 0
-  },
-  "layout/MainTab.html": {
-    "href": "layout/MainTab.html",
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "images/02.jpg",
-      "images/01.jpg",
-      "images/03.jpg",
-      "images/04.jpg",
-      "images/06.jpg",
-      "layout/LoginTeacher.html",
-      "fonts/mui.ttf",
-      "layout/ScoreInquir.html",
-      "layout/ScoreInput.html"
-    ],
-    "refer": [
-      "layout/ScoreInquir.html",
-      "layout/ScoreInput.html",
-      "layout/ScoreInclass.html",
-      "layout/Late.html",
-      "layout/Notto.html",
-      "layout/Leavearly.html",
-      "layout/LoginTeacher.html"
-    ],
-    "priority": 0
-  },
-  "layout/LoginTeacher.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "fonts/mui.ttf",
-      "layout/MainTab.html",
-      "layout/ScoreInclass.html",
-      "layout/TeacherRegister.html"
-    ],
-    "refer": [
-      "layout/MainTab.html",
-      "layout/ScoreInclass.html",
-      "layout/TeacherRegister.html"
-    ]
-  },
-  "layout/TeacherRegister.html": {
-    "resources": [
-      "layout/LoginTeacher.html",
-      "fonts/mui.ttf",
-      "js/mui.min.js",
-      "css/mui.min.css"
-    ],
-    "refer": [
-      "layout/LoginTeacher.html"
-    ]
-  },
-  "Teacher/LoginRegister/LoginTeacher.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "Teacher/MainTabtTeacher.html",
-      "fonts/mui.ttf",
-      "Teacher/LoginRegister/TeacherRegister.html"
-    ],
-    "refer": [
-      "Teacher/MainTabtTeacher.html",
-      "Teacher/LoginRegister/TeacherRegister.html"
-    ]
-  },
-  "Teacher/MainTabtTeacher.html": {
-    "resources": [
-      "images/04.jpg",
-      "images/02.jpg",
-      "images/06.jpg",
-      "images/03.jpg",
-      "fonts/mui.ttf",
-      "images/01.jpg",
-      "Teacher/LoginRegister/LoginTeacher.html",
-      "css/app.css",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "js/jquery-2.2.1.js"
-    ],
-    "refer": [
-      "Teacher/score/classscore/Classwork.html",
-      "Teacher/score/classscore/Attendance.html",
-      "Teacher/score/classscore/ClassPerformance.html",
-      "Teacher/score/classscore/ActivityScore.html",
-      "Teacher/LoginRegister/LoginTeacher.html",
-      "Teacher/SettingClass.html",
-      "Teacher/chat/chat.html"
-    ]
-  },
-  "Teacher/score/classscore/Classwork.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css"
-    ],
-    "refer": []
-  },
-  "Teacher/score/classscore/ClassPerformance.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css"
-    ],
-    "refer": []
-  },
-  "Teacher/score/classscore/ActivityScore.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css"
-    ],
-    "refer": []
-  },
-  "Teacher/score/classscore/Attendance.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/app.css",
-      "js/jquery-2.2.1.js",
-      "js/jquery.json.js"
-    ],
-    "refer": []
-  },
-  "Teacher/LoginRegister/TeacherRegister.html": {
-    "resources": [
-      "fonts/mui.ttf",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "Teacher/LoginRegister/LoginTeacher.html"
-    ],
-    "refer": [
-      "Teacher/LoginRegister/LoginTeacher.html"
-    ]
-  },
-  "Teacher/SettingClass.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "js/mui.picker.js",
-      "js/mui.poppicker.js",
-      "js/city.data.js",
-      "css/mui.poppicker.css",
-      "js/pickerClass.js",
-      "css/mui.picker.css"
-    ],
-    "refer": []
-  },
-  "students/StudentRegister.html": {
-    "resources": [
-      "fonts/mui.ttf",
-      "students/LoginStu.html"
-    ],
-    "refer": [
-      "students/LoginStu.html"
-    ]
-  },
-  "students/LoginStu.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "students/StudentRegister.html",
-      "students/MainTabStu.html"
-    ],
-    "refer": [
-      "students/StudentRegister.html"
-    ]
-  },
-  "students/MainTabStu.html": {
-    "resources": [
-      "images/04.jpg",
-      "images/02.jpg",
-      "images/06.jpg",
-      "images/03.jpg",
-      "css/app.css",
-      "images/01.jpg",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "students/LoginStu.html"
-    ],
-    "refer": [
-      "students/LoginStu.html"
-    ]
-  },
-  "Teacher/chat/chat.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css"
-    ]
-  }
+	"layout/ScoreInquir.html": {
+		"href": "layout/ScoreInquir.html",
+		"resources": [
+			"css/mui.min.css",
+			"layout/MainTab.html"
+		],
+		"refer": [
+			"layout/MainTab.html"
+		],
+		"priority": 0
+	},
+	"layout/ScoreInput.html": {
+		"href": "layout/ScoreInput.html",
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"layout/MainTab.html",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"layout/MainTab.html"
+		],
+		"priority": 0
+	},
+	"layout/ScoreInclass.html": {
+		"href": "layout/ScoreInclass.html",
+		"resources": [
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"layout/MainTab.html"
+		],
+		"refer": [
+			"layout/MainTab.html"
+		],
+		"priority": 0
+	},
+	"layout/Late.html": {
+		"href": "layout/Late.html",
+		"resources": [
+			"css/mui.min.css"
+		],
+		"refer": [
+			"layout/MainTab.html"
+		],
+		"priority": 0
+	},
+	"layout/Notto.html": {
+		"href": "layout/Notto.html",
+		"resources": [
+			"css/mui.min.css"
+		],
+		"refer": [
+			"layout/MainTab.html"
+		],
+		"priority": 0
+	},
+	"layout/Leavearly.html": {
+		"href": "layout/Leavearly.html",
+		"resources": [
+			"css/mui.min.css"
+		],
+		"refer": [
+			"layout/MainTab.html"
+		],
+		"priority": 0
+	},
+	"layout/MainTab.html": {
+		"href": "layout/MainTab.html",
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/02.jpg",
+			"images/01.jpg",
+			"images/03.jpg",
+			"images/04.jpg",
+			"images/06.jpg",
+			"layout/LoginTeacher.html",
+			"fonts/mui.ttf",
+			"layout/ScoreInquir.html",
+			"layout/ScoreInput.html"
+		],
+		"refer": [
+			"layout/ScoreInquir.html",
+			"layout/ScoreInput.html",
+			"layout/ScoreInclass.html",
+			"layout/Late.html",
+			"layout/Notto.html",
+			"layout/Leavearly.html",
+			"layout/LoginTeacher.html"
+		],
+		"priority": 0
+	},
+	"layout/LoginTeacher.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"layout/MainTab.html",
+			"layout/ScoreInclass.html",
+			"layout/TeacherRegister.html"
+		],
+		"refer": [
+			"layout/MainTab.html",
+			"layout/ScoreInclass.html",
+			"layout/TeacherRegister.html"
+		]
+	},
+	"layout/TeacherRegister.html": {
+		"resources": [
+			"layout/LoginTeacher.html",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"layout/LoginTeacher.html"
+		]
+	},
+	"Teacher/LoginRegister/LoginTeacher.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"Teacher/MainTabtTeacher.html",
+			"fonts/mui.ttf",
+			"Teacher/LoginRegister/TeacherRegister.html"
+		],
+		"refer": [
+			"Teacher/MainTabtTeacher.html",
+			"Teacher/LoginRegister/TeacherRegister.html"
+		]
+	},
+	"Teacher/MainTabtTeacher.html": {
+		"resources": [
+			"images/04.jpg",
+			"images/02.jpg",
+			"images/06.jpg",
+			"images/03.jpg",
+			"fonts/mui.ttf",
+			"images/01.jpg",
+			"Teacher/LoginRegister/LoginTeacher.html",
+			"css/app.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/jquery-2.2.1.js"
+		],
+		"refer": [
+			"Teacher/score/classscore/Classwork.html",
+			"Teacher/score/classscore/Attendance.html",
+			"Teacher/score/classscore/ClassPerformance.html",
+			"Teacher/score/classscore/ActivityScore.html",
+			"Teacher/LoginRegister/LoginTeacher.html",
+			"Teacher/SettingClass.html",
+			"Teacher/chat/chat.html"
+		]
+	},
+	"Teacher/score/classscore/Classwork.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"Teacher/score/classscore/ClassPerformance.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"Teacher/score/classscore/ActivityScore.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"Teacher/score/classscore/Attendance.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/app.css",
+			"js/jquery-2.2.1.js",
+			"js/jquery.json.js"
+		],
+		"refer": []
+	},
+	"Teacher/LoginRegister/TeacherRegister.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"Teacher/LoginRegister/LoginTeacher.html"
+		],
+		"refer": [
+			"Teacher/LoginRegister/LoginTeacher.html"
+		]
+	},
+	"Teacher/SettingClass.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.picker.js",
+			"js/mui.poppicker.js",
+			"js/city.data.js",
+			"css/mui.poppicker.css",
+			"js/pickerClass.js",
+			"css/mui.picker.css"
+		],
+		"refer": []
+	},
+	"students/StudentRegister.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"students/LoginStu.html"
+		],
+		"refer": [
+			"students/LoginStu.html"
+		]
+	},
+	"students/LoginStu.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"students/StudentRegister.html",
+			"students/MainTabStu.html"
+		],
+		"refer": [
+			"students/StudentRegister.html"
+		]
+	},
+	"students/MainTabStu.html": {
+		"resources": [
+			"images/04.jpg",
+			"images/02.jpg",
+			"images/06.jpg",
+			"images/03.jpg",
+			"css/app.css",
+			"images/01.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"students/LoginStu.html"
+		],
+		"refer": [
+			"students/LoginStu.html"
+		]
+	},
+	"Teacher/chat/chat.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js-rong/jquery.nicescroll.js",
+			"js-rong/jquery-1.8.2.min.js",
+			"images-rong/personPhoto.png",
+			"images-rong/sms-received.mp3",
+			"css/main.css",
+			"js-rong/common.js",
+			"js-rong/engine.js",
+			"images-rong/blue_arrow.png",
+			"images-rong/white_arrow.png"
+		]
+	}
 }

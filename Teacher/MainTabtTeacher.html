@@ -103,19 +103,7 @@
 				var word = ['1分', '2分', '3分', "4分", "5分"]
 				for (i = 0; i < len; i++) {
 					star_li[i].index = i;
-					star_li[i].onmouseover = function() {
-							star_word.style.display = "block";
-							//						star_word.innerHTML = word[this.index];
-							//							for (i = 0; i <= this.index; i++) {
-							//								star_li[i].className = "act";
-							//							}
-						}
-						//					star_li[i].onmouseout = function() {
-						//						star_word.style.display = "none";
-						//						//																	for (i = 0; i < len; i++) {
-						//						//																		star_li[i].className = "";
-						//						//																	}
-						//					}
+					
 					star_li[i].onclick = function() {
 						//						result.innerHTML = (this.index + 1) + "分";
 						star_word.style.display = "block";
@@ -482,7 +470,7 @@
 			//进入聊天界面
 			document.getElementById('chat').addEventListener('tap', function() {
 				console.log("进入聊天界面");
-				console.log("测试是否还存在token"+token);
+				console.log("测试是否还存在token" + token);
 				mui.openWindow({
 					url: "chat/chat.html",
 					id: "chat",
@@ -491,8 +479,7 @@
 						duration: 300
 					},
 					extras: {
-						
-						tokenvalue:token
+						tokenvalue: token
 					}
 				});
 			});
