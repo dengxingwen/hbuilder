@@ -50,9 +50,9 @@
 		</style>
 		<style>
 			.wrapper {
-				padding-top: 10px;
-				width: 300px;
-				background-color: lightcyan;
+				padding: 10px;
+				width: 100%;
+				background-color: ghostwhite;
 				height: 150px;
 				font: 14px/1.5 arial;
 				text-align: center;
@@ -77,7 +77,7 @@
 			}
 			
 			#star .act {
-				color: #c00
+				color: dodgerblue;
 			}
 			
 			#star_word {
@@ -103,10 +103,9 @@
 				var word = ['1分', '2分', '3分', "4分", "5分"]
 				for (i = 0; i < len; i++) {
 					star_li[i].index = i;
-					
 					star_li[i].onclick = function() {
-						//						result.innerHTML = (this.index + 1) + "分";
-						star_word.style.display = "block";
+						//result.innerHTML = (this.index + 1) + "分";
+						//star_word.style.display = "block";
 						star_word.innerHTML = word[this.index];
 						for (i = 0; i < len; i++) {
 							star_li[i].className = "";
@@ -159,7 +158,7 @@
 			</a>
 		</nav>
 		<div class="mui-content">
-			<div id="tabbar" class="mui-control-content mui-active" style="height: 100%;">
+			<div id="tabbar" class="mui-control-content mui-active">
 				<!--
                 	作者：张敏
                 	时间：2016-02-16
@@ -489,7 +488,7 @@
 			data: {},
 			dataType: 'json',
 			type: 'post',
-			timeout: 1000,
+			timeout: 300,
 			success: function(data) {
 				console.log("success 获取姓名成功");
 				console.log(data['code']);
