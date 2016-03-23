@@ -47,6 +47,11 @@
 			oa-contact-position {
 				float: left;
 			}
+			
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
 		</style>
 		<style>
 			.wrapper {
@@ -137,7 +142,7 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<a id="addclassseting" class="mui-icon mui-icon-plusempty mui-pull-right" style="color: #999;"></a>
+			<a id="addclassseting" class="mui-icon mui-icon-gear mui-pull-right" style="color: #999;"></a>
 			<h1 id="navtitle" class="mui-title">首页</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
@@ -165,7 +170,7 @@
                 	时间：2016-02-16
                 	描述：用来显示姓名
                 -->
-				<div style="margin-top: 0px;background-color: lightgray;padding-top: 15px;height: 350px;" align="center">
+				<div style="margin-top: 0px;background-color: lightgrey;padding-top: 15px;height: 280px;" align="center">
 					<div id="showNameText" style="font-size:20px; color:dodgerblue;text-align: center;height: 44px;"></div>
 					<div class="wrapper">
 						<!--打分结果
@@ -185,7 +190,7 @@
 					</div>
 
 					<div>
-						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:44px;position: absolute;bottom: 20px;left: 50%;margin-left: -30%;">开始</button>
+						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:44px;position: absolute;bottom: 10px;left: 50%;margin-left: -30%;">随机点名</button>
 					</div>
 				</div>
 
@@ -208,7 +213,7 @@
 						<ul class="mui-table-view mui-grid-view mui-grid-9">
 							<li id="attendance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
 								<a href="#">
-									<span class="mui-icon mui-icon-home"></span>
+									<span class="mui-icon mui-icon-personadd"></span>
 									<div class="mui-media-body">出勤</div>
 								</a>
 							</li>
@@ -235,7 +240,23 @@
 
 					</div>
 					<div id="finalscore" class="mui-control-content">
-						<h1>期末总评界面</h1>
+
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+							<li id="inputscore" class="mui-table-view-cell mui-media mui-col-xs-12 mui-col-sm-12">
+								<a href="#">
+									<span class="mui-icon mui-icon-plus"></span>
+									<div class="mui-media-body">录入成绩</div>
+								</a>
+							</li>
+							<li id="finalsummary" class="mui-table-view-cell mui-media mui-col-xs-12 mui-col-sm-12">
+								<a href="#">
+									<span class="mui-icon mui-icon-search"></span>
+									<div class="mui-media-body">期末汇总</div>
+								</a>
+							</li>
+
+						</ul>
+
 					</div>
 
 				</div>
@@ -339,8 +360,19 @@
 				</ul>
 			</div>
 			<div id="tabbar-with-map" class="mui-control-content ">
-				<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>
-				<ul class="mui-table-view ">
+				<!--<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>-->
+				<ul id="mesetting" class="mui-table-view mui-table-view-chevron" style="margin-top: 25px; ">
+					<li class="mui-table-view-cell mui-media">
+						<a class="mui-navigate-right" href="#account">
+							<img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/04.jpg">
+							<div class="mui-media-body">
+								我的课堂
+								<p class='mui-ellipsis'>账号:cc</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view" style="margin-top: 25px; ">
 					<li class="mui-table-view-cell ">
 						<a class="mui-navigate-right ">
 						新消息通知
@@ -365,13 +397,17 @@
 					</li>
 				</ul>
 				<ul class="mui-table-view " style="margin-top: 25px; ">
-					<li class="mui-table-view-cell ">
-						<a style="text-align: center;color: #FF3B30; " href="LoginRegister/LoginTeacher.html">
+					<li class="mui-table-view-cell mui-action-back">
+						<!--<a style="text-align: center;color: #FF3B30; " href="LoginRegister/LoginTeacher.html">-->
 						退出登录
 					</a>
 					</li>
 				</ul>
 			</div>
+			
+			
+			
+			
 		</div>
 
 	</body>
@@ -411,7 +447,7 @@
 					start = false;
 				} else {
 					clearTimeout(idd);
-					randomnamebutton.innerHTML = "点名";
+					randomnamebutton.innerHTML = "随机点名";
 					start = true;
 				}
 			});
@@ -483,6 +519,24 @@
 					}
 				});
 			});
+			document.getElementById('mesetting').addEventListener('tap',function(){
+				console.log("进入我的设置");
+								mui.openWindow({
+					url: "me/MeSetting.html",
+					id: "mesetting",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {
+						
+					}
+				});
+				
+				
+			});
+			
+			
 		});
 		//获取班级所有学生姓名
 		mui.ajax('http://192.168.1.101:8085/teacher/studentNameList', {
@@ -503,14 +557,15 @@
 					console.log(names);
 				} else {
 					console.log("400");
-					mui.alert('400错误', '失败', function() {
-						console.log("获取失败");
-					});
+					mui.toast("获取失败400");
+//					mui.alert('400错误', '失败', function() {
+//						console.log("获取失败");
+//					});
 				}
 			},
 			error: function() {
 				console.log("error");
-				mui.alert('请检查', '获取失败error', function() {});
+				mui.toast("获取失败error");
 			}
 		});
 	</script>
