@@ -3,13 +3,13 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>我的conio</title>
+		<title>教务</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
-		
+
 		<style>
 			.title {
 				margin: 20px 15px 10px;
@@ -47,46 +47,108 @@
 			oa-contact-position {
 				float: left;
 			}
+			
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
 		</style>
+		<style>
+			.wrapper {
+				padding: 10px;
+				width: 100%;
+				background-color: ghostwhite;
+				height: 150px;
+				font: 14px/1.5 arial;
+				text-align: center;
+				position: relative;
+				/*margin: 10px auto;*/
+			}
+			/*tab*/
+			
+			#star {
+				overflow: hidden;
+				padding: 4px 0;
+			}
+			
+			#star li {
+				float: left;
+				width: 20%;
+				height: 30px;
+				margin: 0px;
+				display: inline;
+				color: #999;
+				font: bold 18px arial;
+				cursor: pointer
+			}
+			
+			#star .act {
+				color: dodgerblue;
+			}
+			
+			#star_word {
+				width: 80%;
+				height: 30px;
+				line-height: 30px;
+				position: absolute;
+				left: 50%;
+				text-align: center;
+				display: none;
+			}
+		</style>
+
+		<script>
+			window.onload = function() {
+				var star = document.getElementById("star");
+				var star_li = star.getElementsByTagName("li");
+				var star_word = document.getElementById("star_word");
+				var result = document.getElementById("result");
+				var i = 0;
+				var j = 0;
+				var len = star_li.length;
+				var word = ['1分', '2分', '3分', "4分", "5分"]
+				for (i = 0; i < len; i++) {
+					star_li[i].index = i;
+					star_li[i].onclick = function() {
+						//result.innerHTML = (this.index + 1) + "分";
+						//star_word.style.display = "block";
+						star_word.innerHTML = word[this.index];
+						for (i = 0; i < len; i++) {
+							star_li[i].className = "";
+						}
+						for (i = 0; i <= this.index; i++) {
+							star_li[i].className = "act";
+						}
+					}
+				}
+			}
+		</script>
 		<!--
-        	作者：970518209@qq.com
+        	作者：张敏
         	时间：2016-02-16
         	描述：这是随机点名的函数
         -->
 		<script type="text/javascript">
-			var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
-
-			function showName() {
-				var index = Math.floor(Math.random() * names.length);
-				var name = names[index];
-				document.getElementById("showView").innerHTML = name;
-				idd = setTimeout("showName()", 8);
-			}
+			//用于存放网络获取的姓名
+			var names = new Array();
+			//按钮状态
 			var start = true;
 			var idd;
-
-			function sssss() {
-				if (start) {
-					showName();
-					start = false;
-				} else {
-					clearTimeout(idd);
-					start = true;
-				}
-			}
+			var token = "";
+			//	var names = new Array("小赵", "小田", "小孙", "小李", "小周", "小吴", "小郑", "小王");
 		</script>
 
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		<a id="addclassseting" class="mui-icon mui-icon-plusempty mui-pull-right" style="color: #999;"></a>
-			<h1 class="mui-title">模拟教务</h1>
+			<a id="addclassseting" class="mui-icon mui-icon-gear mui-pull-right" style="color: #999;"></a>
+			<h1 id="navtitle" class="mui-title">首页</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar">
 				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">咻咻</span>
+				<span class="mui-tab-label">首页</span>
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-chat">
 				<span class="mui-icon mui-icon-email"></span>
@@ -103,19 +165,35 @@
 		</nav>
 		<div class="mui-content">
 			<div id="tabbar" class="mui-control-content mui-active">
-				<div class="title">这是准备做的教师端的第1个子页面.在这个页面做一个按钮做随机点名用</div>
 				<!--
-                	作者：970518209@qq.com
+                	作者：张敏
                 	时间：2016-02-16
                 	描述：用来显示姓名
                 -->
-				<div id="showView" style="font-size:20px; color:tomato;text-align: center;height: 44px;"></div>
+				<div style="margin-top: 0px;background-color: lightgrey;padding-top: 15px;height: 280px;" align="center">
+					<div id="showNameText" style="font-size:20px; color:dodgerblue;text-align: center;height: 44px;"></div>
+					<div class="wrapper">
+						<!--打分结果
+						<span id="result"></span>-->
+						<ul id="star">
+							<li>★</li>
+							<li>★</li>
+							<li>★</li>
+							<li>★</li>
+							<li>★</li>
+						</ul>
 
-				<div align="center" style="margin-top: 25%;">
-					<!--<input type="button" onclick="sssss()" value="start" ; "/>-->
-					<button type="button" class="mui-btn mui-btn-primary" onclick="sssss()" style="width:150px;height:40px;">开始</button>
+						<div id="star_word"></div>
+						<div style="position: absolute;bottom: 15px;right: 15px;">
+							<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="width:70px;height:35px;">提交</button>
+						</div>
+					</div>
 
+					<div>
+						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:44px;position: absolute;bottom: 10px;left: 50%;margin-left: -30%;">随机点名</button>
+					</div>
 				</div>
+
 			</div>
 			<div id="tabbar-with-chat" class="mui-control-content" align="center">
 
@@ -135,7 +213,7 @@
 						<ul class="mui-table-view mui-grid-view mui-grid-9">
 							<li id="attendance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
 								<a href="#">
-									<span class="mui-icon mui-icon-home"></span>
+									<span class="mui-icon mui-icon-personadd"></span>
 									<div class="mui-media-body">出勤</div>
 								</a>
 							</li>
@@ -162,14 +240,32 @@
 
 					</div>
 					<div id="finalscore" class="mui-control-content">
-						<h1>期末总评界面</h1>
+
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+							<li id="inputscore" class="mui-table-view-cell mui-media mui-col-xs-12 mui-col-sm-12">
+								<a href="#">
+									<span class="mui-icon mui-icon-plus"></span>
+									<div class="mui-media-body">录入成绩</div>
+								</a>
+							</li>
+							<li id="finalsummary" class="mui-table-view-cell mui-media mui-col-xs-12 mui-col-sm-12">
+								<a href="#">
+									<span class="mui-icon mui-icon-search"></span>
+									<div class="mui-media-body">期末汇总</div>
+								</a>
+							</li>
+
+						</ul>
+
 					</div>
 
 				</div>
 
 			</div>
 			<div id="tabbar-with-contact" class="mui-control-content ">
-				<div class="title ">这是教师端中的第3个子页面，该页面显示的是所有学生在班级里的职务及联系方式.</div>
+				<div class="title " align="center">
+					<button type="button" id="chat" class="mui-btn mui-btn-primary">聊天界面</button>
+				</div>
 				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed ">
 					<li class="mui-table-view-cell ">
 						<div class="mui-slider-cell ">
@@ -264,8 +360,19 @@
 				</ul>
 			</div>
 			<div id="tabbar-with-map" class="mui-control-content ">
-				<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>
-				<ul class="mui-table-view ">
+				<!--<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>-->
+				<ul id="mesetting" class="mui-table-view mui-table-view-chevron" style="margin-top: 25px; ">
+					<li class="mui-table-view-cell mui-media">
+						<a class="mui-navigate-right" href="#account">
+							<img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/04.jpg">
+							<div class="mui-media-body">
+								我的课堂
+								<p class='mui-ellipsis'>账号:cc</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view" style="margin-top: 25px; ">
 					<li class="mui-table-view-cell ">
 						<a class="mui-navigate-right ">
 						新消息通知
@@ -290,29 +397,60 @@
 					</li>
 				</ul>
 				<ul class="mui-table-view " style="margin-top: 25px; ">
-					<li class="mui-table-view-cell ">
-						<a style="text-align: center;color: #FF3B30; " href="LoginRegister/LoginTeacher.html">
+					<li class="mui-table-view-cell mui-action-back">
+						<!--<a style="text-align: center;color: #FF3B30; " href="LoginRegister/LoginTeacher.html">-->
 						退出登录
 					</a>
 					</li>
 				</ul>
 			</div>
+			
+			
+			
+			
 		</div>
 
 	</body>
 	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery-2.2.1.js"></script>
 	<script>
 		mui.init({
 			swipeBack: false //启用右滑关闭功能
 		});
 	</script>
 	<script type="text/javascript">
+		//随机点名
+		function showName() {
+			var index = Math.floor(Math.random() * names.length);
+			var name = names[index];
+			document.getElementById("showNameText").innerHTML = name;
+			idd = setTimeout("showName()", 8);
+		}
+		//所有点击事件建议这样做
 		mui.plusReady(function() {
+			//获取token
+			var self = plus.webview.currentWebview();
+			token = self.token;
+			console.log("token:" + token);
+			//
 			console.log("主页");
 			var attendance = document.getElementById("attendance");
 			var classperfomance = document.getElementById("classperfomance");
 			var classwork = document.getElementById("classwork");
 			var activityscore = document.getElementById("activityscore");
+			var randomnamebutton = document.getElementById("randomnamebutton"); //随机点名
+			randomnamebutton.addEventListener('tap', function() {
+				console.log("随机点名");
+				if (start) {
+					showName();
+					randomnamebutton.innerHTML = "停止";
+					start = false;
+				} else {
+					clearTimeout(idd);
+					randomnamebutton.innerHTML = "随机点名";
+					start = true;
+				}
+			});
 			attendance.addEventListener('tap', function() {
 				console.log("出勤");
 				mui.openWindow({
@@ -353,6 +491,82 @@
 					}
 				});
 			});
+			//切换选项卡切换 监听
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				//更换标题
+				document.getElementById('navtitle').innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				var tabtitle = this.querySelector('.mui-tab-label').innerHTML;
+				//判断只有当首页时显示右上角加号
+				if (this.querySelector('.mui-tab-label').innerHTML == "首页") {
+					$("#addclassseting").show();
+				} else {
+					$("#addclassseting").hide();
+				}
+			});
+			//进入聊天界面
+			document.getElementById('chat').addEventListener('tap', function() {
+				console.log("进入聊天界面");
+				console.log("测试是否还存在token" + token);
+				mui.openWindow({
+					url: "chat/chat.html",
+					id: "chat",
+					show: {
+						aniShow: 'zoom-fade-out',
+						duration: 300
+					},
+					extras: {
+						tokenvalue: token
+					}
+				});
+			});
+			document.getElementById('mesetting').addEventListener('tap',function(){
+				console.log("进入我的设置");
+								mui.openWindow({
+					url: "me/MeSetting.html",
+					id: "mesetting",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {
+						
+					}
+				});
+				
+				
+			});
+			
+			
+		});
+		//获取班级所有学生姓名
+		mui.ajax('http://192.168.1.101:8085/teacher/studentNameList', {
+			data: {},
+			dataType: 'json',
+			type: 'post',
+			timeout: 3000,
+			success: function(data) {
+				console.log("success 获取姓名成功");
+				console.log(data['code']);
+				if (data['code'] == 200) {
+					console.log("获取成功");
+					//					console.log(data['namelist']);
+					//					console.log(data['namelist'][1]);
+					for (var i = 0; i < data['namelist'].length; i++) {
+						names.push(data['namelist'][i]);
+					}
+					console.log(names);
+				} else {
+					console.log("400");
+					mui.toast("获取失败400");
+//					mui.alert('400错误', '失败', function() {
+//						console.log("获取失败");
+//					});
+				}
+			},
+			error: function() {
+				console.log("error");
+				mui.toast("获取失败error");
+			}
 		});
 	</script>
 

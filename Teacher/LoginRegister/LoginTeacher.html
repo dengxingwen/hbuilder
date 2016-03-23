@@ -45,27 +45,37 @@
 
 		<script type="text/javascript">
 			mui.plusReady(function() {
-				console.log("hahahahah");
+				console.log("登录准备");
 				var loginbt = document.getElementById("loginbt");
 				var register = document.getElementById("register");
 				var teaId = document.getElementById("teaId");
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
-					console.log("11111");
-					mui.ajax('http://192.168.0.101:8085/teacher/loginT', {
+					console.log("正在登录");
+					mui.ajax('http://192.168.1.101:8085/teacher/loginT', {
 						data: {
 							teaId: teaId.value,
 							password: password.value
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 5000,
+						timeout: 3000,
 						success: function(data) {
 							console.log("success");
 							console.log(data['code']);
 							if (data['code'] == 200) {
 								console.log("登录成功");
-								window.location.href = "../MainTabtTeacher.html";
+								console.log(data['token']);
+								//本地化数据
+								localStorage.teaId = teaId.value;
+								mui.openWindow({
+									url: '../MainTabtTeacher.html',
+									id: 'MainTabtTeacher',
+									extras: {
+										token: data['token']
+										
+									}
+								});
 							} else {
 								console.log("400");
 								mui.alert('请检查您的账号密码', '登录失败', function() {
@@ -76,14 +86,14 @@
 						},
 						error: function() {
 							console.log("error");
-							mui.alert('请检查', '注册失败error', function() {
+							mui.alert('请检查', '登录失败error', function() {
 								window.location.href = "../MainTabtTeacher.html";
 							});
 						}
 					})
 				})
 				register.addEventListener('tap', function() {
-					console.log("222");
+					console.log("点击注册");
 					window.location.href = "TeacherRegister.html";
 				})
 			});

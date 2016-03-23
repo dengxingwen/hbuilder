@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../../js/mui.min.js"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+			.mui-content {
+				margin-top: 12px;
+			}
+			.head {
+				height: 40px;
+			}
+			#head {
+				line-height: 40px;
+			}
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			#head-img1 {
+				position: absolute;
+				bottom: 10px;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">个人信息</h1>
+		</header>
+		<div class="mui-content">
+
+			<ul class="mui-table-view" style="margin-top: 15px; ">
+				<li class="mui-table-view-cell">
+					<a id="head" class="mui-navigate-right">头像
+								<span class="mui-pull-right head">
+									<img class="head-img mui-action-preview" id="head-img1" src="../../images/04.jpg"/>
+								</span>
+							</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>姓名<span class="mui-pull-right">张敏</span></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>账号<span class="mui-pull-right">CcMark@cc.com</span></a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px; ">
+				<li class="mui-table-view-cell">
+					<a>QQ号<span class="mui-pull-right">88888888</span></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>手机号<span class="mui-pull-right">18601234567</span></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>邮箱地址<span class="mui-pull-right">CcMark@cc.com</span></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

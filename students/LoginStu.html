@@ -52,7 +52,7 @@
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
 					console.log("正在登陆");
-					mui.ajax('http://192.168.0.111/user/loginS', {
+					mui.ajax('http://192.168.2.4:8085/user/loginS', {
 						data: {
 							stuId: account.value,
 							password: password.value

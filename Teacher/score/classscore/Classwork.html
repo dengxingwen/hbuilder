@@ -30,8 +30,54 @@
 		<div class="mui-content">
 
 			<h1>作业页</h1>
+			<button id="getnamelist" type="button" class="mui-btn mui-btn-blue">测试</button>
+			
+			
 		</div>
 
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				console.log("获取姓名列表");
+				var getnamelist = document.getElementById("getnamelist");
+				
+				getnamelist.addEventListener('tap', function() {
+					console.log("正在获取姓名列表");
+					mui.ajax('http://192.168.0.107:8085/user/getnamelist', {
+						data: {
+							
+						},
+						dataType: 'json',
+						type: 'post',
+						timeout: 5000,
+						success: function(data) {
+							console.log("success");
+							console.log(data['code']);
+							if (data['code'] == 200) {
+								console.log("获取成功");
+								console.log(data['namelist'])
+
+							} else {
+								console.log("400");
+								mui.alert('请检查您的账号密码', '登录失败', function() {
+									console.log("登录失败");
+									
+								});
+							}
+						},
+						error: function() {
+							console.log("error");
+							mui.alert('请检查', '注册失败error', function() {
+								
+							});
+						}
+					})
+				})
+				register.addEventListener('tap', function() {
+					console.log("222");
+					window.location.href = "TeacherRegister.html";
+				})
+			});
+		</script>
 	</body>
 
 </html>

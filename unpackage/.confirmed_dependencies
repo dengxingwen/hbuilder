@@ -141,7 +141,8 @@
 			"Teacher/LoginRegister/LoginTeacher.html",
 			"css/app.css",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/jquery-2.2.1.js"
 		],
 		"refer": [
 			"Teacher/score/classscore/Classwork.html",
@@ -149,7 +150,8 @@
 			"Teacher/score/classscore/ClassPerformance.html",
 			"Teacher/score/classscore/ActivityScore.html",
 			"Teacher/LoginRegister/LoginTeacher.html",
-			"Teacher/SettingClass.html"
+			"Teacher/SettingClass.html",
+			"Teacher/chat/chat.html"
 		]
 	},
 	"Teacher/score/classscore/Classwork.html": {
@@ -181,7 +183,9 @@
 			"js/mui.min.js",
 			"fonts/mui.ttf",
 			"css/mui.min.css",
-			"css/app.css"
+			"css/app.css",
+			"js/jquery-2.2.1.js",
+			"js/jquery.json.js"
 		],
 		"refer": []
 	},
@@ -207,6 +211,60 @@
 			"css/mui.poppicker.css",
 			"js/pickerClass.js",
 			"css/mui.picker.css"
+		],
+		"refer": []
+	},
+	"students/StudentRegister.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"students/LoginStu.html"
+		],
+		"refer": [
+			"students/LoginStu.html"
+		]
+	},
+	"students/LoginStu.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"students/StudentRegister.html",
+			"students/MainTabStu.html"
+		],
+		"refer": [
+			"students/StudentRegister.html"
+		]
+	},
+	"students/MainTabStu.html": {
+		"resources": [
+			"images/04.jpg",
+			"images/02.jpg",
+			"images/06.jpg",
+			"images/03.jpg",
+			"css/app.css",
+			"images/01.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"students/LoginStu.html"
+		],
+		"refer": [
+			"students/LoginStu.html"
+		]
+	},
+	"Teacher/chat/chat.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js-rong/jquery.nicescroll.js",
+			"js-rong/jquery-1.8.2.min.js",
+			"images-rong/personPhoto.png",
+			"images-rong/sms-received.mp3",
+			"css/main.css",
+			"js-rong/common.js",
+			"js-rong/engine.js",
+			"images-rong/blue_arrow.png",
+			"images-rong/white_arrow.png"
 		]
 	}
 }

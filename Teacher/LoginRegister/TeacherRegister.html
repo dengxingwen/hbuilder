@@ -21,6 +21,7 @@
 				height: 100%;
 			}
 		</style>
+
 	</head>
 
 	<body>
@@ -40,9 +41,18 @@
 					<input type="text" class="mui-input mui-input-clear" id="username" placeholder="请输入您的姓名" />
 				</div>
 				<div class="mui-input-row">
+					<label>性别:</label>
+					<select id="sexselect" style="color: #999;">
+						<option value="default">请选择您的性别</option>
+						<option value="男">男</option>
+						<option value="女">女</option>
+					</select>
+				</div>
+				<div class="mui-input-row">
 					<label for="">手机：</label>
 					<input type="text" class="mui-input mui-input-clear" id="phone" placeholder="请输入您的手机" />
 				</div>
+
 				<div class="mui-input-row">
 					<label for="">密码：</label>
 					<input type="password" class="mui-input mui-input-clear" id="password1" placeholder="请输入您的密码" />
@@ -63,34 +73,34 @@
 				var register = document.getElementById("register");
 				var teaId = document.getElementById("teaId");
 				var username = document.getElementById("username");
+				var sexselect = document.getElementById("sexselect");
 				var phone = document.getElementById("phone");
 				var password1 = document.getElementById("password1");
 				var password2 = document.getElementById("password2");
 				register.addEventListener('tap', function() {
 					console.log("11111");
-					mui.ajax('http://192.168.0.111/teacher/registerT', {
+					mui.ajax('http://192.168.1.101:8085/teacher/registerT', {
 						data: {
 							teaId: teaId.value,
 							username: username.value,
+							sex:sexselect.value,
 							phone: phone.value,
 							password: password1.value
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 5000,
+						timeout: 2000,
 						success: function(data) {
 							if (data['code'] == 200) {
 								mui.alert('请登录', '注册成功', function() {
 									window.location.href = "LoginTeacher.html";
 								});
 							} else {
-								mui.alert('请重新登录 400', '注册失败', function() {
-								});
+								mui.alert('请重新登录 400', '注册失败', function() {});
 							}
 						},
 						error: function() {
-							mui.alert('服务器错误', '注册失败', function() {
-							});
+							mui.alert('服务器错误', '注册失败', function() {});
 						}
 					})
 				})
