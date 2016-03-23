@@ -400,14 +400,11 @@
 					<li class="mui-table-view-cell mui-action-back">
 						<!--<a style="text-align: center;color: #FF3B30; " href="LoginRegister/LoginTeacher.html">-->
 						退出登录
-					</a>
+						</a>
 					</li>
 				</ul>
 			</div>
-			
-			
-			
-			
+
 		</div>
 
 	</body>
@@ -519,9 +516,9 @@
 					}
 				});
 			});
-			document.getElementById('mesetting').addEventListener('tap',function(){
+			document.getElementById('mesetting').addEventListener('tap', function() {
 				console.log("进入我的设置");
-								mui.openWindow({
+				mui.openWindow({
 					url: "me/MeSetting.html",
 					id: "mesetting",
 					show: {
@@ -529,14 +526,37 @@
 						duration: 300
 					},
 					extras: {
-						
 					}
 				});
-				
-				
 			});
-			
-			
+			//
+			document.getElementById('inputscore').addEventListener('tap', function() {
+				console.log("进入录入成绩");
+				mui.openWindow({
+					url: "score/Finalscore/InputScore.html",
+					id: "inputscore",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {
+					}
+				});
+			});
+			document.getElementById('finalsummary').addEventListener('tap', function() {
+				console.log("进入成绩汇总");
+				mui.openWindow({
+					url: "score/Finalscore/FinalSummary.html",
+					id: "finalsummary",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {
+					}
+				});
+			});
+			//
 		});
 		//获取班级所有学生姓名
 		mui.ajax('http://192.168.1.101:8085/teacher/studentNameList', {
@@ -558,9 +578,9 @@
 				} else {
 					console.log("400");
 					mui.toast("获取失败400");
-//					mui.alert('400错误', '失败', function() {
-//						console.log("获取失败");
-//					});
+					//					mui.alert('400错误', '失败', function() {
+					//						console.log("获取失败");
+					//					});
 				}
 			},
 			error: function() {
