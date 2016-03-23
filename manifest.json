@@ -305,7 +305,8 @@
 					"css/mui.min.css",
 					"Teacher/MainTabtTeacher.html",
 					"fonts/mui.ttf",
-					"Teacher/LoginRegister/TeacherRegister.html"
+					"Teacher/LoginRegister/TeacherRegister.html",
+					"js/ServerIP.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -322,7 +323,8 @@
 					"css/app.css",
 					"js/mui.min.js",
 					"css/mui.min.css",
-					"js/jquery-2.2.1.js"
+					"js/jquery-2.2.1.js",
+					"js/ServerIP.js"
 				],
 				"refer": [
 					"Teacher/score/classscore/Classwork.html",
@@ -330,7 +332,10 @@
 					"Teacher/score/classscore/ClassPerformance.html",
 					"Teacher/score/classscore/ActivityScore.html",
 					"Teacher/SettingClass.html",
-					"Teacher/chat/chat.html"
+					"Teacher/chat/chat.html",
+					"Teacher/score/Finalscore/FinalSummary.html",
+					"Teacher/score/Finalscore/InputScore.html",
+					"Teacher/me/MeSetting.html"
 				],
 				"priority": 0
 			},
@@ -393,7 +398,10 @@
 					"js/city.data.js",
 					"css/mui.poppicker.css",
 					"js/pickerClass.js",
-					"css/mui.picker.css"
+					"css/mui.picker.css",
+					"js/jquery.json.js",
+					"js/pickerMajor.js",
+					"js/pickerCourse.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -445,7 +453,37 @@
 					"js-rong/common.js",
 					"js-rong/engine.js",
 					"images-rong/blue_arrow.png",
-					"images-rong/white_arrow.png"
+					"images-rong/white_arrow.png",
+					"images-rong/icons.min.png",
+					"images-rong/icons_phone.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Teacher/score/Finalscore/FinalSummary.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Teacher/score/Finalscore/InputScore.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Teacher/me/MeSetting.html": {
+				"resources": [
+					"images/04.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0
