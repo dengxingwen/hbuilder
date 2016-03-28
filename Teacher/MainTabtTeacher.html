@@ -57,6 +57,7 @@
 			.mui-table-view span.mui-pull-right {
 				color: #999;
 			}
+			
 			.update {
 				font-style: normal;
 				color: #999999;
@@ -142,6 +143,7 @@
 		<script type="text/javascript">
 			//用于存放网络获取的姓名
 			var names = new Array();
+			var allStudentInfo = new Array();
 			//按钮状态
 			var start = true;
 			var idd;
@@ -167,7 +169,7 @@
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-contact">
 				<span class="mui-icon mui-icon-chatbubble"></span>
-				<span class="mui-tab-label">通讯录</span>
+				<span class="mui-tab-label">学生</span>
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-map">
 				<span class="mui-icon mui-icon-person"></span>
@@ -181,9 +183,8 @@
                 	时间：2016-02-16
                 	描述：用来显示姓名
                 -->
-                <div id="secend" style="background-color: #ADADAD;height: 100px;margin-top: 2px;">
-					
-					
+				<div id="secend" style="background-color: #ADADAD;height: 100px;margin-top: 2px;">
+
 				</div>
 				<div style="position: relative;margin-top: 2px;background-color: #ADADAD;padding-top: 15px;height: 280px;" align="center">
 					<div id="showNameText" style="font-size:20px; color:dodgerblue;text-align: center;height: 44px;"></div>
@@ -208,7 +209,6 @@
 						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:40px;position: absolute;bottom: 10px;left: 50%;margin-left: -30%;">随机点名</button>
 					</div>
 				</div>
-				
 
 			</div>
 			<div id="tabbar-with-chat" class="mui-control-content" align="center">
@@ -306,7 +306,7 @@
 			</div>
 			<div id="tabbar-with-map" class="mui-control-content ">
 				<!--<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>-->
-				
+
 				<!--<div id="MeBackView" style="background-color: dodgerblue;height: 200px;">
 					
 				</div>-->
@@ -314,7 +314,7 @@
 					<li class="mui-table-view-cell mui-media">
 						<a class="mui-navigate-right" href="#account">
 							<img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/04.jpg">
-							<div  class="mui-media-body">
+							<div class="mui-media-body">
 								我的课堂
 								<p id="userId" class='mui-ellipsis'>账号:cc</p>
 							</div>
@@ -338,15 +338,15 @@
 					</a>
 					</li>
 				</ul>
-				
-				<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 25px; ">
-							<li class="mui-table-view-cell">
-								<a href="#about" class="mui-navigate-right">关于 <i class="mui-pull-right update">V1.0.0</i></a>
-							</li>
-						</ul>
 
-				<ul class="mui-table-view" style="margin-top: 25px;">
-					<li class="mui-table-view-cell mui-action-back" style="text-align: center;">
+				<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 25px; ">
+					<li class="mui-table-view-cell">
+						<a href="#about" class="mui-navigate-right">关于 <i class="mui-pull-right update">V1.0.0</i></a>
+					</li>
+				</ul>
+
+				<ul class="mui-table-view mui-action-back" style="margin-top: 25px;">
+					<li class="mui-table-view-cell" style="text-align: center;">
 						<a>退出登录</a>
 					</li>
 				</ul>
@@ -365,8 +365,8 @@
 	<script type="text/javascript">
 		//随机点名
 		function showName() {
-			var index = Math.floor(Math.random() * names.length);
-			var name = names[index];
+			var index = Math.floor(Math.random() * allStudentInfo.length);
+			var name = allStudentInfo[index]["username"];
 			document.getElementById("showNameText").innerHTML = name;
 			idd = setTimeout("showName()", 8);
 		}
@@ -376,7 +376,6 @@
 			var self = plus.webview.currentWebview();
 			token = self.token;
 			console.log("token:" + token);
-			
 			document.getElementById("userId").innerHTML = localStorage.teaId;
 			//
 			console.log("主页");
@@ -504,8 +503,42 @@
 			});
 			//
 		});
-		//获取班级所有学生姓名
-		mui.ajax(serverIp+"/teacher/studentNameList", {
+		//		//获取班级所有学生姓名
+		//		mui.ajax(serverIp + "/teacher/studentNameList", {
+		//			data: {},
+		//			dataType: 'json',
+		//			type: 'post',
+		//			timeout: 3000,
+		//			success: function(data) {
+		//				console.log("success 获取姓名成功");
+		//				console.log(data['code']);
+		//				if (data['code'] == 200) {
+		//					console.log("获取成功");
+		//					//					console.log(data['namelist']);
+		//					//					console.log(data['namelist'][1]);
+		//					for (var i = 0; i < data['namelist'].length; i++) {
+		//						names.push(data['namelist'][i]);
+		//					}
+		//					console.log(names);
+		//					//本地化姓名列表
+		//					var nameStr = JSON.stringify(names);
+		//					localStorage.names = nameStr;
+		//					
+		//				} else {
+		//					console.log("400");
+		//					mui.toast("获取失败400");
+		//					//					mui.alert('400错误', '失败', function() {
+		//					//						console.log("获取失败");
+		//					//					});
+		//				}
+		//			},
+		//			error: function() {
+		//				console.log("error");
+		//				mui.toast("获取失败error");
+		//			}
+		//		});
+		//2.获取班级所有学生姓名信息
+		mui.ajax(serverIp + "/teacher/getStuNames", {
 			data: {},
 			dataType: 'json',
 			type: 'post',
@@ -515,12 +548,13 @@
 				console.log(data['code']);
 				if (data['code'] == 200) {
 					console.log("获取成功");
-					//					console.log(data['namelist']);
-					//					console.log(data['namelist'][1]);
-					for (var i = 0; i < data['namelist'].length; i++) {
-						names.push(data['namelist'][i]);
-					}
-					console.log(names);
+					allStudentInfo = data['allStudentInfo'];
+					//按学号排序
+					allStudentInfo.sort(function(x, y) {
+						return x.stuId > y.stuId ? 1 : -1;
+					});
+					//本地化姓名列表
+					localStorage.allStudentInfo = JSON.stringify(allStudentInfo);
 				} else {
 					console.log("400");
 					mui.toast("获取失败400");

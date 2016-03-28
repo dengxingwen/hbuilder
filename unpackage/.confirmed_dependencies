@@ -190,7 +190,8 @@
 			"css/mui.min.css",
 			"css/app.css",
 			"js/jquery-2.2.1.js",
-			"js/jquery.json.js"
+			"js/jquery.json.js",
+			"js/ServerIP.js"
 		],
 		"refer": []
 	},
@@ -218,7 +219,9 @@
 			"css/mui.picker.css",
 			"js/jquery.json.js",
 			"js/pickerMajor.js",
-			"js/pickerCourse.js"
+			"js/pickerCourse.js",
+			"js/jquery-2.2.1.js",
+			"js/ServerIP.js"
 		],
 		"refer": []
 	},
@@ -288,7 +291,9 @@
 		"resources": [
 			"js/mui.min.js",
 			"fonts/mui.ttf",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/jquery-2.2.1.js",
+			"js/ServerIP.js"
 		]
 	},
 	"Teacher/me/MeSetting.html": {

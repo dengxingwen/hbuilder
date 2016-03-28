@@ -31,7 +31,7 @@ $(function(undefined) {
 		$scope = {};
 	//var conversationStr = '<li targetType="{1}" targetId="{aa}" targetName="{邓兴稳}"><span class="user_img"><img src={3} onerror="this.src=\'http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
 	//var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'../images-rong/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="../images-rong/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
-	
+
 	var conversationStr = '<li targetType="{0}" targetId="{1}" targetName="{2}"><span class="user_img"><img src={3} onerror="this.src=\'../../images-rong/personPhoto.png\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
 	var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'../../images-rong/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="../../images-rong/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
 	var friendListStr = '<li targetType="1" targetId="aa" targetName="邓兴稳"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">邓兴稳</span></li><li targetType="1" targetId="bb" targetName="mark"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">mark</span></li>';
@@ -56,11 +56,11 @@ $(function(undefined) {
 	//	//会话标题
 	$scope.conversationTitle = "";
 	//
-//	//开启关闭声音
-//	$("#closeVoice").click(function() {
-//		hasSound = !hasSound;
-//		this.innerHTML = hasSound ? "开启声音" : "关闭声音";
-//	});
+	//	//开启关闭声音
+	//	$("#closeVoice").click(function() {
+	//		hasSound = !hasSound;
+	//		this.innerHTML = hasSound ? "开启声音" : "关闭声音";
+	//	});
 	//	//退出
 	//	$(".logOut>a,#close").click(function() {
 	//		$.get("/logout?_=" + Date.now()).done(function() {
@@ -97,9 +97,9 @@ $(function(undefined) {
 		}
 		getHistory(this.getAttribute("targetId"), this.getAttribute("targetName"), this.getAttribute("targetType"));
 	});
-	//	$("div.listAddr li:lt(4)").click(function() {
-	//		getHistory(this.getAttribute("targetId"), this.getAttribute("targetName"), this.getAttribute("targetType"));
-	//	});
+	$("div.listAddr li:lt(4)").click(function() {
+		getHistory(this.getAttribute("targetId"), this.getAttribute("targetName"), this.getAttribute("targetType"));
+	});
 	//var isJointed = false;
 	//		$("#discussionRoom").delegate('li', 'click', function() {
 	//			if (isJointed === false) {
@@ -136,10 +136,8 @@ $(function(undefined) {
 			RongIMClient.getInstance().createConversation(RongIMClient.ConversationType.setValue(conver), currentConversationTargetId, $("#conversationTitle").text());
 		}
 		//发送消息
-
-		var targetId = "aa"; // 目标 Id
 		var content = new RongIMClient.MessageContent(RongIMClient.TextMessage.obtain(myUtil.replaceSymbol(con)));
-		RongIMClient.getInstance().sendMessage(RongIMClient.ConversationType.PRIVATE, targetId, content, null, {
+		RongIMClient.getInstance().sendMessage(RongIMClient.ConversationType.setValue(conver), currentConversationTargetId, content, null, {
 			onSuccess: function() {
 				console.log("send successfully");
 			},
@@ -219,6 +217,7 @@ $(function(undefined) {
 									break;
 								case RongIMClient.ConversationType.PRIVATE:
 									console.log("私聊");
+									console.log("陌生人");
 									temp.getConversationTitle() || temp.setConversationTitle('陌生人:' + temp.getTargetId());
 							}
 						}
@@ -310,7 +309,7 @@ $(function(undefined) {
 				case RongIMClient.ConnectionStatus.LOGOUT:
 					//用户已被封禁
 				case RongIMClient.ConnectionStatus.BLOCK:
-					location.href = "/WebIMDemo/login.html";
+//					location.href = "/WebIMDemo/login.html";
 					break;
 			}
 		}
@@ -320,10 +319,10 @@ $(function(undefined) {
 		onReceived: function(data) {
 			//打印收到的消息
 			console.log(data.getContent());
-			console.log(data.getConversationType());
-			if (hasSound) {
+//			if (hasSound) {
 				audio.play();
-			}
+				console.log("播放音频");
+//			}
 
 			//如果接收的消息为通知类型或者状态类型的消息，什么都不执行
 			if (data instanceof RongIMClient.NotificationMessage || data instanceof RongIMClient.StatusMessage) {
@@ -364,6 +363,7 @@ $(function(undefined) {
 								tempval.setConversationTitle(x.getUserName());
 							},
 							onError: function() {
+								console.log("陌生人error");
 								tempval.setConversationTitle("陌生人Id：" + data.getTargetId());
 							}
 						});
@@ -394,7 +394,7 @@ $(function(undefined) {
 	function initConversationList() {
 		_html = "";
 		$scope.ConversationList.forEach(function(item) {
-			_html += String.stringFormat(conversationStr, item.getConversationType().valueOf(), item.getTargetId(), item.getConversationTitle(), "../../images-rong/personPhoto.png", item.getUnreadMessageCount() == 0 ? "hidden" : "", item.getUnreadMessageCount(), item.getConversationTitle(), new Date(+item.getLatestTime()).toString().split(" ")[4]);
+			_html += String.stringFormat(conversationStr, item.getConversationType().valueOf(), item.getTargetId(), item.getConversationTitle(), "http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg", item.getUnreadMessageCount() == 0 ? "hidden" : "", item.getUnreadMessageCount(), item.getConversationTitle(), new Date(+item.getLatestTime()).toString().split(" ")[4]);
 		});
 		$("#conversationlist").html(_html);
 	}
@@ -431,7 +431,7 @@ $(function(undefined) {
 		$("#conversationTitle").html($scope.conversationTitle);
 		_html = "";
 		$scope.historyMessages.forEach(function(item) {
-			_html += String.stringFormat(historyStr, item.getMessageDirection() == 0 ? "other_user" : "self", item.getMessageDirection() == 1 ? owner.portrait : "../../images-rong/personPhoto.png", "", item.getMessageDirection() == 0 ? 'white_arrow.png' : 'blue_arrow.png', myUtil.msgType(item), item.getMessageId());
+			_html += String.stringFormat(historyStr, item.getMessageDirection() == 0 ? "other_user" : "self", item.getMessageDirection() == 1 ? owner.portrait : "images-rong/personPhoto.png", "", item.getMessageDirection() == 0 ? 'white_arrow.png' : 'blue_arrow.png', myUtil.msgType(item), item.getMessageId());
 		});
 		if (again == 1 && _html) {
 			_html += "<div class='historySymbol'>已上为历史消息</div>";

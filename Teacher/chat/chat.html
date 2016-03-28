@@ -50,12 +50,12 @@
                     </span>
 				</div>
 				<div class="phone_dialog_header header">
-					<span class="logOut mui-action-back">
-                        <a href="javascript:void(0)" ng-click="logout()" title="退出"></a>
+					<span class="logOut">
+                        <a class="mui-action-back" href="javascript:void(0)" ng-click="logout()" title="退出"></a>
                     </span>
 					<span class="addrBtnBack btnBack">
                         <a href="javascript:void(0)" title="返回">＜ 返回</a>
-                </span>阿腿课堂
+                    </span>阿腿课堂
 					<span class="addrBtn">
                         <a href="javascript:void(0)" title="联系人"></a>
                     </span>
@@ -83,42 +83,8 @@
 					</ul>
 				</div>
 				<div class="listAddr list" style="">
-					<!--<div class="nameInitials">群组</div>
-					<ul>
-						<li targetId="cc" targetName="张敏" targetType="1">
-							<span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span>
-							<span class="user_name">张敏</span>
-						</li>
-						<li targetId="cc" targetName="张敏2" targetType="1">
-							<span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span>
-							<span class="user_name">张敏2</span>
-						</li>
-						<li targetId="cc" targetName="张敏3" targetType="1">
-							<span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span>
-							<span class="user_name">张敏3</span>
-						</li>
-					</ul>-->
-					<!--<div class="nameInitials">客服</div>
-					<ul>
-						<li targetId="kefu114" targetName="融云客服" targetType="1">
-							<span class="user_img"><img src="../../images-rong/user.png"/></span>
-							<span class="user_name">融云客服</span>
-						</li>
-					</ul>
-					<div class="nameInitials">聊天室</div>
-					<ul id="discussionRoom">
-						<li targetId="chatroom001" targetName="聊天室" targetType="0">
-							<span class="user_img"><img src="../../images-rong/user.png"/></span>
-							<span class="user_name">聊天室</span>
-						</li>
-					</ul>
-					<div class="nameInitials">讨论组</div>
-					<ul id="discussion">
-
-					</ul>-->
 					<div class="nameInitials">好友列表</div>
 					<ul id="friendsList">
-
 					</ul>
 				</div>
 			</div>
@@ -165,7 +131,7 @@
 	<script src="http://res.websdk.rongcloud.cn/RongIMClient.voice-0.9.1.min.js"></script>
 	<script src="http://res.websdk.rongcloud.cn/RongIMClient.emoji-0.9.2.min.js"></script>
 	<script src="../../js-rong/common.js" type="text/javascript" charset="utf-8"></script>
-	<audio style="width: 0px;height: 0px;display: none;" src="../../images-rong/sms-received.mp3" controls="controls">
+	<audio style="width: 0px;height: 0px;display: none;" src="../../images-rong/sms-received.mp3" id="audio" controls="controls">
 	</audio>
 
 </html>
