@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+			.mui-content {
+				margin-top: 0px;
+			}
+			
+			#selectpan {
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
+			<h1 id="title" class="mui-title" style="color: white;">首页</h1>
+		</header>
+		<div class="mui-content">
+
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../images/yuantiao.jpg">
+							<p class="mui-slider-title">静静看这世界</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/shuijiao.jpg">
+							<p class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/muwu.jpg">
+							<p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/cbd.jpg">
+							<p class="mui-slider-title">Color of SIP CBD</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/yuantiao.jpg">
+							<p class="mui-slider-title">静静看这世界</p>
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../images/shuijiao.jpg">
+							<p class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator mui-text-right">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<div id="selectpan">
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li id="attendance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a href="#">
+							<span class="mui-icon mui-icon-personadd"></span>
+							<div class="mui-media-body">课堂</div>
+						</a>
+					</li>
+					<li id="classperfomance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a href="#">
+							<span class="mui-icon mui-icon-email"></span>
+							<div class="mui-media-body">成绩</div>
+						</a>
+					</li>
+					<li id="classwork" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a href="#">
+							<span class="mui-icon mui-icon-chatbubble"></span>
+							<div class="mui-media-body">作业</div>
+						</a>
+					</li>
+					<li id="activityscore" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a href="#">
+							<span class="mui-icon mui-icon-location"></span>
+							<div class="mui-media-body">活动</div>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		mui.plusReady(function() {
+			var slider = mui("#slider");
+
+			function slidepic() {
+				slider.slider({
+					interval: 0
+				});
+			};
+			slidepic();
+		});
+	</script>
+
+</html>

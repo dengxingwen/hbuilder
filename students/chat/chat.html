@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html ng-app="RongIMDemo">
+
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="full-screen" content="yes">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<title>我的课堂</title>
+		<meta name="keywords" content="融云,即时通讯,即时通讯云,即时通信云,移动 IM,开源 IM,IM 云服务,即时聊天软件,VOIP,移动客服,在线客服,免费,App 开发者服务，融云 Demo ，Web Demo，即时通讯 Demo" />
+		<meta name="description" content="融云 Web Demo 下载体验！" />
+		<link rel="stylesheet" type="text/css" href="../../css/main.css?v=2" />
+		<link rel="shortcut icon" href="favicon.ico">
+
+		<script src="../../js/mui.min.js"></script>
+
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+		<!--<script type="text/javascript">
+			//所有点击事件建议这样做
+			mui.plusReady(function() {
+				//获取token
+				var self = plus.webview.currentWebview();
+				var tt = self.tokenvalue;
+				console.log("聊天页面收到的token:" + tt);
+			});
+		</script>-->
+	</head>
+
+	<body class="container">
+
+		<div class="bro_notice" style="z-index:1000;width:100%;position:fixed; background-color: #FCF8E3; color: #000;text-align: center;margin: 0 auto;display: none;">
+
+		</div>
+		<div class="wrap">
+			<div class="left">
+				<div class="dialog_header header">
+					<span class="owner_image">
+                        <img RCTarget="owner.portrait" onerror="this.src='../../images-rong/personPhoto.png'"/>
+                    </span>
+					<span class="owner_name" RCTarget="owner.name">
+                    </span>
+					<span class="setting">
+                        <a href="javascript:void(0)" id="setting"><label></label> </a>
+                    </span>
+				</div>
+				<div class="phone_dialog_header header">
+					<span class="logOut">
+                        <a  href="javascript:void(0)" ng-click="logout()" title="退出"></a>
+                    </span>
+					<span class="addrBtnBack btnBack">
+                        <a href="javascript:void(0)" title="返回">＜ 返回</a>
+                    </span>阿腿课堂
+					<span class="addrBtn">
+                        <a href="javascript:void(0)" title="联系人"></a>
+                    </span>
+				</div>
+				<div class="settingView">
+					<!--<span class="volSetting"><span class="hover" id="createDiscussion">创建讨论组</span></span>-->
+					<hr>
+					<span class="volSetting"><span class="hover" id="closeVoice">关闭声音</span></span>
+					<hr>
+					<span class="logOut"><span id="close" class="hover">退出登录</span></span>
+				</div>
+				<div class="listOperatorContent">
+					<div class="conversationBtn">
+						<a href="javascript:void(0)" title="聊天"><span><font id="totalunreadcount" class="msgNum"
+                                                                    style="display:none;"></font></span></a>
+					</div>
+					<div class="cutOffRule" style="width: 2px;"></div>
+					<div class="addrBtn selected">
+						<a href="javascript:void(0)" title="通讯录"><span></span></a>
+					</div>
+				</div>
+				<div class="listConversation list" style="display:none ;">
+					<ul id="conversationlist">
+
+					</ul>
+				</div>
+				<div class="listAddr list" style="">
+					<div class="nameInitials">好友列表</div>
+					<ul id="friendsList">
+					</ul>
+				</div>
+			</div>
+			<div class="right_box" style="display:none ;">
+				<div class="right" style="position: relative">
+					<div class="dialog_box_header header">
+						<a href="javascript:void(0)" class="btnBack">＜返回<label></label></a>
+						<span id="conversationTitle"></span>
+					</div>
+					<div id="notice" style="z-index: 1000;display: none;width: 100%;height: 30px;background: #ffffff;position: absolute;border: solid 1px #ccc;text-align: center;line-height: 30px;">
+
+					</div>
+					<div class="dialog_box">
+
+					</div>
+					<div class="msg_box">
+						<div class="features">
+							<span class="expression">
+                                <a href="javascript:void(0)" id="RongIMexpression" title="表情"></a>
+                            </span>
+						</div>
+						<div class="input_box">
+							<div class="button_box">
+								<div id="expresscontent"></div>
+								<span><button id="send">发送</button></span>
+								<span><font>Ctrl + Enter</font></span>
+							</div>
+							<div class="text_box">
+								<textarea class="textarea" id="mainContent" style="resize: none"></textarea>
+							</div>
+						</div>
+						<div class="RongIMexpressionWrap"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+	<script src="../../js-rong/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js-rong/jquery.nicescroll.js?v=2" type="text/javascript" charset="utf-8"></script>
+	<script src="http://res.websdk.rongcloud.cn/RongIMClient-0.9.11.min.js"></script>
+	<script src="../../js-rong/engine.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://res.websdk.rongcloud.cn/RongIMClient.voice-0.9.1.min.js"></script>
+	<script src="http://res.websdk.rongcloud.cn/RongIMClient.emoji-0.9.2.min.js"></script>
+	<script src="../../js-rong/common.js" type="text/javascript" charset="utf-8"></script>
+	<audio style="width: 0px;height: 0px;display: none;" src="../../images-rong/sms-received.mp3" id="audio" controls="controls">
+	</audio>
+
+</html>

@@ -6,6 +6,10 @@
  */
 
 $(function(undefined) {
+	//姓名列表变量
+	var stuNameList = {};
+	stuNameList = JSON.parse(localStorage.stuNameList);
+	
 	//私有变量
 	var currentConversationTargetId = "aa",
 		conver, _historyMessagesCache = {},
@@ -22,19 +26,45 @@ $(function(undefined) {
 		hasSound = true,
 		//登陆人员信息默认值
 		owner = {
-			id: "cc",
-			portrait: "http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png",
-			name: "张敏"
+//			id: "cc",
+//			portrait: "http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png",
+//			name: "张敏"
 		},
 		//初始化登陆人员信息
 		list = location.search.slice(1).split('&'),
 		$scope = {};
+		
+		//token = "fM75RS4bSLu4InfNS/VFK3ic37xlqnDFhgdhgmShDqNxLdxQbhy8GilpLEyard9sVG3YSeeqDP27JnbfbTlWHQ==";
+		token = localStorage.token;
+		
+		//获取本地本人信息
+		var myinfo = JSON.parse(localStorage.myInfo);
+		
+		owner = {
+			id: myinfo['id'],
+			portrait: myinfo['photo'],
+			name: myinfo['username']
+		}
+		
+		
 	//var conversationStr = '<li targetType="{1}" targetId="{aa}" targetName="{邓兴稳}"><span class="user_img"><img src={3} onerror="this.src=\'http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
 	//var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'../images-rong/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="../images-rong/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
 
 	var conversationStr = '<li targetType="{0}" targetId="{1}" targetName="{2}"><span class="user_img"><img src={3} onerror="this.src=\'../../images-rong/personPhoto.png\'"/><font class="conversation_msg_num {4}">{5}</font></span><span class="conversationInfo"><p style="margin-top: 10px"><font class="user_name">{6}</font><font class="date" >{7}</font></p></span></li>';
 	var historyStr = '<div class="xiaoxiti {0} user"><div class="user_img"><img onerror="this.src=\'../../images-rong/personPhoto.png\'" src="{1}"/></div><span>{2}</span><div class="msg"><div class="msgArrow"><img src="../../images-rong/{3}"> </div><span></span>{4}</div><div messageId="{5}" class="status"></div></div><div class="slice"></div>';
-	var friendListStr = '<li targetType="1" targetId="aa" targetName="邓兴稳"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">邓兴稳</span></li><li targetType="1" targetId="bb" targetName="mark"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">mark</span></li>';
+	var friendListStr = "";
+	
+	if(stuNameList.length != 0){
+		for (var i=0; i<stuNameList.length; i++) {
+			var str = '<li targetType="1" targetId='+stuNameList[i]["id"]+' targetName='+stuNameList[i]["username"]+'><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span><span class="user_name">'+stuNameList[i]["username"]+'</span></li>';
+			friendListStr += str;
+		}
+	}else{
+	    friendListStr = '<li targetType="1" targetId="aa" targetName="邓兴稳"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">邓兴稳</span></li><li targetType="1" targetId="bb" targetName="mark"><span class="user_img"><img src="http://ww2.sinaimg.cn/crop.0.0.1440.1440.1024/a219013ejw8eup91e3jxuj214014076y.jpg"/></span> <span class="user_name">mark</span></li>';
+	}
+	
+	
+	
 	//var discussionStr = '<li targetId="{0}" targetName="{1}" targetType="{2}"><span class="user_img"><img src="../images-rong/user.png"/></span><span class="user_name">{3}</span></li>';
 	////	if (list.length == 3) {
 	////		$.each(list, function(i, item) {
@@ -183,7 +213,7 @@ $(function(undefined) {
 	//      dataType: "json"
 	//  }).done(function (data) {
 	//      if (data.code == 200) {
-	token = "fM75RS4bSLu4InfNS/VFK3ic37xlqnDFhgdhgmShDqNxLdxQbhy8GilpLEyard9sVG3YSeeqDP27JnbfbTlWHQ==";
+	
 	//链接融云
 	RongIMClient.connect(token, {
 		onSuccess: function(x) {
