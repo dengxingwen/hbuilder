@@ -43,7 +43,7 @@ ul li {
 }
 
 .container {
-    background: #2eb0d6 url("../images/bg.min.png") no-repeat top;
+    background: #2eb0d6 url("../images-rong/bg.min.png") no-repeat top;
 }
 
 .wrap {
@@ -54,7 +54,7 @@ ul li {
 }
 
 .wrap .left {
-    background: url("../images/bg_left.min.png") no-repeat top;
+    background: url("../images-rong/bg_left.min.png") no-repeat top;
     width: 276px;
     max-height: 709px;
     margin-top: 47px;
@@ -65,13 +65,14 @@ ul li {
 }
 
 .wrap .header {
-    background-color: rgba(120, 208, 244, 0.6);
-    background: #78d0f4;
+    /*background-color: rgba(120, 208, 244, 0.6);
+    background: #78d0f4;*/
+   background-color: dodgerblue;
     filter: alpha(opacity=40);
 }
 
 .dialog_header {
-    height: 40px;
+    height: 44px;
 }
 
 .phone_dialog_header {
@@ -82,8 +83,8 @@ ul li {
     display: block;
     float: left;
     margin-left: 10px;
-    height: 40px;
-    line-height: 40px;
+    height: 44px;
+    line-height: 44px;
 }
 
 .dialog_header .owner_image {
@@ -99,7 +100,7 @@ ul li {
 
 .dialog_header .owner_name {
     font-size: 18px;
-    line-height: 40px;
+    line-height: 44px;
 }
 
 .dialog_header .setting {
@@ -115,8 +116,8 @@ ul li {
     cursor: pointer;
     display: block;
     width: 13px;
-    height: 40px;
-    background: url("../images/icons.min.png") no-repeat;
+    height: 44px;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -163px 15px;
 }
 
@@ -154,7 +155,7 @@ ul li {
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
 }
 
 .settingView span .hover {
@@ -178,7 +179,8 @@ ul li {
 
 .listOperatorContent {
     margin-top: 2px;
-    background-color: #23B4F1;
+    /*background-color: #23B4F1;*/
+    background-color: dodgerblue;
     height: 72px;
     position: relative;
     overflow: hidden;
@@ -213,7 +215,7 @@ ul li {
 }
 
 .listOperatorContent .conversationBtn a span {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     width: 40px;
     height: 35px;
     display: block;
@@ -223,7 +225,7 @@ ul li {
 }
 
 .listOperatorContent .conversationBtn.selected a span {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
 }
 
 .listOperatorContent .conversationBtn a font.msgNum {
@@ -236,13 +238,13 @@ ul li {
 }
 
 .listOperatorContent .cutOffRule {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     width: 2px;
     background-position: -178px 25px;
 }
 
 .listOperatorContent .addrBtn a span {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -130px -41px;
     width: 40px;
     height: 35px;
@@ -251,7 +253,7 @@ ul li {
 }
 
 .listOperatorContent .addrBtn.selected a span {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -42px 0;
 }
 
@@ -414,7 +416,7 @@ ul li {
 }
 
 .right {
-    background: url("../images/bg_right.min.png") no-repeat top;
+    background: url("../images-rong/bg_right.min.png") no-repeat top;
     border-radius: 3px;
     max-height: 709px;
     min-height: 550px;
@@ -427,9 +429,9 @@ ul li {
 }
 
 .dialog_box_header {
-    height: 40px;
+    height: 44px;
     text-align: center;
-    line-height: 40px;
+    line-height: 44px;
     font-size: 18px;
 }
 
@@ -472,7 +474,7 @@ ul li {
 
 .dialog_box .user .status_error {
     display: block;
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: 0 -41px;
     width: 21px;
     height: 21px;
@@ -511,13 +513,13 @@ ul li {
 
 .dialog_box .other_user .msg .voice {
     width: 80px;
-    background: url("../images/voicefrom.png") no-repeat;
+    background: url("../images-rong/voicefrom.png") no-repeat;
     background-position: 80px 8px;
 }
 
 .dialog_box .self .msg .voice {
     width: 80px;
-    background: url("../images/voiceto.png") no-repeat;
+    background: url("../images-rong/voiceto.png") no-repeat;
     background-position: 0 8px;
 }
 
@@ -620,7 +622,7 @@ ul li {
 }
 
 .msg_box .features span > a {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     display: block;
 }
 
@@ -655,7 +657,7 @@ ul li {
 }
 
 .msg_box .features .record font {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -149px -5px;
     width: 14px;
     height: 17px;
@@ -753,7 +755,7 @@ ul li {
 }
 
 .first_page a {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     display: block;
     width: 9px;
     height: 9px;
@@ -762,12 +764,12 @@ ul li {
 }
 
 .first_page a:hover {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -51px -77px;
 }
 
 .prev_page a {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     display: block;
     width: 9px;
     height: 9px;
@@ -776,12 +778,12 @@ ul li {
 }
 
 .prev_page a:hover {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -63px -77px;
 }
 
 .next_page a {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     display: block;
     width: 9px;
     height: 9px;
@@ -790,12 +792,12 @@ ul li {
 }
 
 .next_page a:hover {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -77px -77px;
 }
 
 .last_page a {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     display: block;
     width: 9px;
     height: 9px;
@@ -803,7 +805,7 @@ ul li {
 }
 
 .last_page a:hover {
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -88px -77px;
 }
 
@@ -909,7 +911,7 @@ ul li {
 }
 
 .login-foot {
-    background: url("../images/bg_foot.min.png") no-repeat;
+    background: url("../images-rong/bg_foot.min.png") no-repeat;
     height: 110px;
     margin-left: -20px;
 }
@@ -1023,7 +1025,7 @@ ul li {
 .light_popBox_title font.pen {
     width: 16px;
     height: 16px;
-    background: url("../images/icon_pen.png");
+    background: url("../images-rong/icon_pen.png");
     background-size: 14px;
     background-repeat: no-repeat;
     margin-left: 10px;
@@ -1133,7 +1135,7 @@ ul li {
 .discussion_select_user {
     width: 22px;
     height: 22px;
-    background: url("../images/discussion_icons.png");
+    background: url("../images-rong/discussion_icons.png");
     display: block;
     float: right;
     margin-right: 15px;
@@ -1226,7 +1228,7 @@ ul li {
 .discussion_userList .discussion_delete_user {
     width: 22px;
     height: 22px;
-    background: url("../images/discussion_icons.png");
+    background: url("../images-rong/discussion_icons.png");
     display: block;
     float: right;
     margin-right: 15px;
@@ -1240,7 +1242,7 @@ ul li {
     display: inline-block;
     width: 13px;
     height: 25px;
-    background: url("../images/icons.min.png") no-repeat;
+    background: url("../images-rong/icons.min.png") no-repeat;
     background-position: -163px 15px;
     margin-left: 10px;
 }
@@ -1258,7 +1260,8 @@ ul li {
     }
 
     .wrap .header {
-        background-color: #22aed8;
+        /*background-color: #22aed8;*/
+       background-color: dodgerblue;
     }
 
     .wrap .left {
@@ -1303,9 +1306,9 @@ ul li {
         top: 0px;
         left: 0px;
         width: 100%;
-        background-color: #22aed8;
+        background-color: dodgerblue;
         z-index: 1000;
-        height: 40px;
+        height: 44px;
         padding: 10px 20px;
         font-size: 18px;
         box-sizing: border-box;
@@ -1329,7 +1332,7 @@ ul li {
 
     .phone_dialog_header .logOut a {
         width: 23px;
-        background: url('../images/icons_phone.png') no-repeat;
+        background: url('../images-rong/icons_phone.png') no-repeat;
         background-size: 100px 100px;
     }
 
@@ -1348,7 +1351,7 @@ ul li {
 
     .phone_dialog_header .addrBtn a {
         width: 23px;
-        background: url('../images/icons_phone.png') no-repeat;
+        background: url('../images-rong/icons_phone.png') no-repeat;
         background-size: 100px 100px;
         background-position: -28px 0;
     }
@@ -1393,10 +1396,11 @@ ul li {
         top: 0px;
         left: 0px;
         width: 100%;
-        background-color: #22aed8;
+        /*background-color: #22aed8;*/
+        background-color: dodgerblue;
         line-height: 40px;
         z-index: 1000;
-        height: 40px;
+        height: 44px;
         font-size: 18px;
         box-sizing: border-box;
         text-align: center;
@@ -1468,7 +1472,7 @@ ul li {
     }
 
     .msg_box .features .expression a {
-        background: url('../images/icons_phone.png') no-repeat;
+        background: url('../images-rong/icons_phone.png') no-repeat;
         background-size: 100px 100px;
         background-position: -61px 0;
         width: 28px;

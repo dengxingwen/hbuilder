@@ -9,6 +9,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
 
 		<style>
 			.title {
@@ -51,6 +52,17 @@
 			.head-img {
 				width: 40px;
 				height: 40px;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: -25px;
+				font-size: 15px
 			}
 		</style>
 		<style>
@@ -131,6 +143,7 @@
 		<script type="text/javascript">
 			//用于存放网络获取的姓名
 			var names = new Array();
+			var allStudentInfo = new Array();
 			//按钮状态
 			var start = true;
 			var idd;
@@ -141,9 +154,9 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a id="addclassseting" class="mui-icon mui-icon-gear mui-pull-right" style="color: #999;"></a>
-			<h1 id="navtitle" class="mui-title">首页</h1>
+		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
+			<a id="addclassseting" class="mui-icon mui-icon-gear mui-pull-right" style="color: white;"></a>
+			<h1 id="navtitle" class="mui-title" style="color: white;">首页</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar">
@@ -155,8 +168,8 @@
 				<span class="mui-tab-label">成绩</span>
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-contact">
-				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">通讯录</span>
+				<span class="mui-icon mui-icon-chatbubble"></span>
+				<span class="mui-tab-label">学生</span>
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-map">
 				<span class="mui-icon mui-icon-person"></span>
@@ -170,7 +183,10 @@
                 	时间：2016-02-16
                 	描述：用来显示姓名
                 -->
-				<div style="margin-top: 0px;background-color: lightgrey;padding-top: 15px;height: 280px;" align="center">
+				<div id="secend" style="background-color: #ADADAD;height: 100px;margin-top: 2px;">
+
+				</div>
+				<div style="position: relative;margin-top: 2px;background-color: #ADADAD;padding-top: 15px;height: 280px;" align="center">
 					<div id="showNameText" style="font-size:20px; color:dodgerblue;text-align: center;height: 44px;"></div>
 					<div class="wrapper">
 						<!--打分结果
@@ -184,13 +200,13 @@
 						</ul>
 
 						<div id="star_word"></div>
-						<div style="position: absolute;bottom: 15px;right: 15px;">
-							<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="width:70px;height:35px;">提交</button>
+						<div style="position: relative;width: 100%;margin-top: 65px;">
+							<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="width:70px;height:35px;position: absolute;bottom: 0px;left: 50%;margin-left:-35px;">提交</button>
 						</div>
 					</div>
 
 					<div>
-						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:44px;position: absolute;bottom: 10px;left: 50%;margin-left: -30%;">随机点名</button>
+						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:40px;position: absolute;bottom: 10px;left: 50%;margin-left: -30%;">随机点名</button>
 					</div>
 				</div>
 
@@ -285,89 +301,22 @@
 							</div>
 						</div>
 					</li>
-					<li class="mui-table-view-cell ">
-						<div class="mui-slider-cell ">
-							<div class="oa-contact-cell mui-table ">
-								<div class="oa-contact-avatar mui-table-cell ">
-									<img src="../images/01.jpg " width="40 " height="40 " />
-								</div>
-								<div class="oa-contact-content mui-table-cell ">
-									<div class="mui-clearfix ">
-										<h4 class="oa-contact-name ">小田</h4>
-										<span class="oa-contact-position mui-h6 ">副班长</span>
-									</div>
-									<p class="oa-contact-cell mui-h6 ">
-										13863781243
-									</p>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="mui-table-view-cell ">
-						<div class="mui-slider-cell ">
-							<div class="oa-contact-cell mui-table ">
-								<div class="oa-contact-avatar mui-table-cell ">
-									<img src="../images/03.jpg " width="40 " height="40 " />
-								</div>
-								<div class="oa-contact-content mui-table-cell ">
-									<div class="mui-clearfix ">
-										<h4 class="oa-contact-name ">小孙</h4>
-										<!--<span class="oa-contact-position mui-h6 ">员工</span>-->
-									</div>
-									<p class="oa-contact-cell mui-h6 ">
-										15634789082
-									</p>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="mui-table-view-cell ">
-						<div class="mui-slider-cell ">
-							<div class="oa-contact-cell mui-table ">
-								<div class="oa-contact-avatar mui-table-cell ">
-									<img src="../images/04.jpg " width="40 " height="40 " />
-								</div>
-								<div class="oa-contact-content mui-table-cell ">
-									<div class="mui-clearfix ">
-										<h4 class="oa-contact-name ">小李</h4>
-										<span class="oa-contact-position mui-h6 ">团支书</span>
-									</div>
-									<p class="oa-contact-cell mui-h6 ">
-										13523457901
-									</p>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="mui-table-view-cell ">
-						<div class="mui-slider-cell ">
-							<div class="oa-contact-cell mui-table ">
-								<div class="oa-contact-avatar mui-table-cell ">
-									<img src="../images/06.jpg " width="40 " height="40 " />
-								</div>
-								<div class="oa-contact-content mui-table-cell ">
-									<div class="mui-clearfix ">
-										<h4 class="oa-contact-name ">小周</h4>
-										<!--<span class="oa-contact-position mui-h6 ">员工</span>-->
-									</div>
-									<p class="oa-contact-cell mui-h6 ">
-										17826731825
-									</p>
-								</div>
-							</div>
-						</div>
-					</li>
+
 				</ul>
 			</div>
 			<div id="tabbar-with-map" class="mui-control-content ">
 				<!--<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>-->
+
+				<!--<div id="MeBackView" style="background-color: dodgerblue;height: 200px;">
+					
+				</div>-->
 				<ul id="mesetting" class="mui-table-view mui-table-view-chevron" style="margin-top: 25px; ">
 					<li class="mui-table-view-cell mui-media">
 						<a class="mui-navigate-right" href="#account">
 							<img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/04.jpg">
 							<div class="mui-media-body">
 								我的课堂
-								<p class='mui-ellipsis'>账号:cc</p>
+								<p id="userId" class='mui-ellipsis'>账号:cc</p>
 							</div>
 						</a>
 					</li>
@@ -389,25 +338,20 @@
 					</a>
 					</li>
 				</ul>
-				<ul class="mui-table-view " style="margin-top: 25px; ">
-					<li class="mui-table-view-cell ">
-						<a class="mui-navigate-right ">
-						关于软件
-					</a>
+
+				<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 25px; ">
+					<li class="mui-table-view-cell">
+						<a href="#about" class="mui-navigate-right">关于 <i class="mui-pull-right update">V1.0.0</i></a>
 					</li>
 				</ul>
-				<ul class="mui-table-view " style="margin-top: 25px; ">
-					<li class="mui-table-view-cell mui-action-back">
-						<!--<a style="text-align: center;color: #FF3B30; " href="LoginRegister/LoginTeacher.html">-->
-						退出登录
-					</a>
+
+				<ul class="mui-table-view mui-action-back" style="margin-top: 25px;">
+					<li class="mui-table-view-cell" style="text-align: center;">
+						<a>退出登录</a>
 					</li>
 				</ul>
 			</div>
-			
-			
-			
-			
+
 		</div>
 
 	</body>
@@ -421,8 +365,8 @@
 	<script type="text/javascript">
 		//随机点名
 		function showName() {
-			var index = Math.floor(Math.random() * names.length);
-			var name = names[index];
+			var index = Math.floor(Math.random() * allStudentInfo.length);
+			var name = allStudentInfo[index]["username"];
 			document.getElementById("showNameText").innerHTML = name;
 			idd = setTimeout("showName()", 8);
 		}
@@ -432,6 +376,7 @@
 			var self = plus.webview.currentWebview();
 			token = self.token;
 			console.log("token:" + token);
+			document.getElementById("userId").innerHTML = localStorage.teaId;
 			//
 			console.log("主页");
 			var attendance = document.getElementById("attendance");
@@ -519,27 +464,81 @@
 					}
 				});
 			});
-			document.getElementById('mesetting').addEventListener('tap',function(){
+			document.getElementById('mesetting').addEventListener('tap', function() {
 				console.log("进入我的设置");
-								mui.openWindow({
+				mui.openWindow({
 					url: "me/MeSetting.html",
 					id: "mesetting",
 					show: {
 						aniShow: 'slide-in-right',
 						duration: 300
 					},
-					extras: {
-						
-					}
+					extras: {}
 				});
-				
-				
 			});
-			
-			
+			//
+			document.getElementById('inputscore').addEventListener('tap', function() {
+				console.log("进入录入成绩");
+				mui.openWindow({
+					url: "score/Finalscore/InputScore.html",
+					id: "inputscore",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {}
+				});
+			});
+			document.getElementById('finalsummary').addEventListener('tap', function() {
+				console.log("进入成绩汇总");
+				mui.openWindow({
+					url: "score/Finalscore/FinalSummary.html",
+					id: "finalsummary",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {}
+				});
+			});
+			//
 		});
-		//获取班级所有学生姓名
-		mui.ajax('http://192.168.1.101:8085/teacher/studentNameList', {
+		//		//获取班级所有学生姓名
+		//		mui.ajax(serverIp + "/teacher/studentNameList", {
+		//			data: {},
+		//			dataType: 'json',
+		//			type: 'post',
+		//			timeout: 3000,
+		//			success: function(data) {
+		//				console.log("success 获取姓名成功");
+		//				console.log(data['code']);
+		//				if (data['code'] == 200) {
+		//					console.log("获取成功");
+		//					//					console.log(data['namelist']);
+		//					//					console.log(data['namelist'][1]);
+		//					for (var i = 0; i < data['namelist'].length; i++) {
+		//						names.push(data['namelist'][i]);
+		//					}
+		//					console.log(names);
+		//					//本地化姓名列表
+		//					var nameStr = JSON.stringify(names);
+		//					localStorage.names = nameStr;
+		//					
+		//				} else {
+		//					console.log("400");
+		//					mui.toast("获取失败400");
+		//					//					mui.alert('400错误', '失败', function() {
+		//					//						console.log("获取失败");
+		//					//					});
+		//				}
+		//			},
+		//			error: function() {
+		//				console.log("error");
+		//				mui.toast("获取失败error");
+		//			}
+		//		});
+		//2.获取班级所有学生姓名信息
+		mui.ajax(serverIp + "/teacher/getStuNames", {
 			data: {},
 			dataType: 'json',
 			type: 'post',
@@ -549,18 +548,19 @@
 				console.log(data['code']);
 				if (data['code'] == 200) {
 					console.log("获取成功");
-					//					console.log(data['namelist']);
-					//					console.log(data['namelist'][1]);
-					for (var i = 0; i < data['namelist'].length; i++) {
-						names.push(data['namelist'][i]);
-					}
-					console.log(names);
+					allStudentInfo = data['allStudentInfo'];
+					//按学号排序
+					allStudentInfo.sort(function(x, y) {
+						return x.stuId > y.stuId ? 1 : -1;
+					});
+					//本地化姓名列表
+					localStorage.allStudentInfo = JSON.stringify(allStudentInfo);
 				} else {
 					console.log("400");
 					mui.toast("获取失败400");
-//					mui.alert('400错误', '失败', function() {
-//						console.log("获取失败");
-//					});
+					//					mui.alert('400错误', '失败', function() {
+					//						console.log("获取失败");
+					//					});
 				}
 			},
 			error: function() {

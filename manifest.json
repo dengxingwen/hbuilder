@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "Teacher/LoginRegister/LoginTeacher.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "students/loginRegister/LoginStu.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -305,7 +305,8 @@
 					"css/mui.min.css",
 					"Teacher/MainTabtTeacher.html",
 					"fonts/mui.ttf",
-					"Teacher/LoginRegister/TeacherRegister.html"
+					"Teacher/LoginRegister/TeacherRegister.html",
+					"js/ServerIP.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -322,7 +323,8 @@
 					"css/app.css",
 					"js/mui.min.js",
 					"css/mui.min.css",
-					"js/jquery-2.2.1.js"
+					"js/jquery-2.2.1.js",
+					"js/ServerIP.js"
 				],
 				"refer": [
 					"Teacher/score/classscore/Classwork.html",
@@ -330,7 +332,10 @@
 					"Teacher/score/classscore/ClassPerformance.html",
 					"Teacher/score/classscore/ActivityScore.html",
 					"Teacher/SettingClass.html",
-					"Teacher/chat/chat.html"
+					"Teacher/chat/chat.html",
+					"Teacher/score/Finalscore/FinalSummary.html",
+					"Teacher/score/Finalscore/InputScore.html",
+					"Teacher/me/MeSetting.html"
 				],
 				"priority": 0
 			},
@@ -368,7 +373,8 @@
 					"css/mui.min.css",
 					"css/app.css",
 					"js/jquery-2.2.1.js",
-					"js/jquery.json.js"
+					"js/jquery.json.js",
+					"js/ServerIP.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -393,7 +399,12 @@
 					"js/city.data.js",
 					"css/mui.poppicker.css",
 					"js/pickerClass.js",
-					"css/mui.picker.css"
+					"css/mui.picker.css",
+					"js/jquery.json.js",
+					"js/pickerMajor.js",
+					"js/pickerCourse.js",
+					"js/jquery-2.2.1.js",
+					"js/ServerIP.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -445,7 +456,102 @@
 					"js-rong/common.js",
 					"js-rong/engine.js",
 					"images-rong/blue_arrow.png",
-					"images-rong/white_arrow.png"
+					"images-rong/white_arrow.png",
+					"images-rong/icons.min.png",
+					"images-rong/icons_phone.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Teacher/score/Finalscore/FinalSummary.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Teacher/score/Finalscore/InputScore.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/jquery-2.2.1.js",
+					"js/ServerIP.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Teacher/me/MeSetting.html": {
+				"resources": [
+					"images/04.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"students/loginRegister/LoginStu.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/ServerIP.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"students/MainTabStudent.html"
+				],
+				"priority": 0
+			},
+			"students/chat/chat.html": {
+				"resources": [
+					"js-rong/jquery.nicescroll.js",
+					"js-rong/jquery-1.8.2.min.js",
+					"images-rong/sms-received.mp3",
+					"css/main.css",
+					"js-rong/common.js",
+					"images-rong/icons_phone.png",
+					"js-rong/engine.js",
+					"images-rong/icons.min.png",
+					"images-rong/personPhoto.png",
+					"images-rong/blue_arrow.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"students/MainTabStudent.html": {
+				"resources": [
+					"js/jquery-2.2.1.js",
+					"fonts/mui.ttf",
+					"students/MainPage.html",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"students/chat/chat.html",
+					"students/MePage.html",
+					"students/CommunityPage.html"
+				],
+				"priority": 0
+			},
+			"students/MePage.html": {
+				"resources": [
+					"images/04.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"students/MainPage.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"images/shuijiao.jpg"
 				],
 				"refer": [],
 				"priority": 0

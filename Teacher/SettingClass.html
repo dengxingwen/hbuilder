@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
 		<link href="../css/mui.min.css" rel="stylesheet" />
 
 		<link href="../css/mui.picker.css" rel="stylesheet" />
@@ -53,9 +54,9 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">课程设置</h1>
+		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title" style="color: white;">课程设置</h1>
 		</header>
 
 		<div class="mui-content">
@@ -129,7 +130,7 @@
 				savasettingcourse.addEventListener('tap', function() {
 					console.log($.toJSON(teacherCourse));
 					console.log("正在保存课程设置");
-					mui.ajax('http://192.168.1.101:8085/teacher/settingCourse', {
+					mui.ajax(serverIp+"/teacher/settingCourse", {
 						data: {
 							teacherSetting: $.toJSON(teacherCourse),
 							teaId:localStorage.teaId

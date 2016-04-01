@@ -5,8 +5,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<script src="../js/mui.min.js"></script>
-		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
 		</script>
@@ -45,46 +46,82 @@
 
 		<script type="text/javascript">
 			mui.plusReady(function() {
-				console.log("hahahahah");
+				console.log("已启动 准备登录");
 				var loginbt = document.getElementById("loginbt");
 				var register = document.getElementById("register");
 				var account = document.getElementById("account");
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
 					console.log("正在登陆");
-					mui.ajax('http://192.168.2.4:8085/user/loginS', {
+					mui.ajax(serverIp+"/user/loginS", {
 						data: {
 							stuId: account.value,
 							password: password.value
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 3000,
+						timeout: 4000,
 						success: function(data) {
-							console.log(data['code']);
 							if (data['code'] == 200) {
 								console.log("登录成功");
-								window.location.href = "MainTabStu.html";
+								//本地化数据
+								localStorage.stuId = account.value;
+								//本地化姓名列表
+								localStorage.stuNameList = JSON.stringify(data['allStudentInfo']);
+								//本地化token
+								localStorage.token = data['tokenResult']['token'];
+							
+								//提取本人信息
+								getMyInfo(data['allStudentInfo'],account.value);
+								
+								mui.openWindow({
+									url: '../MainTabStudent.html',
+									id: 'MainTabStudent',
+									
+								});
 							} else {
 								mui.alert('请检查您的账号密码', '登录失败', function() {
 									console.log("登录失败 400");
-									window.location.href = "MainTabStu.html";
+									mui.openWindow({
+									url: '../MainTabStudent.html',
+									id: 'MainTabStudent',
+									
+								});
 								});
 							}
 						},
 						error: function() {
 							mui.alert('服务器错误', '登录失败', function() {
 								console.log("登录失败 error");
-								window.location.href = "MainTabStu.html";
+								mui.openWindow({
+									url: '../MainTabStudent.html',
+									id: 'MainTabStudent',
+									
+								});
 							});
 						}
 					})
-				})
+				});
+				//学生注册
 				register.addEventListener('tap', function() {
 					console.log("正在注册");
-					window.location.href = "StudentRegister.html";
+					mui.openWindow({
+						url: 'StudentRegister.html',
+						id: 'StudentRegister',
+					});
 				})
 			});
+			//提取登录人信息
+			function getMyInfo(datas,myId){
+				for (var i=0; i<datas.length; i++) {
+					if(myId == datas[i]['stuId']){
+						//本地化个人信息
+						localStorage.myInfo = JSON.stringify(datas[i]);
+						break;
+					}
+				}
+				
+			}
 		</script>
 	</body>
 

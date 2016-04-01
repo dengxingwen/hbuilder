@@ -5,7 +5,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
+		<script src="../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/mui.min.js"></script>
+		
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
@@ -19,15 +21,15 @@
 
 	<body>
 
-		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">教师登录</h1>
+		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
+			<h1 class="mui-title" style="color: white;">教师登录</h1>
 		</header>
 
 		<div class="mui-content">
 			<form class="mui-input-group">
 				<div class="mui-input-row">
 					<label for="">工号：</label>
-					<input type="text" class="mui-input mui-input-clear" id="teaId" />
+					<input type="number" class="mui-input mui-input-clear" id="teaId" />
 				</div>
 				<div class="mui-input-row">
 					<label for="">密码：</label>
@@ -52,7 +54,7 @@
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
 					console.log("正在登录");
-					mui.ajax('http://192.168.1.101:8085/teacher/loginT', {
+					mui.ajax(serverIp+"/teacher/loginT", {
 						data: {
 							teaId: teaId.value,
 							password: password.value
@@ -72,8 +74,7 @@
 									url: '../MainTabtTeacher.html',
 									id: 'MainTabtTeacher',
 									extras: {
-										token: data['token']
-										
+										token: data['token'],
 									}
 								});
 							} else {
