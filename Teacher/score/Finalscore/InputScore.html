@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/jquery-2.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+			var allStudents = {};
+			//用于保存设置的学生成绩
+			var setStuScoreArr = {};
+		</script>
+		<style type="text/css">
+			.mui-content {
+				position: relative;
+				margin-top: 0px;
+			}
+			
+			#ManualInputView {
+				position: fixed;
+				top: 45px;
+				left: 0;
+				height: 180px;
+				width: 100%;
+				background-color: white;
+				z-index: 10000;
+				padding: 10px;
+			}
+			
+			#surebuttondiv {
+				height: 40px;
+				position: absolute;
+				bottom: 0px;
+			}
+			
+			#surebutton {
+				width: 100px;
+				height: 35px;
+				position: fixed;
+				left: 50%;
+				margin-left: -50px;
+			}
+			
+			#separate {
+				background-color: #D3D3D3;
+				position: fixed;
+				height: 20px;
+				width: 100%;
+				margin-top: 180px;
+				z-index: 1000;
+			}
+			
+			#scorenamelist {
+				width: 100%;
+				background-color: white;
+				margin-top: 200px;
+				height: 100px;
+			}
+			
+			#stulist-li {
+				position: relative;
+			}
+			
+			#p-stuid {
+				display: inline;
+				color: black;
+			}
+			
+			#p-name {
+				color: black;
+				display: inline;
+				position: absolute;
+				width: 50px;
+				left: 50%;
+				margin-left: -25px;
+				text-align: center;
+			}
+			
+			#p-score {
+				display: inline;
+				position: absolute;
+				width: 50px;
+				right: 20px;
+				color: black;
+				text-align: center;
+			}
+			
+			#savaAllScoreButtonDiv {
+				position: fixed;
+				bottom: 0px;
+				left: 0px;
+				height: 40px;
+				width: 100%;
+				background-color: #efeff4;
+				z-index: 2;
+			}
+			
+			#savaAllScoreButton {
+				width: 100%;
+				height: 95%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title" style="color: white;">成绩录入</h1>
+		</header>
+		<div class="mui-content">
+			<div id="ManualInputView">
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label for="">学号:</label>
+						<label id="setStuid" for=""></label>
+					</div>
+					<div class="mui-input-row">
+						<label for="">姓名:</label>
+						<label id="setStuName" for=""></label>
+					</div>
+					<div class="mui-input-row">
+						<label for="">成绩:</label>
+						<input id="setStuScore" type="number" class="mui-input mui-input-clear" style="padding-left: 14px;" placeholder="请输入学生成绩" />
+					</div>
+				</form>
+				<div id="surebuttondiv">
+					<button id="surebutton" type="button" class="mui-btn mui-btn-blue">确定</button>
+				</div>
+
+			</div>
+			<div id="separate">
+				<p style=" text-indent:1em;">点击列表然后输入分数</p>
+			</div>
+			<div id="scorenamelist">
+				<ul id="namescorelist" class="mui-table-view">
+					<!--<li id="stulist-li" class="mui-table-view-cell mui-collapse">
+						<p id="p-stuid">201242206001</p>
+						<p id="p-score">99</p>
+						<p id="p-name">张敏</p>
+					</li>-->
+
+				</ul>
+			</div>
+			<div id="savaAllScoreButtonDiv">
+				<button id="savaAllScoreButton" type="button" class="mui-btn mui-btn-primary">提交</button>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		mui.plusReady(function() {
+			plus.webview.currentWebview().setStyle({
+				scrollIndicator: 'none'
+			});
+			//获取本地所有学生信息
+			//读取 
+			var allstu = localStorage.allStudentInfo;
+			//重新转换为对象 
+			allStudents = JSON.parse(allstu);
+			if (allStudents.length != 0) {
+				creatNamePan();
+			}
+			//list点击事件
+			mui('#namescorelist').on('tap', 'li', function() {
+				//先清空成绩
+				document.getElementById('setStuScore').value = "";
+				//this上下文就是li
+				var stuid = this.childNodes[0].innerHTML;
+				var stuname = this.childNodes[1].innerHTML;
+				updateSettingPan(stuid, stuname);
+			});
+			//确定按钮点击事件
+			document.getElementById("surebutton").addEventListener('tap', function() {
+				//向数组中保存成绩
+				var stuid = document.getElementById("setStuid").innerHTML;
+				var stuscore = document.getElementById("setStuScore").value;
+				//判断是否是数字
+				var t = stuscore;
+				t = parseFloat(t);
+				if (isNaN(t)) {
+					mui.alert('请检查输入的分数', '失败', function() {
+						return;
+					});
+				} else {
+					//转换成功
+//					stuscore = parseFloat(stuscore);
+					setStuScoreArr[stuid] = stuscore;
+					
+					//更新列表中的分数
+					creatNamePan();
+				}
+			});
+			//保存所有成绩按钮点击事件
+			document.getElementById("savaAllScoreButton").addEventListener('tap', function() {
+				mui.ajax(serverIp + "/teacher/saveStuFinalScore", {
+					data: {
+						stufinalscore: JSON.stringify(setStuScoreArr)
+					},
+					dataType: 'json',
+					type: 'post',
+					timeout: 5000,
+					success: function(data) {
+						console.log("success");
+						console.log(data['code']);
+						if (data['code'] == 200) {
+							console.log("保存成绩成功");
+							mui.toast("保存学生成绩成功");
+						} else {
+							mui.toast("保存学生成绩失败400");
+						}
+					},
+					error: function() {
+						mui.toast("保存学生成绩失败error");
+					}
+				});
+			});
+		});
+		//动态创建学生列
+		function creatNamePan() {
+			$("#namescorelist").empty();
+			for (var i = 0; i < allStudents.length; i++) {
+				//判断是否已经有成绩
+				var result = "无成绩";
+				var key = allStudents[i]["stuId"];
+			 	if(!!setStuScoreArr[key]){
+			 		result = setStuScoreArr[key];
+			 	}else{
+			 		result = "无成绩";
+			 		
+			 	}
+				
+				var nameslistPan = "<li id='stulist-li' class='mui-table-view-cell mui-collapse'><p id='p-stuid'>" + allStudents[i]["stuId"] + "</p><p id='p-name'>" + allStudents[i]["username"] + "</p><p id='p-score'>" + result + "</p></li>";
+				$("#namescorelist").append(nameslistPan);
+			}
+		};
+		//更新上面设置面板
+		function updateSettingPan(stuid, stuname) {
+			document.getElementById("setStuid").innerHTML = stuid;
+			document.getElementById("setStuName").innerHTML = stuname;
+		};
+	</script>
+
+</html>

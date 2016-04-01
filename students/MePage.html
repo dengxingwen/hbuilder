@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+			#main {
+				margin-top: 0px;
+			}
+			
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: -25px;
+				font-size: 15px
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
+			<h1 id="title" class="mui-title" style="color: white;">我</h1>
+		</header>
+		<div id="main" class="mui-content">
+
+			<ul id="mesetting" class="mui-table-view mui-table-view-chevron" style="margin-top: 20px; ">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" href="#">
+						<img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/04.jpg">
+						<div class="mui-media-body">
+							我的课堂
+							<p id="userId" class='mui-ellipsis'>账号:</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 20px; ">
+				<li class="mui-table-view-cell ">
+					<a class="mui-navigate-right ">
+						新消息通知
+					</a>
+				</li>
+				<li class="mui-table-view-cell ">
+					<a class="mui-navigate-right ">
+						隐私
+					</a>
+				</li>
+				<li class="mui-table-view-cell ">
+					<a class="mui-navigate-right ">
+						通用
+					</a>
+				</li>
+			</ul>
+
+			<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 20px; ">
+				<li class="mui-table-view-cell">
+					<a href="#about" class="mui-navigate-right">关于 <i class="mui-pull-right update">V1.0.0</i></a>
+				</li>
+			</ul>
+
+			<ul id="closeapp" class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell" style="text-align: center;">
+					<a>退出登录</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		//mui初始化
+		mui.init();
+		mui.plusReady(function() {
+			//获取账号
+			document.getElementById("userId").innerHTML = localStorage.stuId;
+			//
+			document.getElementById('mesetting').addEventListener('tap', function() {
+				console.log("进入我的设置");
+				mui.openWindow({
+					url: "me/MeSetting.html",
+					id: "mesetting",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {}
+				});
+			});
+			document.getElementById('closeapp').addEventListener('tap', function() {
+				console.log("关闭");
+
+				//plus.webview.getLaunchWebview().show();//显示入口页；
+				plus.webview.currentWebview().parent().evalJS('mui.back();');
+			});
+		});
+		
+		
+	</script>
+
+</html>
