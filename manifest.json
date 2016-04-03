@@ -553,6 +553,41 @@
 					"images/yuantiao.jpg",
 					"images/shuijiao.jpg"
 				],
+				"refer": [
+					"students/mainSubPages/Score.html",
+					"students/mainSubPages/Activity.html",
+					"students/mainSubPages/Classwork.html",
+					"students/mainSubPages/ClassPerformance.html"
+				],
+				"priority": 0
+			},
+			"students/mainSubPages/Activity.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"students/mainSubPages/Classwork.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"students/mainSubPages/Score.html": {
+				"resources": [
+					"js/jquery.json.js",
+					"js/jquery-2.2.1.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/ServerIP.js"
+				],
 				"refer": [],
 				"priority": 0
 			}
