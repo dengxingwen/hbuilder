@@ -7,7 +7,7 @@
 		<title></title>
 		<script src="../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/mui.min.js"></script>
-		
+
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
@@ -54,7 +54,7 @@
 				var password = document.getElementById("password");
 				loginbt.addEventListener('tap', function() {
 					console.log("正在登录");
-					mui.ajax(serverIp+"/teacher/loginT", {
+					mui.ajax(serverIp + "/teacher/loginT", {
 						data: {
 							teaId: teaId.value,
 							password: password.value
@@ -67,37 +67,70 @@
 							console.log(data['code']);
 							if (data['code'] == 200) {
 								console.log("登录成功");
-								console.log(data['token']);
-								//本地化数据
-								localStorage.teaId = teaId.value;
+								console.log(data['tokenResult']['token']);
+								//本地化姓名列表
+								var resultAllStu = data['allStudentInfo'];
+								console.log(resultAllStu[0]['stuId']);
+								resultAllStu.sort(function(x, y) {
+									return x.stuId > y.stuId ? 1 : -1;
+								});
+								localStorage.stuNameList = JSON.stringify(resultAllStu);
+								//本地化教师姓名列表
+								var resultAllTea = data['allTeacherInfo'];
+								console.log(resultAllTea[0]['teaId']);
+								resultAllTea.sort(function(x, y) {
+									return x.teaId > y.teaId ? 1 : -1;
+								});
+								localStorage.teaNameList = JSON.stringify(resultAllTea);
+								
+								//本地化token
+								localStorage.token = data['tokenResult']['token'];
+								//提取本人信息
+								getMyInfo(resultAllTea, teaId.value);
 								mui.openWindow({
 									url: '../MainTabtTeacher.html',
 									id: 'MainTabtTeacher',
-									extras: {
-										token: data['token'],
-									}
 								});
 							} else {
 								console.log("400");
 								mui.alert('请检查您的账号密码', '登录失败', function() {
 									console.log("登录失败");
-									window.location.href = "../MainTabtTeacher.html";
+									mui.openWindow({
+										url: '../MainTabtTeacher.html',
+										id: 'MainTabtTeacher',
+									});
 								});
 							}
 						},
 						error: function() {
 							console.log("error");
 							mui.alert('请检查', '登录失败error', function() {
-								window.location.href = "../MainTabtTeacher.html";
+								mui.openWindow({
+									url: '../MainTabtTeacher.html',
+									id: 'MainTabtTeacher',
+								});
 							});
 						}
 					})
-				})
+				});
 				register.addEventListener('tap', function() {
 					console.log("点击注册");
-					window.location.href = "TeacherRegister.html";
+					mui.openWindow({
+						url: 'TeacherRegister.html',
+						id: 'TeacherRegister',
+					});
 				})
 			});
+			//提取登录人信息
+			function getMyInfo(datas, myId) {
+				for (var i = 0; i < datas.length; i++) {
+					if (myId == datas[i]['teaId']) {
+						//本地化个人信息
+						localStorage.myInfo = JSON.stringify(datas[i]);
+						break;
+					}
+				}
+			}
 		</script>
 	</body>
 

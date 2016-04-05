@@ -9,7 +9,7 @@
 		<title></title>
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../../../css/mui.min.css">
-<script src="../../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../../js/mui.min.js"></script>
 		<script src="../../../js/jquery-2.2.1.js"></script>
 		<script src="../../../js/jquery.json.js"></script>
@@ -111,7 +111,7 @@
 			lataArray[lataArray.length] = this.previousElementSibling.innerText;
 			console.log(lataArray);
 		});
-		mui.ajax(serverIp+"/teacher/studentNameList", {
+		mui.ajax(serverIp + "/teacher/studentNameList", {
 			data: {},
 			dataType: 'json',
 			type: 'post',
@@ -166,7 +166,7 @@
 			submitbutton.addEventListener('tap', function() {
 				console.log("正在提交");
 				console.log(lataArray);
-				mui.ajax(serverIp+"/teacher/submitAttendence", {
+				mui.ajax(serverIp + "/teacher/submitAttendence", {
 					data: {
 						type: segmentindex,
 						lateNameList: $.toJSON(lataArray)

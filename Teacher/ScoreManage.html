@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+		.mui-content{
+			margin-top: 12px;
+		}
+			
+		</style>
+		
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
+			<h1 id="title" class="mui-title" style="color: white;">成绩管理</h1>
+		</header>
+		<div class="mui-content">
+		    				<div style="padding:10px 10px;">
+					<div id="segmentedControl" class="mui-segmented-control">
+						<a class="mui-control-item mui-active" href="#classscore">
+                            课堂成绩
+                        </a>
+						<a class="mui-control-item" href="#finalscore">
+                            期末总评
+                        </a>
+
+					</div>
+				</div>
+				<div>
+					<div id="classscore" class="mui-control-content mui-active">
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+							<li id="attendance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+								<a href="#">
+									<span class="mui-icon mui-icon-personadd"></span>
+									<div class="mui-media-body">出勤</div>
+								</a>
+							</li>
+							<li id="classperfomance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+								<a href="#">
+									<span class="mui-icon mui-icon-email"></span>
+									<div class="mui-media-body">课堂</div>
+								</a>
+							</li>
+							<li id="classwork" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+								<a href="#">
+									<span class="mui-icon mui-icon-chatbubble"></span>
+									<div class="mui-media-body">作业</div>
+								</a>
+							</li>
+							<li id="activityscore" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+								<a href="#">
+									<span class="mui-icon mui-icon-location"></span>
+									<div class="mui-media-body">活动</div>
+								</a>
+							</li>
+
+						</ul>
+
+					</div>
+					<div id="finalscore" class="mui-control-content">
+
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+							<li id="inputscore" class="mui-table-view-cell mui-media mui-col-xs-12 mui-col-sm-12">
+								<a href="#">
+									<span class="mui-icon mui-icon-plus"></span>
+									<div class="mui-media-body">录入成绩</div>
+								</a>
+							</li>
+							<li id="finalsummary" class="mui-table-view-cell mui-media mui-col-xs-12 mui-col-sm-12">
+								<a href="#">
+									<span class="mui-icon mui-icon-search"></span>
+									<div class="mui-media-body">期末汇总</div>
+								</a>
+							</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+		</div>
+		
+	</body>
+<script type="text/javascript">
+	
+		mui.plusReady(function() {
+			var attendance = document.getElementById("attendance");
+			var classperfomance = document.getElementById("classperfomance");
+			var classwork = document.getElementById("classwork");
+			var activityscore = document.getElementById("activityscore");
+			
+			attendance.addEventListener('tap', function() {
+				console.log("出勤");
+				mui.openWindow({
+					url: "score/classscore/Attendance.html",
+					id: 'attendance'
+				})
+			});
+			classperfomance.addEventListener('tap', function() {
+				console.log("课堂");
+				mui.openWindow({
+					url: "score/classscore/ClassPerformance.html",
+					id: 'classperfomance'
+				})
+			});
+			classwork.addEventListener('tap', function() {
+				console.log("作业");
+				mui.openWindow({
+					url: "score/classscore/Classwork.html",
+					id: 'classwork'
+				})
+			});
+			activityscore.addEventListener('tap', function() {
+				console.log("活动");
+				mui.openWindow({
+					url: "score/classscore/ActivityScore.html",
+					id: 'activityscore'
+				})
+			});
+			
+			document.getElementById('inputscore').addEventListener('tap', function() {
+				console.log("进入录入成绩");
+				mui.openWindow({
+					url: "score/Finalscore/InputScore.html",
+					id: "inputscore",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {}
+				});
+			});
+			document.getElementById('finalsummary').addEventListener('tap', function() {
+				console.log("进入成绩汇总");
+				mui.openWindow({
+					url: "score/Finalscore/FinalSummary.html",
+					id: "finalsummary",
+					show: {
+						aniShow: 'slide-in-right',
+						duration: 300
+					},
+					extras: {}
+				});
+			});
+			
+		});
+	</script>
+</html>

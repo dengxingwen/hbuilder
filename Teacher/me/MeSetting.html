@@ -14,16 +14,20 @@
 			.mui-content {
 				margin-top: 12px;
 			}
+			
 			.head {
 				height: 40px;
 			}
+			
 			#head {
 				line-height: 40px;
 			}
+			
 			.head-img {
 				width: 40px;
 				height: 40px;
 			}
+			
 			#head-img1 {
 				position: absolute;
 				bottom: 10px;
@@ -31,6 +35,7 @@
 				width: 40px;
 				height: 40px;
 			}
+			
 			.mui-table-view span.mui-pull-right {
 				color: #999;
 			}
@@ -53,24 +58,49 @@
 							</a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a>姓名<span class="mui-pull-right">张敏</span></a>
+					<a>姓名<span id="myname" class="mui-pull-right">张敏</span></a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a>账号<span class="mui-pull-right">CcMark@cc.com</span></a>
+					<a>账号<span id="myid" class="mui-pull-right">CcMark@cc.com</span></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>性别<span id="mysex" class="mui-pull-right">88888888</span></a>
 				</li>
 			</ul>
 			<ul class="mui-table-view" style="margin-top: 25px; ">
 				<li class="mui-table-view-cell">
-					<a>QQ号<span class="mui-pull-right">88888888</span></a>
+					<a>签名<span id="mysigner" class="mui-pull-right">88888888</span></a>
+				</li>
+				
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px; ">
+				<li class="mui-table-view-cell">
+					<a>QQ号<span id="myqq" class="mui-pull-right">88888888</span></a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a>手机号<span class="mui-pull-right">18601234567</span></a>
+					<a>手机号<span id="myphone" class="mui-pull-right">18601234567</span></a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a>邮箱地址<span class="mui-pull-right">CcMark@cc.com</span></a>
+					<a>邮箱地址<span id="myemail" class="mui-pull-right">CcMark@cc.com</span></a>
 				</li>
 			</ul>
 		</div>
 	</body>
+	<script type="text/javascript">
+		console.log("123");
+		var myinfo;
+		myinfo = JSON.parse(localStorage.myInfo);
+		console.log(myinfo['teaId']);
+		mui.plusReady(function() {
+			//获取账号
+			document.getElementById("myname").innerHTML = myinfo['username'];
+			document.getElementById("myid").innerHTML = myinfo['teaId'];
+			document.getElementById("mysex").innerHTML = myinfo['sex'];
+			document.getElementById("myqq").innerHTML = "999999999";
+			document.getElementById("mysigner").innerHTML = myinfo['signer'];
+			document.getElementById("myphone").innerHTML = myinfo['phone'];
+			document.getElementById("myemail").innerHTML = "999999999@qq.com";
+		});
+	</script>
 
 </html>

@@ -154,11 +154,11 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
+		<!--<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
 			<a id="addclassseting" class="mui-icon mui-icon-gear mui-pull-right" style="color: white;"></a>
 			<h1 id="navtitle" class="mui-title" style="color: white;">首页</h1>
-		</header>
-		<nav class="mui-bar mui-bar-tab">
+		</header>-->
+		<!--<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
@@ -175,267 +175,48 @@
 				<span class="mui-icon mui-icon-person"></span>
 				<span class="mui-tab-label">我</span>
 			</a>
+		</nav>-->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="MainPage.html">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="ScoreManage.html">
+				<span class="mui-icon mui-icon-email"></span>
+				<span class="mui-tab-label">成绩</span>
+			</a>
+			<a class="mui-tab-item" href="chat/chat.html">
+				<span class="mui-icon mui-icon-chatbubble"></span>
+				<span class="mui-tab-label">通讯录</span>
+			</a>
+			<a class="mui-tab-item" href="MePage.html">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
 		</nav>
-		<div class="mui-content">
-			<div id="tabbar" class="mui-control-content mui-active">
-				<!--
-                	作者：张敏
-                	时间：2016-02-16
-                	描述：用来显示姓名
-                -->
-				<div id="secend" style="background-color: #ADADAD;height: 100px;margin-top: 2px;">
-
-				</div>
-				<div style="position: relative;margin-top: 2px;background-color: #ADADAD;padding-top: 15px;height: 280px;" align="center">
-					<div id="showNameText" style="font-size:20px; color:dodgerblue;text-align: center;height: 44px;"></div>
-					<div class="wrapper">
-						<!--打分结果
-						<span id="result"></span>-->
-						<ul id="star">
-							<li>★</li>
-							<li>★</li>
-							<li>★</li>
-							<li>★</li>
-							<li>★</li>
-						</ul>
-
-						<div id="star_word"></div>
-						<div style="position: relative;width: 100%;margin-top: 65px;">
-							<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="width:70px;height:35px;position: absolute;bottom: 0px;left: 50%;margin-left:-35px;">提交</button>
-						</div>
-					</div>
-
-					<div>
-						<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary" style="width:60%;height:40px;position: absolute;bottom: 10px;left: 50%;margin-left: -30%;">随机点名</button>
-					</div>
-				</div>
-
-			</div>
-			<div id="tabbar-with-chat" class="mui-control-content" align="center">
-
-				<div style="padding:10px 10px;">
-					<div id="segmentedControl" class="mui-segmented-control">
-						<a class="mui-control-item mui-active" href="#classscore">
-                            课堂成绩
-                        </a>
-						<a class="mui-control-item" href="#finalscore">
-                            期末总评
-                        </a>
-
-					</div>
-				</div>
-				<div>
-					<div id="classscore" class="mui-control-content mui-active">
-						<ul class="mui-table-view mui-grid-view mui-grid-9">
-							<li id="attendance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
-								<a href="#">
-									<span class="mui-icon mui-icon-personadd"></span>
-									<div class="mui-media-body">出勤</div>
-								</a>
-							</li>
-							<li id="classperfomance" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
-								<a href="#">
-									<span class="mui-icon mui-icon-email"></span>
-									<div class="mui-media-body">课堂</div>
-								</a>
-							</li>
-							<li id="classwork" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
-								<a href="#">
-									<span class="mui-icon mui-icon-chatbubble"></span>
-									<div class="mui-media-body">作业</div>
-								</a>
-							</li>
-							<li id="activityscore" class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
-								<a href="#">
-									<span class="mui-icon mui-icon-location"></span>
-									<div class="mui-media-body">活动</div>
-								</a>
-							</li>
-
-						</ul>
-
-					</div>
-					<div id="finalscore" class="mui-control-content">
-
-						<ul class="mui-table-view mui-grid-view mui-grid-9">
-							<li id="inputscore" class="mui-table-view-cell mui-media mui-col-xs-12 mui-col-sm-12">
-								<a href="#">
-									<span class="mui-icon mui-icon-plus"></span>
-									<div class="mui-media-body">录入成绩</div>
-								</a>
-							</li>
-							<li id="finalsummary" class="mui-table-view-cell mui-media mui-col-xs-12 mui-col-sm-12">
-								<a href="#">
-									<span class="mui-icon mui-icon-search"></span>
-									<div class="mui-media-body">期末汇总</div>
-								</a>
-							</li>
-
-						</ul>
-
-					</div>
-
-				</div>
-
-			</div>
-			<div id="tabbar-with-contact" class="mui-control-content ">
-				<div class="title " align="center">
-					<button type="button" id="chat" class="mui-btn mui-btn-primary">聊天界面</button>
-				</div>
-				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed ">
-					<li class="mui-table-view-cell ">
-						<div class="mui-slider-cell ">
-							<div class="oa-contact-cell mui-table ">
-								<div class="oa-contact-avatar mui-table-cell ">
-									<img src="../images/02.jpg " width="40 " height="40 " />
-								</div>
-								<div class="oa-contact-content mui-table-cell ">
-									<div class="mui-clearfix ">
-										<h4 class="oa-contact-name ">小赵</h4>
-										<span class="oa-contact-position mui-h6 ">班长</span>
-									</div>
-									<p class="oa-contact-cell mui-h6 ">
-										15732458790
-									</p>
-								</div>
-							</div>
-						</div>
-					</li>
-
-				</ul>
-			</div>
-			<div id="tabbar-with-map" class="mui-control-content ">
-				<!--<div class="title ">这是教师端中的第4个子页面，该页面显示的是个人基本信息及设置.</div>-->
-
-				<!--<div id="MeBackView" style="background-color: dodgerblue;height: 200px;">
-					
-				</div>-->
-				<ul id="mesetting" class="mui-table-view mui-table-view-chevron" style="margin-top: 25px; ">
-					<li class="mui-table-view-cell mui-media">
-						<a class="mui-navigate-right" href="#account">
-							<img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/04.jpg">
-							<div class="mui-media-body">
-								我的课堂
-								<p id="userId" class='mui-ellipsis'>账号:cc</p>
-							</div>
-						</a>
-					</li>
-				</ul>
-				<ul class="mui-table-view" style="margin-top: 25px; ">
-					<li class="mui-table-view-cell ">
-						<a class="mui-navigate-right ">
-						新消息通知
-					</a>
-					</li>
-					<li class="mui-table-view-cell ">
-						<a class="mui-navigate-right ">
-						隐私
-					</a>
-					</li>
-					<li class="mui-table-view-cell ">
-						<a class="mui-navigate-right ">
-						通用
-					</a>
-					</li>
-				</ul>
-
-				<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 25px; ">
-					<li class="mui-table-view-cell">
-						<a href="#about" class="mui-navigate-right">关于 <i class="mui-pull-right update">V1.0.0</i></a>
-					</li>
-				</ul>
-
-				<ul class="mui-table-view mui-action-back" style="margin-top: 25px;">
-					<li class="mui-table-view-cell" style="text-align: center;">
-						<a>退出登录</a>
-					</li>
-				</ul>
-			</div>
-
-		</div>
 
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script type="text/javascript" src="../js/jquery-2.2.1.js"></script>
+
 	<script>
 		mui.init({
 			swipeBack: false //启用右滑关闭功能
 		});
 	</script>
 	<script type="text/javascript">
-		//随机点名
-		function showName() {
-			var index = Math.floor(Math.random() * allStudentInfo.length);
-			var name = allStudentInfo[index]["username"];
-			document.getElementById("showNameText").innerHTML = name;
-			idd = setTimeout("showName()", 8);
-		}
+		
 		//所有点击事件建议这样做
 		mui.plusReady(function() {
 			//获取token
 			var self = plus.webview.currentWebview();
 			token = self.token;
 			console.log("token:" + token);
-			document.getElementById("userId").innerHTML = localStorage.teaId;
+			//document.getElementById("userId").innerHTML = localStorage.teaId;
 			//
 			console.log("主页");
-			var attendance = document.getElementById("attendance");
-			var classperfomance = document.getElementById("classperfomance");
-			var classwork = document.getElementById("classwork");
-			var activityscore = document.getElementById("activityscore");
-			var randomnamebutton = document.getElementById("randomnamebutton"); //随机点名
-			randomnamebutton.addEventListener('tap', function() {
-				console.log("随机点名");
-				if (start) {
-					showName();
-					randomnamebutton.innerHTML = "停止";
-					start = false;
-				} else {
-					clearTimeout(idd);
-					randomnamebutton.innerHTML = "随机点名";
-					start = true;
-				}
-			});
-			attendance.addEventListener('tap', function() {
-				console.log("出勤");
-				mui.openWindow({
-					url: "score/classscore/Attendance.html",
-					id: 'attendance'
-				})
-			});
-			classperfomance.addEventListener('tap', function() {
-				console.log("课堂");
-				mui.openWindow({
-					url: "score/classscore/ClassPerformance.html",
-					id: 'classperfomance'
-				})
-			});
-			classwork.addEventListener('tap', function() {
-				console.log("作业");
-				mui.openWindow({
-					url: "score/classscore/Classwork.html",
-					id: 'classwork'
-				})
-			});
-			activityscore.addEventListener('tap', function() {
-				console.log("活动");
-				mui.openWindow({
-					url: "score/classscore/ActivityScore.html",
-					id: 'activityscore'
-				})
-			});
-			//处理右上角关于图标的点击事件；
-			document.getElementById('addclassseting').addEventListener('tap', function() {
-				console.log("设置班级");
-				mui.openWindow({
-					url: "SettingClass.html",
-					id: "info",
-					show: {
-						aniShow: 'zoom-fade-out',
-						duration: 300
-					}
-				});
-			});
+			
+			
 			//切换选项卡切换 监听
 			mui('.mui-bar-tab').on('tap', 'a', function(e) {
 				//更换标题
@@ -448,61 +229,9 @@
 					$("#addclassseting").hide();
 				}
 			});
-			//进入聊天界面
-			document.getElementById('chat').addEventListener('tap', function() {
-				console.log("进入聊天界面");
-				console.log("测试是否还存在token" + token);
-				mui.openWindow({
-					url: "chat/chat.html",
-					id: "chat",
-					show: {
-						aniShow: 'zoom-fade-out',
-						duration: 300
-					},
-					extras: {
-						tokenvalue: token
-					}
-				});
-			});
-			document.getElementById('mesetting').addEventListener('tap', function() {
-				console.log("进入我的设置");
-				mui.openWindow({
-					url: "me/MeSetting.html",
-					id: "mesetting",
-					show: {
-						aniShow: 'slide-in-right',
-						duration: 300
-					},
-					extras: {}
-				});
-			});
+			
 			//
-			document.getElementById('inputscore').addEventListener('tap', function() {
-				console.log("进入录入成绩");
-				mui.openWindow({
-					url: "score/Finalscore/InputScore.html",
-					id: "inputscore",
-					show: {
-						aniShow: 'slide-in-right',
-						duration: 300
-					},
-					extras: {}
-				});
-			});
-			document.getElementById('finalsummary').addEventListener('tap', function() {
-				console.log("进入成绩汇总");
-				mui.openWindow({
-					url: "score/Finalscore/FinalSummary.html",
-					id: "finalsummary",
-					show: {
-						aniShow: 'slide-in-right',
-						duration: 300
-					},
-					extras: {}
-				});
-			});
-			//
-		});
+			
 		//		//获取班级所有学生姓名
 		//		mui.ajax(serverIp + "/teacher/studentNameList", {
 		//			data: {},
@@ -568,6 +297,84 @@
 				mui.toast("获取失败error");
 			}
 		});
+	</script>
+
+	<script type="text/javascript">
+		//mui初始化
+		mui.init();
+		var subpages = ['MainPage.html', 'ScoreManage.html', 'chat/chat.html', 'MePage.html'];
+		var subpage_style = {
+			top: '0px',
+			bottom: '51px'
+		};
+		var aniShow = {};
+		//创建子页面，首个选项卡页面显示，其它均隐藏；
+		mui.plusReady(function() {
+			var self = plus.webview.currentWebview();
+			for (var i = 0; i < 4; i++) {
+				var temp = {};
+				var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+				if (i > 0) {
+					sub.hide();
+				} else {
+					temp[subpages[i]] = "true";
+					mui.extend(aniShow, temp);
+				}
+				self.append(sub);
+			};
+			//
+		});
+		//当前激活选项
+		var activeTab = subpages[0];
+		var title = document.getElementById("title");
+		//选项卡点击事件
+		mui('.mui-bar-tab').on('tap', 'a', function(e) {
+			var targetTab = this.getAttribute('href');
+			if (targetTab == activeTab) {
+				return;
+			}
+			//更换标题
+			//title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+			//显示目标选项卡
+			//若为iOS平台或非首次显示，则直接显示
+			if (mui.os.ios || aniShow[targetTab]) {
+				plus.webview.show(targetTab);
+			} else {
+				//否则，使用fade-in动画，且保存变量
+				var temp = {};
+				temp[targetTab] = "true";
+				mui.extend(aniShow, temp);
+				plus.webview.show(targetTab, "fade-in", 300);
+			}
+			//隐藏当前;
+			plus.webview.hide(activeTab);
+			//更改当前活跃的选项卡
+			activeTab = targetTab;
+		});
+		//自定义事件，模拟点击“首页选项卡”
+		document.addEventListener('gohome', function() {
+			var defaultTab = document.getElementById("defaultTab");
+			//模拟首页点击
+			mui.trigger(defaultTab, 'tap');
+			//切换选项卡高亮
+			var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+			if (defaultTab !== current) {
+				current.classList.remove('mui-active');
+				defaultTab.classList.add('mui-active');
+			}
+		});
+		//
+		var old_back = mui.back;
+		mui.back = function() {
+			var btn = ["确定", "取消"];
+			mui.confirm('确认退出当前账号？', '提示', btn, function(e) {
+				if (e.index == 0) {
+					plus.webview.currentWebview().close();
+					//执行mui封装好的窗口关闭逻辑；
+					old_back();
+				}
+			});
+		};
 	</script>
 
 </html>
