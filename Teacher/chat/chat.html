@@ -21,15 +21,7 @@
 				swipeBack: true //启用右滑关闭功能
 			});
 		</script>
-		<script type="text/javascript">
-			//所有点击事件建议这样做
-			mui.plusReady(function() {
-				//获取token
-				var self = plus.webview.currentWebview();
-				var tt = self.tokenvalue;
-				console.log("聊天页面收到的token:" + tt);
-			});
-		</script>
+		
 	</head>
 
 	<body class="container">
@@ -54,7 +46,7 @@
                         <a class="mui-action-back" href="javascript:void(0)" ng-click="logout()" title="退出"></a>
                     </span>
 					<span class="addrBtnBack btnBack">
-                        <a href="javascript:void(0)" title="返回">＜ 返回</a>
+                        <a href="javascript:void(0)" title="返回">＜消息</a>
                     </span>阿腿课堂
 					<span class="addrBtn">
                         <a href="javascript:void(0)" title="联系人"></a>

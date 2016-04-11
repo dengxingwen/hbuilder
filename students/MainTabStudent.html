@@ -63,10 +63,6 @@
 				<span class="mui-icon mui-icon-chatboxes"></span>
 				<span class="mui-tab-label">通讯录</span>
 			</a>
-			<a class="mui-tab-item" href="CommunityPage.html">
-				<span class="mui-icon mui-icon-navigate"></span>
-				<span class="mui-tab-label">社区</span>
-			</a>
 			<a class="mui-tab-item" href="MePage.html">
 				<span class="mui-icon mui-icon-person"></span>
 				<span class="mui-tab-label">我</span>
@@ -80,7 +76,7 @@
 	<script type="text/javascript">
 		//mui初始化
 		mui.init();
-		var subpages = ['MainPage.html', 'chat/chat.html', 'CommunityPage.html', 'MePage.html'];
+		var subpages = ['MainPage.html', 'chat/chat.html', 'MePage.html'];
 		var subpage_style = {
 			top: '0px',
 			bottom: '51px'
@@ -89,7 +85,7 @@
 		//创建子页面，首个选项卡页面显示，其它均隐藏；
 		mui.plusReady(function() {
 			var self = plus.webview.currentWebview();
-			for (var i = 0; i < 4; i++) {
+			for (var i = 0; i < 3; i++) {
 				var temp = {};
 				var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
 				if (i > 0) {
@@ -153,8 +149,6 @@
 				}
 			});
 		};
-		
-		
 	</script>
 
 </html>
