@@ -16,6 +16,7 @@
 
 		<script type="text/javascript">
 			var lataArray = new Array();
+			var absencesArray = new Array();
 			//用于记录当前segmnet
 			var segmentindex = 0;
 		</script>
@@ -23,6 +24,7 @@
 		<style type="text/css">
 			.mui-content {
 				margin-top: 12px;
+				margin-bottom: 43px;
 			}
 		</style>
 
@@ -44,9 +46,9 @@
                             未到
                         </a>
 
-					<a id="segmentleave" class="mui-control-item" href="#Leaveearly">
+					<!--<a id="segmentleave" class="mui-control-item" href="#Leaveearly">
                             早退
-                        </a>
+                        </a>-->
 
 				</div>
 			</div>
@@ -60,15 +62,18 @@
 					</div>
 				</div>
 				<div id="Absences" class="mui-control-content">
+					<div class="mui-card">
+						<form id="Absencesnamelist" class="mui-input-group">
+							<!--这里是获取到数据后要显示的table-->
+
+						</form>
+					</div>
+				</div>
+				<!--<div id="Leaveearly" class="mui-control-content">
 					<div class="mui-card" style="margin-top: 100px;">
 						<h4 style="text-align: center;">敬请期待!</h4>
 					</div>
-				</div>
-				<div id="Leaveearly" class="mui-control-content">
-					<div class="mui-card" style="margin-top: 100px;">
-						<h4 style="text-align: center;">敬请期待!</h4>
-					</div>
-				</div>
+				</div>-->
 			</div>
 
 			<div style="position: fixed;bottom: 0px;left: 0px; height: 40px;width: 100%; background-color: #efeff4;z-index: 2;" align="center">
@@ -82,65 +87,90 @@
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
 		});
-		mui('.mui-input-group').on('change', 'input', function() {
-			var value = this.checked ? "true" : "false";
-			//			this.previousElementSibling.firstElementChild.innerText = value;
-			//			console.log(this.previousElementSibling.innerText);
-			//删除相同元素
-			Array.prototype.indexOf = function(val) {
-				for (var i = 0; i < this.length; i++) {
-					if (this[i] == val) return i;
-				}
-				return -1;
-			};
-			Array.prototype.remove = function(val) {
-				var index = this.indexOf(val);
-				if (index > -1) {
-					this.splice(index, 1);
-				}
-			};
-			for (var i = 0; i < lataArray.length; i++) {
-				if (lataArray[i] == this.previousElementSibling.innerText) {
-					lataArray.remove(this.previousElementSibling.innerText);
-					console.log("已删除相同元素");
-					console.log(lataArray);
-					return;
-				}
-			}
-			//
-			lataArray[lataArray.length] = this.previousElementSibling.innerText;
-			console.log(lataArray);
-		});
-		mui.ajax(serverIp + "/teacher/studentNameList", {
-			data: {},
-			dataType: 'json',
-			type: 'post',
-			timeout: 5000,
-			success: function(data) {
-				console.log("success");
-				console.log(data['code']);
-				if (data['code'] == 200) {
-					console.log("获取成功");
-					console.log(data['namelist']);
-					console.log(data['namelist'][1]);
-					$("#latenamelist").empty();
-					for (var i = 0; i < data['namelist'].length; i++) {
-						var getnamelist = "<div class='mui-input-row mui-checkbox'><label>" + data['namelist'][i] + "<span style='position: absolute;right: 50px;width: 100px;'></span></label><input name='checkbox1' value='Item 3' type='checkbox'></div>";
-						$("#latenamelist").append(getnamelist);
-					}
-				} else {
-					console.log("400");
-					mui.alert('400错误', '失败', function() {
-						console.log("获取失败");
-					});
-				}
-			},
-			error: function() {
-				console.log("error");
-				mui.alert('请检查', '获取失败error', function() {});
-			}
-		});
 		mui.plusReady(function() {
+			//获取姓名列表
+			mui.ajax(serverIp + "/teacher/studentNameList", {
+				data: {},
+				dataType: 'json',
+				type: 'post',
+				timeout: 5000,
+				success: function(data) {
+					console.log("success");
+					console.log(data['code']);
+					if (data['code'] == 200) {
+						console.log("获取成功");
+						console.log(data['namelist']);
+						console.log(data['namelist'][1]);
+						$("#latenamelist").empty();
+						$("#Absencesnamelist").empty();
+						for (var i = 0; i < data['namelist'].length; i++) {
+							var getnamelist = "<div class='mui-input-row mui-checkbox'><label>" + data['namelist'][i] + "<span style='position: absolute;right: 50px;width: 100px;'></span></label><input name='checkbox1' value='Item 3' type='checkbox'></div>";
+							$("#latenamelist").append(getnamelist);
+							$("#Absencesnamelist").append(getnamelist);
+						}
+					} else {
+						console.log("400");
+						mui.alert('400错误', '失败', function() {
+							console.log("获取失败");
+						});
+					}
+				},
+				error: function() {
+					console.log("error");
+					mui.alert('请检查', '获取失败error', function() {});
+				}
+			});
+			//
+			mui('.mui-input-group').on('change', 'input', function() {
+				var value = this.checked ? "true" : "false";
+				//			this.previousElementSibling.firstElementChild.innerText = value;
+				//			console.log(this.previousElementSibling.innerText);
+				//删除相同元素
+				Array.prototype.indexOf = function(val) {
+					for (var i = 0; i < this.length; i++) {
+						if (this[i] == val) return i;
+					}
+					return -1;
+				};
+				Array.prototype.remove = function(val) {
+					var index = this.indexOf(val);
+					if (index > -1) {
+						this.splice(index, 1);
+					}
+				};
+				//判断是迟到还是未到
+				switch (segmentindex) {
+					case 0:
+						for (var i = 0; i < lataArray.length; i++) {
+							if (lataArray[i] == this.previousElementSibling.innerText) {
+								lataArray.remove(this.previousElementSibling.innerText);
+								console.log("已删除相同元素");
+								console.log(lataArray);
+								return;
+							}
+						}
+						lataArray[lataArray.length] = this.previousElementSibling.innerText;
+						console.log("迟到人员：" + lataArray);
+						break;
+					case 1:
+						for (var i = 0; i < absencesArray.length; i++) {
+							if (absencesArray[i] == this.previousElementSibling.innerText) {
+								absencesArray.remove(this.previousElementSibling.innerText);
+								console.log("已删除相同元素");
+								console.log(absencesArray);
+								return;
+							}
+						}
+						absencesArray[absencesArray.length] = this.previousElementSibling.innerText;
+						console.log("缺席人员：" + absencesArray);
+						break;
+					default:
+						break;
+				}
+				//
+				//console.log(lataArray);
+			});
+			//
 			console.log("提交 segment");
 			var submitbutton = document.getElementById("submitbutton");
 			var segmentlate = document.getElementById("segmentlate");
@@ -157,19 +187,19 @@
 				segmentindex = 1;
 				console.log(segmentindex);
 			});
-			segmentleave.addEventListener('tap', function() {
-				console.log("segment");
-				segmentindex = 2;
-				console.log(segmentindex);
-			});
+			//			segmentleave.addEventListener('tap', function() {
+			//				console.log("segment");
+			//				segmentindex = 2;
+			//				console.log(segmentindex);
+			//			});
 			//提交按钮
 			submitbutton.addEventListener('tap', function() {
 				console.log("正在提交");
 				console.log(lataArray);
 				mui.ajax(serverIp + "/teacher/submitAttendence", {
 					data: {
-						type: segmentindex,
-						lateNameList: $.toJSON(lataArray)
+						lateNameList: $.toJSON(lataArray),
+						absencesArray: $.toJSON(absencesArray)
 					},
 					dataType: 'json',
 					type: 'post',

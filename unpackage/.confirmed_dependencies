@@ -144,7 +144,8 @@
       "js/mui.min.js",
       "css/mui.min.css",
       "js/jquery-2.2.1.js",
-      "js/ServerIP.js"
+      "js/ServerIP.js",
+      "Teacher/MainPage.html"
     ],
     "refer": [
       "Teacher/score/classscore/Classwork.html",
@@ -156,7 +157,10 @@
       "Teacher/chat/chat.html",
       "Teacher/score/Finalscore/FinalSummary.html",
       "Teacher/score/Finalscore/InputScore.html",
-      "Teacher/me/MeSetting.html"
+      "Teacher/me/MeSetting.html",
+      "Teacher/ScoreManage.html",
+      "Teacher/MePage.html",
+      "Teacher/MainPage.html"
     ]
   },
   "Teacher/score/classscore/Classwork.html": {
@@ -388,6 +392,23 @@
       "fonts/mui.ttf",
       "css/mui.min.css",
       "js/ServerIP.js"
+    ]
+  },
+  "Teacher/MePage.html": {
+    "resources": [
+      "images/04.jpg"
+    ]
+  },
+  "Teacher/MainPage.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/shuijiao.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/jquery-2.2.1.js"
     ]
   }
 }

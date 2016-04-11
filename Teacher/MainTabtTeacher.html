@@ -109,7 +109,7 @@
 			}
 		</style>
 
-		<script>
+		<!--<script>
 			window.onload = function() {
 				var star = document.getElementById("star");
 				var star_li = star.getElementsByTagName("li");
@@ -134,7 +134,7 @@
 					}
 				}
 			}
-		</script>
+		</script>-->
 		<!--
         	作者：张敏
         	时间：2016-02-16
@@ -205,97 +205,95 @@
 		});
 	</script>
 	<script type="text/javascript">
-		
 		//所有点击事件建议这样做
 		mui.plusReady(function() {
 			//获取token
-			var self = plus.webview.currentWebview();
-			token = self.token;
-			console.log("token:" + token);
+//			var self = plus.webview.currentWebview();
+//			token = self.token;
+//			console.log("token:" + token);
 			//document.getElementById("userId").innerHTML = localStorage.teaId;
 			//
 			console.log("主页");
 			
-			
 			//切换选项卡切换 监听
-			mui('.mui-bar-tab').on('tap', 'a', function(e) {
-				//更换标题
-				document.getElementById('navtitle').innerHTML = this.querySelector('.mui-tab-label').innerHTML;
-				var tabtitle = this.querySelector('.mui-tab-label').innerHTML;
-				//判断只有当首页时显示右上角加号
-				if (this.querySelector('.mui-tab-label').innerHTML == "首页") {
-					$("#addclassseting").show();
-				} else {
-					$("#addclassseting").hide();
+//			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+//				//更换标题
+//				document.getElementById('navtitle').innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+//				var tabtitle = this.querySelector('.mui-tab-label').innerHTML;
+//				//判断只有当首页时显示右上角加号
+//				if (this.querySelector('.mui-tab-label').innerHTML == "首页") {
+//					$("#addclassseting").show();
+//				} else {
+//					$("#addclassseting").hide();
+//				}
+//			});
+
+			//
+			//		//获取班级所有学生姓名
+			//		mui.ajax(serverIp + "/teacher/studentNameList", {
+			//			data: {},
+			//			dataType: 'json',
+			//			type: 'post',
+			//			timeout: 3000,
+			//			success: function(data) {
+			//				console.log("success 获取姓名成功");
+			//				console.log(data['code']);
+			//				if (data['code'] == 200) {
+			//					console.log("获取成功");
+			//					//					console.log(data['namelist']);
+			//					//					console.log(data['namelist'][1]);
+			//					for (var i = 0; i < data['namelist'].length; i++) {
+			//						names.push(data['namelist'][i]);
+			//					}
+			//					console.log(names);
+			//					//本地化姓名列表
+			//					var nameStr = JSON.stringify(names);
+			//					localStorage.names = nameStr;
+			//					
+			//				} else {
+			//					console.log("400");
+			//					mui.toast("获取失败400");
+			//					//					mui.alert('400错误', '失败', function() {
+			//					//						console.log("获取失败");
+			//					//					});
+			//				}
+			//			},
+			//			error: function() {
+			//				console.log("error");
+			//				mui.toast("获取失败error");
+			//			}
+			//		});
+			//2.获取班级所有学生姓名信息
+			mui.ajax(serverIp + "/teacher/getStuNames", {
+				data: {},
+				dataType: 'json',
+				type: 'post',
+				timeout: 3000,
+				success: function(data) {
+					console.log("success 获取姓名成功");
+					console.log(data['code']);
+					if (data['code'] == 200) {
+						console.log("获取成功");
+						allStudentInfo = data['allStudentInfo'];
+						//按学号排序
+						allStudentInfo.sort(function(x, y) {
+							return x.stuId > y.stuId ? 1 : -1;
+						});
+						//本地化姓名列表
+						localStorage.allStudentInfo = JSON.stringify(allStudentInfo);
+					} else {
+						console.log("400");
+						mui.toast("获取失败400");
+						//					mui.alert('400错误', '失败', function() {
+						//						console.log("获取失败");
+						//					});
+					}
+				},
+				error: function() {
+					console.log("error");
+					mui.toast("获取失败error");
 				}
 			});
-			
-			//
-			
-		//		//获取班级所有学生姓名
-		//		mui.ajax(serverIp + "/teacher/studentNameList", {
-		//			data: {},
-		//			dataType: 'json',
-		//			type: 'post',
-		//			timeout: 3000,
-		//			success: function(data) {
-		//				console.log("success 获取姓名成功");
-		//				console.log(data['code']);
-		//				if (data['code'] == 200) {
-		//					console.log("获取成功");
-		//					//					console.log(data['namelist']);
-		//					//					console.log(data['namelist'][1]);
-		//					for (var i = 0; i < data['namelist'].length; i++) {
-		//						names.push(data['namelist'][i]);
-		//					}
-		//					console.log(names);
-		//					//本地化姓名列表
-		//					var nameStr = JSON.stringify(names);
-		//					localStorage.names = nameStr;
-		//					
-		//				} else {
-		//					console.log("400");
-		//					mui.toast("获取失败400");
-		//					//					mui.alert('400错误', '失败', function() {
-		//					//						console.log("获取失败");
-		//					//					});
-		//				}
-		//			},
-		//			error: function() {
-		//				console.log("error");
-		//				mui.toast("获取失败error");
-		//			}
-		//		});
-		//2.获取班级所有学生姓名信息
-		mui.ajax(serverIp + "/teacher/getStuNames", {
-			data: {},
-			dataType: 'json',
-			type: 'post',
-			timeout: 3000,
-			success: function(data) {
-				console.log("success 获取姓名成功");
-				console.log(data['code']);
-				if (data['code'] == 200) {
-					console.log("获取成功");
-					allStudentInfo = data['allStudentInfo'];
-					//按学号排序
-					allStudentInfo.sort(function(x, y) {
-						return x.stuId > y.stuId ? 1 : -1;
-					});
-					//本地化姓名列表
-					localStorage.allStudentInfo = JSON.stringify(allStudentInfo);
-				} else {
-					console.log("400");
-					mui.toast("获取失败400");
-					//					mui.alert('400错误', '失败', function() {
-					//						console.log("获取失败");
-					//					});
-				}
-			},
-			error: function() {
-				console.log("error");
-				mui.toast("获取失败error");
-			}
 		});
 	</script>
 
