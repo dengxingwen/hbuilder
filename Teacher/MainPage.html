@@ -230,7 +230,7 @@
 						<i data-index="5" class="mui-icon mui-icon-star"></i>-->
 					</div>
 					<!--<ul id="star">-->
-						<!--<li>★</li>
+					<!--<li>★</li>
 						<li>★</li>
 						<li>★</li>
 						<li>★</li>
@@ -246,7 +246,6 @@
 					<button id="randomnamebutton" type="button" class="mui-btn mui-btn-primary">随机点名</button>
 				</div>
 			</div>
-			
 
 		</div>
 	</body>
@@ -285,7 +284,7 @@
 			});
 			//提交五星评分
 			mui('#randomDiv').on('tap', 'button', function() {
-				mui.ajax(serverIp + "/teacher/getStarScore", {
+				mui.ajax(serverIp + "/teacher/saveStarScore", {
 					data: {
 						stuId: stopStuId,
 						starScore: starScore
@@ -300,7 +299,10 @@
 							mui.toast("评价成功")
 						} else {
 							console.log("400");
-							mui.toast("评价失败");
+							if (data['code'] == 400) {
+								console.log("400");
+								mui.toast(data['result']);
+							}
 						}
 					},
 					error: function() {
@@ -329,7 +331,6 @@
 			//
 			mui('.icons').on('click', 'i', function() {
 				var index = parseInt(this.getAttribute("data-index")); //获取当前元素的索引值
-				
 				var parent = this.parentNode; //获取当前元素的父节点
 				var children = parent.children; //获取父节点下所有子元素
 				if (this.classList.contains("mui-icon-star")) { //判断当前节点列表中是否含有.mui-icon-star元素
@@ -343,7 +344,6 @@
 						children[i].classList.remove('mui-icon-star-filled')
 					}
 				}
-				
 				starScore = index;
 				console.log(starScore);
 				console.log(stopStuId);

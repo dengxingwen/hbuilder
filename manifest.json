@@ -355,7 +355,9 @@
 				"resources": [
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/jquery-2.2.1.js",
+					"js/ServerIP.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -610,9 +612,18 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"js/jquery-2.2.1.js"
+					"js/jquery-2.2.1.js",
+					"images-rong/bg_foot.min.png",
+					"js/ServerIP.js"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"Teacher/ScoreManage.html": {
+				"resources": [],
+				"refer": [
+					"Teacher/score/classscore/ClassPerformance.html"
+				],
 				"priority": 0
 			}
 		},
