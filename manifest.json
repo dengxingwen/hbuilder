@@ -346,7 +346,9 @@
 				"resources": [
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/jquery-2.2.1.js",
+					"css/app.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -622,7 +624,10 @@
 			"Teacher/ScoreManage.html": {
 				"resources": [],
 				"refer": [
-					"Teacher/score/classscore/ClassPerformance.html"
+					"Teacher/score/classscore/ClassPerformance.html",
+					"Teacher/score/classscore/Classwork.html",
+					"Teacher/score/classscore/ActivityScore.html",
+					"Teacher/score/Finalscore/InputScore.html"
 				],
 				"priority": 0
 			}
