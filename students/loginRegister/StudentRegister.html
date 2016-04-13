@@ -95,12 +95,16 @@
 							if (data['code'] == 200) {
 								console.log("注册成功");
 								mui.alert('请登录', '注册成功', function() {
-									window.location.href = "LoginStu.html";
+//									window.location.href = "LoginStu.html";
+									mui.openWindow({
+										url: 'LoginStu.html',
+										id: 'LoginStu',
+									});
 								});
 							} else {
 								console.log("注册失败 400");
 								mui.alert('请重新注册 400', '注册失败', function() {
-									window.location.href = "LoginStu.html";
+									
 								});
 							}
 						},

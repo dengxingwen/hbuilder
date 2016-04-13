@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../../js/jquery-2.2.1.js" type="text/javascript" charset="utf-8"></script>
 		<link href="../../../css/mui.min.css" rel="stylesheet" />
 		<!--App自定义的css-->
@@ -118,9 +119,9 @@
 				});
 				//保存所有成绩按钮点击事件
 				document.getElementById("savaAllScoreButton").addEventListener('tap', function() {
-					mui.ajax(serverIp + "/teacher/saveStuClassScore", {
+					mui.ajax(serverIp + "/teacher/savaClassworkScore", {
 						data: {
-							stufinalscore: JSON.stringify(setStuScoreArr)
+							classworkScore: JSON.stringify(setStuScoreArr)
 						},
 						dataType: 'json',
 						type: 'post',
