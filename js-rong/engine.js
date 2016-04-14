@@ -235,7 +235,7 @@ $(function(undefined) {
 									break;
 								case RongIMClient.ConversationType.CUSTOMER_SERVICE:
 									temp.setConversationTitle('客服');
-									console.log("客服");
+									console.log("客服 同步会话列表");
 									break;
 								case RongIMClient.ConversationType.DISCUSSION:
 									temp.setConversationTitle('讨论组:' + temp.getTargetId());
@@ -371,7 +371,7 @@ $(function(undefined) {
 						tempval.setConversationTitle('聊天室');
 						break;
 					case RongIMClient.ConversationType.CUSTOMER_SERVICE:
-						console.log("客服");
+						console.log("客服 设置会话名称");
 						tempval.setConversationTitle('客服');
 						break;
 					case RongIMClient.ConversationType.DISCUSSION:

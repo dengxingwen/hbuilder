@@ -67,7 +67,7 @@ ul li {
 .wrap .header {
     /*background-color: rgba(120, 208, 244, 0.6);
     background: #78d0f4;*/
-   background-color: dodgerblue;
+	background-color:#f7f7f7;
     filter: alpha(opacity=40);
 }
 
@@ -180,7 +180,7 @@ ul li {
 .listOperatorContent {
     margin-top: 2px;
     /*background-color: #23B4F1;*/
-    background-color: dodgerblue;
+    background-color:#F7F7F7;
     height: 72px;
     position: relative;
     overflow: hidden;
@@ -1260,8 +1260,8 @@ ul li {
     }
 
     .wrap .header {
-        /*background-color: #22aed8;*/
-       background-color: dodgerblue;
+        background-color: #22aed8;
+       /*background-color:#f7f7f7;*/
     }
 
     .wrap .left {
@@ -1306,7 +1306,7 @@ ul li {
         top: 0px;
         left: 0px;
         width: 100%;
-        background-color: dodgerblue;
+        background-color:#f7f7f7;
         z-index: 1000;
         height: 44px;
         padding: 10px 20px;
@@ -1332,7 +1332,7 @@ ul li {
 
     .phone_dialog_header .logOut a {
         width: 23px;
-        background: url('../images-rong/icons_phone.png') no-repeat;
+        /*background: url('../images-rong/icons_phone.png') no-repeat;*/
         background-size: 100px 100px;
     }
 
@@ -1397,7 +1397,7 @@ ul li {
         left: 0px;
         width: 100%;
         /*background-color: #22aed8;*/
-        background-color: dodgerblue;
+        background-color: #22aed8;
         line-height: 40px;
         z-index: 1000;
         height: 44px;

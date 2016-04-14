@@ -21,8 +21,8 @@
 
 	<body>
 
-		<header class="mui-bar mui-bar-nav" style="background-color: dodgerblue;">
-			<h1 class="mui-title" style="color: white;">教师登录</h1>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">教师登录</h1>
 		</header>
 
 		<div class="mui-content">
@@ -61,7 +61,7 @@
 						},
 						dataType: 'json',
 						type: 'post',
-						timeout: 5000,
+						timeout: 10000,
 						success: function(data) {
 							console.log("success");
 							console.log(data['code']);
