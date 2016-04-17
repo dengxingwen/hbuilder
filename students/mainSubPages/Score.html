@@ -27,18 +27,33 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">出勤</h1>
+			<h1 class="mui-title">期末成绩</h1>
 		</header>
 		<div class="mui-content">
-			<div style="height: 220px;">
+			<p style="text-indent: 15px;font-size: 18px;">期末总分：</p>
+			<div style="height: 200px;">
 
-				<div style=" width:160px; height:160px; background-color:lightseagreen; border-radius:80px;margin:auto;margin-top: 30px;">
-					<span id="score" style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center">0</span>
+				<div style=" width:160px; height:160px; background-color:lightseagreen; border-radius:80px;margin:auto;margin-top: 0px;">
+					<span id="score" style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center;font-size: 30px;">95</span>
 				</div>
 			</div>
-			<div id="list" style="background-color: lightgray;height: 400px;">
-				
+			<div class="mui-input-row" style="text-indent: 15px;color: #999;font-size: 16px;">
+				各项分数：
 			</div>
+			<ul id="scorelist" class="mui-table-view" style="margin-top: 8px;">
+				<li class="mui-table-view-cell">
+					卷面： <i class="mui-pull-right update">0分</i>
+				</li>
+				<li class="mui-table-view-cell">
+					课堂： <i class="mui-pull-right update">0分</i>
+				</li>
+				<li class="mui-table-view-cell">
+					出勤： <i class="mui-pull-right update">0分</i>
+				</li>
+				<li class="mui-table-view-cell">
+					作业： <i class="mui-pull-right update">0分</i>
+				</li>
+			</ul>
 
 		</div>
 

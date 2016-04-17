@@ -6,9 +6,13 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-2.2.1.js" type="text/javascript" charset="utf-8"></script>
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
+			//接收出勤成数组
+			var attendanceArray;
 		</script>
 		<style type="text/css">
 			.mui-content {
@@ -20,21 +24,63 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">活动</h1>
+			<h1 class="mui-title">出勤</h1>
 		</header>
 		<div class="mui-content">
 
 			<div style="height: 220px;">
 
 				<div style=" width:160px; height:160px; background-color:lightseagreen; border-radius:80px;margin:auto;margin-top: 30px;">
-					<span style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center">0</span>
+					<span style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center;font-size: 30px;">0</span>
 				</div>
 			</div>
 			<div id="list" style="background-color: lightgray;height: 400px;">
-				
+				<ul id="attendancelist" class="mui-table-view">
+					<!--<li class="mui-table-view-cell">
+						2016/02/03 <i class="mui-pull-right update">3分</i>
+					</li>-->
+				</ul>
 			</div>
 		</div>
 
 	</body>
+	<script>
+		mui.plusReady(function() {
+			//我的信息
+			var myinfo;
+			myinfo = JSON.parse(localStorage.myInfo);
+			mui.ajax(serverIp + "/user/getAttendanceScore", {
+				data: {
+					stuId: myinfo['stuId'],
+				},
+				dataType: 'json',
+				type: 'post',
+				timeout: 5000,
+				success: function(data) {
+					console.log(data['code']);
+					if (data['code'] == 200) {
+						attendanceArray = data['attendanceScore'][0];
+						//append列
+						$("#attendancelist").empty();
+						var listStr = "";
+						for (var key in attendanceArray) {
+							listStr += "<li class='mui-table-view-cell'>" + key + "<i class='mui-pull-right update'>" + attendanceArray[key] + "分</i></li>";
+						}
+						$("#attendancelist").append(listStr);
+					} else {
+						console.log("400");
+						if (data['code'] == 400) {
+							console.log("400");
+							mui.toast("失败");
+						}
+					}
+				},
+				error: function() {
+					console.log("error");
+					mui.toast("error!");
+				}
+			});
+		});
+	</script>
 
 </html>

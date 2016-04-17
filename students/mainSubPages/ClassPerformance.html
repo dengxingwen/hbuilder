@@ -13,8 +13,6 @@
 			mui.init();
 			//接收课堂作业成绩数组
 			var classStarArray;
-			//处理数据
-			var orderArray = {};
 			//总分
 			var totalScore = 0;
 		</script>
@@ -33,16 +31,22 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">课堂</h1>
+			<h1 class="mui-title">课堂成绩</h1>
 		</header>
 		<div class="mui-content">
-			<div style="height: 220px;">
+			<p style="text-indent: 15px;font-size: 18px;">总分：</p>
+			<div style="height: 200px;">
 
-				<div style=" width:160px; height:160px; background-color:lightseagreen; border-radius:80px;margin:auto;margin-top: 30px;">
-					<span id="totalscore" style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center">0</span>
+				<div style=" width:160px; height:160px; background-color:lightseagreen; border-radius:80px;margin:auto;margin-top: 0px;">
+
+					<span id="totalscore" style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center;font-size: 30px;">0</span>
 				</div>
 			</div>
-			<div id="list" style="background-color: lightgray;">
+			<div class="mui-input-row" style="text-indent: 15px;color: #999;font-size: 16px;">
+				课堂表现分：
+			</div>
+			<div id="list" style="background-color: lightgray;margin-top: 8px">
+
 				<ul id="classStarList" class="mui-table-view">
 
 					<!--<li class="mui-table-view-cell">
