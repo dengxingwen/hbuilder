@@ -7,9 +7,16 @@
 		<title></title>
 		<script src="../../js/ServerIP.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jquery-2.2.1.js" type="text/javascript" charset="utf-8"></script>
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
+			//接收课堂作业成绩数组
+			var classStarArray;
+			//处理数据
+			var orderArray = {};
+			//总分
+			var totalScore = 0;
 		</script>
 		<style type="text/css">
 			.mui-content {
@@ -32,143 +39,15 @@
 			<div style="height: 220px;">
 
 				<div style=" width:160px; height:160px; background-color:lightseagreen; border-radius:80px;margin:auto;margin-top: 30px;">
-					<span id="score" style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center">45</span>
+					<span id="totalscore" style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center">0</span>
 				</div>
 			</div>
 			<div id="list" style="background-color: lightgray;">
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
+				<ul id="classStarList" class="mui-table-view">
+
+					<!--<li class="mui-table-view-cell">
 						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/03 <i class="mui-pull-right update">3分</i>
-					</li>
-					<li class="mui-table-view-cell">
-						2016/02/05 <i class="mui-pull-right update">2分</i>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 		</div>
@@ -189,8 +68,16 @@
 				success: function(data) {
 					console.log(data['code']);
 					if (data['code'] == 200) {
-						mui.toast("获取成功" + data['classScore']);
-						document.getElementById("score").innerHTML = data['classScore'];
+						classStarArray = data['classStarScore'][0];
+						//append列
+						$("#classStarList").empty();
+						var listStr = "";
+						for (var key in classStarArray) {
+							totalScore += parseInt(classStarArray[key]);
+							listStr += "<li class='mui-table-view-cell'>" + key + "<i class='mui-pull-right update'>" + classStarArray[key] + "分</i></li>";
+						}
+						$("#classStarList").append(listStr);
+						document.getElementById("totalscore").innerHTML = totalScore;
 					} else {
 						console.log("400");
 						if (data['code'] == 400) {
