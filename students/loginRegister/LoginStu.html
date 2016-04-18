@@ -13,7 +13,38 @@
 		</script>
 		<style type="text/css">
 			.mui-content {
-				margin-top: 12px;
+				margin-top: 0px;
+			}
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+			
+			.spliter {
+				color: #bbb;
+				padding: 0px 8px;
 			}
 		</style>
 	</head>
@@ -36,11 +67,27 @@
 				</div>
 
 			</form>
-			<div class="mui-content-padded" align="center" style="margin-top: 20px;">
+			<!--<div class="mui-content-padded" align="center" style="margin-top: 20px;">
 				<button type="button" id="loginbt" class="mui-btn mui-btn-primary" style="width: 95%;height: 36px;">登陆</button>
 			</div>
 			<div class="mui-content-padded" align="center">
 				<button type="button" id="register" class="mui-btn mui-btn-primary mui-btn-outlined" style="width: 95%;height: 36px;">注册</button>
+			</div>-->
+			
+			<form class="mui-input-group">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						自动登录
+						<div id="autoLogin" class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<div class="mui-content-padded">
+				<button id='loginbt' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+				<div class="link-area"><a id='register'>注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+				</div>
 			</div>
 		</div>
 

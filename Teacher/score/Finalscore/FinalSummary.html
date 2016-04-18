@@ -21,15 +21,17 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">成绩汇总</h1>
+			<h1 class="mui-title">汇总表</h1>
 		</header>
 		<div class="mui-content">
 			<!-- 为 ECharts 准备一个具备大小（宽高）的Dom -->
 			<div id="main" style="width: 100%;height:280px;"></div>
+			<div id="main2" style="width: 100%;height:280px;"></div>
 		</div>
 		<script type="text/javascript">
 			// 基于准备好的dom，初始化echarts实例
 			var myChart = echarts.init(document.getElementById('main'));
+			var myChart2 = echarts.init(document.getElementById('main2'));
 			// 指定图表的配置项和数据
 			var option = {
 				title: {
@@ -37,20 +39,41 @@
 				},
 				tooltip: {},
 				legend: {
-					data: ['出勤数']
+					data: ['出勤率']
 				},
 				xAxis: {
-					data: ["第一周", "第二周", "第三周", "第四周", "第五周", "第六周"]
+					data: ["一班", "二班", "三班", "四班"]
 				},
 				yAxis: {},
 				series: [{
-					name: '出勤数',
+					name: '出勤率',
 					type: 'bar',
-					data: [33, 18, 25, 30, 27, 23]
+					data: [83, 96, 91, 73]
 				}]
 			};
 			// 使用刚指定的配置项和数据显示图表。
 			myChart.setOption(option);
+			
+			var option2 = {
+				title: {
+					text: '成绩图表'
+				},
+				tooltip: {},
+				legend: {
+					data: ['平均分']
+				},
+				xAxis: {
+					data: ["一班", "二班", "三班", "四班"]
+				},
+				yAxis: {},
+				series: [{
+					name: '平均分',
+					type: 'bar',
+					data: [69, 71, 88, 63, 89, 77]
+				}]
+			};
+			// 使用刚指定的配置项和数据显示图表。
+			myChart2.setOption(option2);
 		</script>
 	</body>
 
