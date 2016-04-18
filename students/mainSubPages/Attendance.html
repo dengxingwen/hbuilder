@@ -27,14 +27,10 @@
 			<h1 class="mui-title">出勤</h1>
 		</header>
 		<div class="mui-content">
-
-			<div style="height: 220px;">
-
-				<div style=" width:160px; height:160px; background-color:lightseagreen; border-radius:80px;margin:auto;margin-top: 30px;">
-					<span style="height:160px; line-height:160px; display:block; color:#FFF; text-align:center;font-size: 30px;">0</span>
-				</div>
+			<div class="mui-input-row" style="text-indent: 15px;color: #999;font-size: 16px;">
+				出勤记录
 			</div>
-			<div id="list" style="background-color: lightgray;height: 400px;">
+			<div id="list" style="background-color: lightgray;margin-top: 8px;">
 				<ul id="attendancelist" class="mui-table-view">
 					<!--<li class="mui-table-view-cell">
 						2016/02/03 <i class="mui-pull-right update">3分</i>
@@ -64,7 +60,15 @@
 						$("#attendancelist").empty();
 						var listStr = "";
 						for (var key in attendanceArray) {
-							listStr += "<li class='mui-table-view-cell'>" + key + "<i class='mui-pull-right update'>" + attendanceArray[key] + "分</i></li>";
+							var attscore = 0;
+							if (attendanceArray[key] == 1) {
+								attscore = "迟到";
+							} else if (attendanceArray[key] == 2) {
+								attscore = "旷课";
+							} else {
+								attscore = "正常";
+							}
+							listStr += "<li class='mui-table-view-cell'>" + key + "<i class='mui-pull-right update'>" + attscore + "</i></li>";
 						}
 						$("#attendancelist").append(listStr);
 					} else {

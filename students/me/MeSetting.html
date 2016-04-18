@@ -53,24 +53,39 @@
 							</a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a>姓名<span class="mui-pull-right">张敏</span></a>
+					<a>姓名<span id="myname" class="mui-pull-right">小明</span></a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a>账号<span class="mui-pull-right">CcMark@cc.com</span></a>
+					<a>学号<span id="stuId" class="mui-pull-right">201242206037</span></a>
 				</li>
 			</ul>
 			<ul class="mui-table-view" style="margin-top: 25px; ">
 				<li class="mui-table-view-cell">
-					<a>QQ号<span class="mui-pull-right">88888888</span></a>
+					<a>签名<span id="mysigner" class="mui-pull-right">我爱我的班级！</span></a>
+				</li>
+			</ul>	
+			<ul class="mui-table-view" style="margin-top: 25px; ">
+				<li class="mui-table-view-cell">
+					<a>QQ号<span class="mui-pull-right">870518098</span></a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a>手机号<span class="mui-pull-right">18601234567</span></a>
+					<a>手机<span id="myphone" class="mui-pull-right">18601234567</span></a>
 				</li>
-				<li class="mui-table-view-cell">
-					<a>邮箱地址<span class="mui-pull-right">CcMark@cc.com</span></a>
-				</li>
+				
 			</ul>
 		</div>
 	</body>
-
+<script type="text/javascript">
+		console.log("我");
+		var myinfo;
+		myinfo = JSON.parse(localStorage.myInfo);
+		console.log(myinfo['teaId']);
+		mui.plusReady(function() {
+			//获取账号
+			document.getElementById("myname").innerHTML = myinfo['username'];
+			document.getElementById("stuId").innerHTML = myinfo['stuId'];
+			document.getElementById("mysigner").innerHTML = myinfo['signer'];
+			document.getElementById("myphone").innerHTML = myinfo['phone'];
+		});
+	</script>
 </html>
